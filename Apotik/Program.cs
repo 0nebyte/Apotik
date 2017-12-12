@@ -15,15 +15,6 @@ namespace Apotik
         [STAThread]
         static void Main()
         {
-            //var obat = new Model.Obat();
-            //var type = obat.GetType();
-            //var properties = type.GetProperties();
-            //foreach (var property in properties)
-            //{
-            //    if (!property.CanRead || !property.CanWrite)
-            //        continue;
-            //}
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Home());
