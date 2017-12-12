@@ -43,6 +43,8 @@
             this.Penjualan = new System.Windows.Forms.ToolStripDropDownButton();
             this.Pembelian = new System.Windows.Forms.ToolStripDropDownButton();
             this.Tutup = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tambahToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +74,7 @@
             this.Distributor,
             this.Penjualan,
             this.Pembelian,
+            this.toolStripDropDownButton1,
             this.Tutup});
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
@@ -106,14 +109,14 @@
             // ubahToolStripMenuItem
             // 
             this.ubahToolStripMenuItem.Name = "ubahToolStripMenuItem";
-            this.ubahToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ubahToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.ubahToolStripMenuItem.Text = "Ubah";
             this.ubahToolStripMenuItem.Click += new System.EventHandler(this.ubahToolStripMenuItem_Click);
             // 
             // hapusToolStripMenuItem
             // 
             this.hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
-            this.hapusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hapusToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.hapusToolStripMenuItem.Text = "Hapus";
             this.hapusToolStripMenuItem.Click += new System.EventHandler(this.hapusToolStripMenuItem_Click);
             // 
@@ -165,6 +168,25 @@
             this.Tutup.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.Tutup.Click += new System.EventHandler(this.Tutup_Click);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tambahToolStripMenuItem1});
+            this.toolStripDropDownButton1.Image = global::Apotik.Properties.Resources.Office_Customer_Male_Light_icon;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(68, 59);
+            this.toolStripDropDownButton1.Text = "User";
+            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            // 
+            // tambahToolStripMenuItem1
+            // 
+            this.tambahToolStripMenuItem1.Name = "tambahToolStripMenuItem1";
+            this.tambahToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.tambahToolStripMenuItem1.Text = "tambah";
+            this.tambahToolStripMenuItem1.Click += new System.EventHandler(this.tambahToolStripMenuItem1_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +227,8 @@
         private System.Windows.Forms.ToolStripButton Tutup;
         private System.Windows.Forms.ToolStripMenuItem ubahToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hapusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem tambahToolStripMenuItem1;
     }
 }
 

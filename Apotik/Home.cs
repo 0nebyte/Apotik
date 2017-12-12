@@ -126,5 +126,19 @@ namespace Apotik
             obat.MdiParent = this;
             obat.Show();
         }
+
+        private void tambahToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var tambahUser = new Menu.User.tambah();
+            tambahUser.MdiParent = this;
+            tambahUser.Show();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            var viewUser = new Menu.User.view();
+            viewUser.MdiParent = this;
+            viewUser.Show();
+        }
     }
 }

@@ -97,6 +97,18 @@
     <Compile Include="Menu\Obat\view.Designer.cs">
       <DependentUpon>view.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\User\tambah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\User\tambah.Designer.cs">
+      <DependentUpon>tambah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\User\view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\User\view.Designer.cs">
+      <DependentUpon>view.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Obat.cs" />
@@ -124,6 +136,12 @@
       <DependentUpon>tambah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Obat\view.resx">
+      <DependentUpon>view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\User\tambah.resx">
+      <DependentUpon>tambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\User\view.resx">
       <DependentUpon>view.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
