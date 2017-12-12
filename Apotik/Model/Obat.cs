@@ -49,7 +49,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "kode_obat")]
+        [Attributes.Field(Name = "kode_obat", AllowNull = false)]
         public string Kode
         {
             get
@@ -64,7 +64,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "nama")]
+        [Attributes.Field(Name = "nama", AllowNull = false)]
         public string Nama
         {
             get
@@ -79,7 +79,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "satuan")]
+        [Attributes.Field(Name = "satuan", AllowNull = false)]
         public string Satuan
         {
             get
@@ -94,7 +94,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "stok")]
+        [Attributes.Field(Name = "stok", AllowNull = false)]
         public int Stok
         {
             get
@@ -109,7 +109,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "harga")]
+        [Attributes.Field(Name = "harga", AllowNull = false)]
         public int Harga
         {
             get
@@ -124,7 +124,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "keterangan")]
+        [Attributes.Field(Name = "keterangan", AllowNull = false)]
         public string Keterangan
         {
             get

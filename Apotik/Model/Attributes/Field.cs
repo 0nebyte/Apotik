@@ -12,6 +12,7 @@ namespace Apotik.Model.Attributes
         private string name;
         private bool primaryKey = false;
         private bool autoIncrement = false;
+        private bool allowNull = true;
 
         public string Name
         {
@@ -49,6 +50,19 @@ namespace Apotik.Model.Attributes
             set
             {
                 autoIncrement = value;
+            }
+        }
+
+        public bool AllowNull
+        {
+            get
+            {
+                return allowNull;
+            }
+
+            set
+            {
+                allowNull = value;
             }
         }
     }
