@@ -66,7 +66,9 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
+        #region Statics
         private static Database instance = null;
+
         public static Database Instance
         {
             get
@@ -76,11 +78,79 @@ namespace Apotik.Model
                 return instance;
             }
         }
+
         public static bool Init()
         {
             instance = new Database("file.sqlite");
 
+            if (!InitSchema(instance))
+                return false;
+
             return true;
         }
+
+        private static bool InitSchema(Database db)
+        {
+            if (!InitSchemaFromTable(db, typeof(Model.Obat)))
+                return false;
+
+            return true;
+        }
+
+        private static bool InitSchemaFromTable(Database db, Type type)
+        {
+            var tableName = GetTableName(type);
+            var fieldsSql = CreateFieldsSql(type);
+            var sql = string.Format("CREATE TABLE IF NOT EXISTS {0} ({1})", tableName, fieldsSql);
+            var command = new SQLiteCommand(sql, db.connection);
+
+            command.ExecuteNonQuery();
+
+            return true;
+        }
+
+        public static string GetTableName(Type type)
+        {
+            var tableName = type.Name;
+            var fields = type.GetFields();
+            foreach (var field in fields)
+            {
+                if (field.Name == "tableName")
+                    tableName = field.GetValue(null).ToString();
+            }
+
+            return tableName;
+        }
+
+        public static string CreateFieldsSql(Type refl)
+        {
+            var sql = "";
+
+            var columnsSql = refl.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
+                .Select(p =>
+            {
+                var fieldAttr = (Attributes.Field) p.GetCustomAttributes(
+                    typeof(Attributes.Field), false)[0];
+
+                sql = fieldAttr.Name;
+                if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                    sql += " INTEGER";
+                else
+                    sql += " TEXT";
+                if (fieldAttr.PrimaryKey)
+                    sql += " PRIMARY KEY";
+                if (fieldAttr.AutoIncrement)
+                    sql += " AUTOINCREMENT";
+                if (!fieldAttr.AllowNull)
+                    sql += " NOT NULL";
+
+                return sql;
+            });
+
+            return string.Join(",\n", columnsSql);
+        }
+        #endregion
     }
 }
