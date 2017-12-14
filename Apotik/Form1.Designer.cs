@@ -65,7 +65,7 @@
             this.Obat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Obat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tambahToolStripMenuItem});
-            this.Obat.Image = global::Apotik.Properties.Resources.medical_pills_pot_icon1;
+           // this.Obat.Image = global::Apotik.Properties.Resources.medical_pills_pot_icon1;
             this.Obat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Obat.Name = "Obat";
             this.Obat.Size = new System.Drawing.Size(68, 59);
@@ -82,7 +82,7 @@
             // Dokter
             // 
             this.Dokter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Dokter.Image = global::Apotik.Properties.Resources.Doctor_icon;
+            //this.Dokter.Image = global::Apotik.Properties.Resources.Doctor_icon;
             this.Dokter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Dokter.Name = "Dokter";
             this.Dokter.Size = new System.Drawing.Size(68, 59);
@@ -91,7 +91,7 @@
             // Distributor
             // 
             this.Distributor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Distributor.Image = global::Apotik.Properties.Resources.distributor_report_icon;
+           // this.Distributor.Image = global::Apotik.Properties.Resources.distributor_report_icon;
             this.Distributor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Distributor.Name = "Distributor";
             this.Distributor.Size = new System.Drawing.Size(68, 59);
@@ -100,7 +100,7 @@
             // Penjualan
             // 
             this.Penjualan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Penjualan.Image = global::Apotik.Properties.Resources.Cash_register_icon;
+            //this.Penjualan.Image = global::Apotik.Properties.Resources.Cash_register_icon;
             this.Penjualan.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Penjualan.Name = "Penjualan";
             this.Penjualan.Size = new System.Drawing.Size(68, 59);
@@ -109,7 +109,7 @@
             // Pembelian
             // 
             this.Pembelian.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Pembelian.Image = global::Apotik.Properties.Resources.basket_icon;
+            //this.Pembelian.Image = global::Apotik.Properties.Resources.basket_icon;
             this.Pembelian.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pembelian.Name = "Pembelian";
             this.Pembelian.Size = new System.Drawing.Size(68, 59);
@@ -119,7 +119,7 @@
             // 
             this.Tutup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Tutup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tutup.Image = global::Apotik.Properties.Resources.Close_2_icon;
+           // this.Tutup.Image = global::Apotik.Properties.Resources.Close_2_icon;
             this.Tutup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Tutup.Name = "Tutup";
             this.Tutup.Size = new System.Drawing.Size(59, 59);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tambah));
             this.cmb_jk = new System.Windows.Forms.ComboBox();
             this.txt_alamat = new System.Windows.Forms.TextBox();
             this.txt_hp = new System.Windows.Forms.TextBox();
@@ -191,7 +192,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::Apotik.Properties.Resources.UpgradeReport_Error;
+           // this.button1.Image = global::Apotik.Properties.Resources.UpgradeReport_Error;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(291, 316);
             this.button1.Name = "button1";
@@ -204,7 +205,7 @@
             // 
             // btn_simpan
             // 
-            this.btn_simpan.Image = global::Apotik.Properties.Resources.UpgradeReport_Success;
+            //this.btn_simpan.Image = global::Apotik.Properties.Resources.UpgradeReport_Success;
             this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_simpan.Location = new System.Drawing.Point(383, 317);
             this.btn_simpan.Name = "btn_simpan";
@@ -238,10 +239,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "tambah";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "tambah";
+            this.Text = "Tambah - Pengguna";
             this.ResumeLayout(false);
             this.PerformLayout();
 

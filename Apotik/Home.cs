@@ -96,7 +96,17 @@ namespace Apotik
 
         private void Tutup_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
+            DialogResult dialogResult = MessageBox.Show("Keluar dari aplikasi?", "Keluar", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //nothing
+            }
         }
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,6 +149,20 @@ namespace Apotik
             var viewUser = new Menu.User.view();
             viewUser.MdiParent = this;
             viewUser.Show();
+        }
+
+        private void Dokter_Click(object sender, EventArgs e)
+        {
+            var viewDokter = new Menu.Dokter.view();
+            viewDokter.MdiParent = this;
+            viewDokter.Show();
+        }
+
+        private void Distributor_Click(object sender, EventArgs e)
+        {
+            var viewDsitributor = new Menu.Distributor.view();
+            viewDsitributor.MdiParent = this;
+            viewDsitributor.Show();
         }
     }
 }

@@ -118,58 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="UpgradeReport_Success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\UpgradeReport_Success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UpgradeReport_Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ico\UpgradeReport_Error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="distributor-report-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\distributor-report-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="medical-pills-pot-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\medical-pills-pot-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions-window-close-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\Actions-window-close-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cash-register-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\Cash-register-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="medical-pills-pot-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\medical-pills-pot-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hapus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ico\hapus1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UpgradeReport_Success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\UpgradeReport_Success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hapus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\hapus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="obat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pic\obat.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Office-Customer-Male-Light-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\Office-Customer-Male-Light-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Close-2-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\Close-2-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basket-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\basket-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Doctor-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\Doctor-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cari" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\cari.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hapus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\hapus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ok-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pic\ok-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="tambah" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pic\tambah.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hapus2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\hapus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Antrepo-Cargo-Boxes-Self-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\Antrepo-Cargo-Boxes-Self-1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

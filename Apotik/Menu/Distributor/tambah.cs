@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apotik.Menu
+namespace Apotik.Menu.Distributor
 {
-    public partial class Dokter : Form
+    public partial class tambah : Form
     {
-        public Dokter()
+        public tambah()
         {
             InitializeComponent();
         }

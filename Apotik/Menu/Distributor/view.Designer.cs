@@ -1,4 +1,4 @@
-﻿namespace Apotik.Menu.User
+﻿namespace Apotik.Menu.Distributor
 {
     partial class view
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(view));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.grid_obat = new System.Windows.Forms.DataGridView();
+            this.grid_distributor = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,32 +40,32 @@
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_distributor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 67);
             this.panel1.TabIndex = 2;
             // 
-            // grid_obat
+            // grid_distributor
             // 
-            this.grid_obat.AllowUserToDeleteRows = false;
-            this.grid_obat.AllowUserToOrderColumns = true;
-            this.grid_obat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grid_distributor.AllowUserToDeleteRows = false;
+            this.grid_distributor.AllowUserToOrderColumns = true;
+            this.grid_distributor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grid_obat.AutoGenerateColumns = false;
-            this.grid_obat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid_obat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grid_obat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.grid_obat.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.grid_obat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_obat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_distributor.AutoGenerateColumns = false;
+            this.grid_distributor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_distributor.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grid_distributor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grid_distributor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.grid_distributor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_distributor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.kodeDataGridViewTextBoxColumn,
             this.namaDataGridViewTextBoxColumn,
@@ -73,13 +73,13 @@
             this.stokDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
             this.keteranganDataGridViewTextBoxColumn});
-            this.grid_obat.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grid_obat.DataSource = this.obatBindingSource;
-            this.grid_obat.Location = new System.Drawing.Point(2, 155);
-            this.grid_obat.Name = "grid_obat";
-            this.grid_obat.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.grid_obat.Size = new System.Drawing.Size(933, 319);
-            this.grid_obat.TabIndex = 3;
+            this.grid_distributor.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grid_distributor.DataSource = this.obatBindingSource;
+            this.grid_distributor.Location = new System.Drawing.Point(12, 132);
+            this.grid_distributor.Name = "grid_distributor";
+            this.grid_distributor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.grid_distributor.Size = new System.Drawing.Size(787, 319);
+            this.grid_distributor.TabIndex = 3;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -132,19 +132,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 510);
+            this.ClientSize = new System.Drawing.Size(811, 473);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.grid_obat);
+            this.Controls.Add(this.grid_distributor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "view";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lihat - Pengguna";
+            this.Text = "Lihat - Distributor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_distributor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,7 +149,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView grid_obat;
+        private System.Windows.Forms.DataGridView grid_distributor;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;

@@ -63,79 +63,9 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Actions_window_close_icon {
+        internal static System.Drawing.Bitmap Antrepo_Cargo_Boxes_Self_1 {
             get {
-                object obj = ResourceManager.GetObject("Actions-window-close-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap basket_icon {
-            get {
-                object obj = ResourceManager.GetObject("basket-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cari {
-            get {
-                object obj = ResourceManager.GetObject("cari", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Cash_register_icon {
-            get {
-                object obj = ResourceManager.GetObject("Cash-register-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Close_2_icon {
-            get {
-                object obj = ResourceManager.GetObject("Close-2-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap distributor_report_icon {
-            get {
-                object obj = ResourceManager.GetObject("distributor-report-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Doctor_icon {
-            get {
-                object obj = ResourceManager.GetObject("Doctor-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit {
-            get {
-                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                object obj = ResourceManager.GetObject("Antrepo-Cargo-Boxes-Self-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,19 +93,9 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap medical_pills_pot_icon {
+        internal static System.Drawing.Bitmap hapus2 {
             get {
-                object obj = ResourceManager.GetObject("medical-pills-pot-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap medical_pills_pot_icon1 {
-            get {
-                object obj = ResourceManager.GetObject("medical-pills-pot-icon1", resourceCulture);
+                object obj = ResourceManager.GetObject("hapus2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,26 +106,6 @@ namespace Apotik.Properties {
         internal static System.Drawing.Bitmap obat {
             get {
                 object obj = ResourceManager.GetObject("obat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Office_Customer_Male_Light_icon {
-            get {
-                object obj = ResourceManager.GetObject("Office-Customer-Male-Light-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ok_icon {
-            get {
-                object obj = ResourceManager.GetObject("ok-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

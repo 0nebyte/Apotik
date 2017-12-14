@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tambah));
             this.cmb_satuan = new System.Windows.Forms.ComboBox();
             this.txt_supp = new System.Windows.Forms.TextBox();
             this.txt_ket = new System.Windows.Forms.TextBox();
@@ -42,8 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_simpan = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_simpan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmb_satuan
@@ -166,19 +167,6 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Kode Obat";
             // 
-            // btn_simpan
-            // 
-            this.btn_simpan.Image = global::Apotik.Properties.Resources.UpgradeReport_Success;
-            this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_simpan.Location = new System.Drawing.Point(347, 261);
-            this.btn_simpan.Name = "btn_simpan";
-            this.btn_simpan.Size = new System.Drawing.Size(75, 23);
-            this.btn_simpan.TabIndex = 8;
-            this.btn_simpan.Text = "Simpan";
-            this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_simpan.UseVisualStyleBackColor = true;
-            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
-            // 
             // button1
             // 
             this.button1.Image = global::Apotik.Properties.Resources.UpgradeReport_Error;
@@ -191,6 +179,19 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_simpan
+            // 
+            this.btn_simpan.Image = global::Apotik.Properties.Resources.UpgradeReport_Success;
+            this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_simpan.Location = new System.Drawing.Point(347, 261);
+            this.btn_simpan.Name = "btn_simpan";
+            this.btn_simpan.Size = new System.Drawing.Size(75, 23);
+            this.btn_simpan.TabIndex = 8;
+            this.btn_simpan.Text = "Simpan";
+            this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_simpan.UseVisualStyleBackColor = true;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // tambah
             // 
@@ -213,9 +214,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "tambah";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "tambah";
+            this.Text = "Tambah - Obat";
             this.ResumeLayout(false);
             this.PerformLayout();
 

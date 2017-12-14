@@ -42,9 +42,9 @@
             this.Distributor = new System.Windows.Forms.ToolStripDropDownButton();
             this.Penjualan = new System.Windows.Forms.ToolStripDropDownButton();
             this.Pembelian = new System.Windows.Forms.ToolStripDropDownButton();
-            this.Tutup = new System.Windows.Forms.ToolStripButton();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.User = new System.Windows.Forms.ToolStripDropDownButton();
             this.tambahToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tutup = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -74,35 +74,41 @@
             this.Distributor,
             this.Penjualan,
             this.Pembelian,
-            this.toolStripDropDownButton1,
+            this.User,
             this.Tutup});
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
+            this.toolStripMenu.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.toolStripMenu.Size = new System.Drawing.Size(1008, 62);
-            this.toolStripMenu.TabIndex = 4;
+            this.toolStripMenu.ShowItemToolTips = false;
+            this.toolStripMenu.Size = new System.Drawing.Size(1008, 82);
+            this.toolStripMenu.TabIndex = 1;
             this.toolStripMenu.Text = "toolStrip1";
             // 
             // Obat
             // 
-            this.Obat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Obat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tambahToolStripMenuItem,
             this.ubahToolStripMenuItem,
             this.hapusToolStripMenuItem});
-            this.Obat.Image = global::Apotik.Properties.Resources.medical_pills_pot_icon1;
+            this.Obat.Image = ((System.Drawing.Image)(resources.GetObject("Obat.Image")));
+            this.Obat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Obat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Obat.Margin = new System.Windows.Forms.Padding(10, 1, 15, 2);
             this.Obat.Name = "Obat";
-            this.Obat.Size = new System.Drawing.Size(68, 59);
+            this.Obat.Size = new System.Drawing.Size(68, 74);
             this.Obat.Text = "Obat";
+            this.Obat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Obat.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.Obat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Obat.Click += new System.EventHandler(this.Obat_Click);
             // 
             // tambahToolStripMenuItem
             // 
             this.tambahToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tambahToolStripMenuItem.BackgroundImage")));
             this.tambahToolStripMenuItem.Name = "tambahToolStripMenuItem";
-            this.tambahToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tambahToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.tambahToolStripMenuItem.Text = "Tambah";
             this.tambahToolStripMenuItem.Click += new System.EventHandler(this.tambahToolStripMenuItem_Click);
             // 
@@ -122,70 +128,79 @@
             // 
             // Dokter
             // 
-            this.Dokter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Dokter.Image = global::Apotik.Properties.Resources.Doctor_icon;
+            this.Dokter.Image = ((System.Drawing.Image)(resources.GetObject("Dokter.Image")));
             this.Dokter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Dokter.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.Dokter.Name = "Dokter";
-            this.Dokter.Size = new System.Drawing.Size(68, 59);
+            this.Dokter.Size = new System.Drawing.Size(68, 74);
             this.Dokter.Text = "Dokter";
+            this.Dokter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Dokter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Dokter.Click += new System.EventHandler(this.Dokter_Click);
             // 
             // Distributor
             // 
-            this.Distributor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Distributor.Image = global::Apotik.Properties.Resources.distributor_report_icon;
+            this.Distributor.Image = ((System.Drawing.Image)(resources.GetObject("Distributor.Image")));
             this.Distributor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Distributor.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.Distributor.Name = "Distributor";
-            this.Distributor.Size = new System.Drawing.Size(68, 59);
+            this.Distributor.Size = new System.Drawing.Size(76, 74);
             this.Distributor.Text = "Distributor";
+            this.Distributor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Distributor.Click += new System.EventHandler(this.Distributor_Click);
             // 
             // Penjualan
             // 
-            this.Penjualan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Penjualan.Image = global::Apotik.Properties.Resources.Cash_register_icon;
+            this.Penjualan.Image = ((System.Drawing.Image)(resources.GetObject("Penjualan.Image")));
             this.Penjualan.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Penjualan.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.Penjualan.Name = "Penjualan";
-            this.Penjualan.Size = new System.Drawing.Size(68, 59);
+            this.Penjualan.Size = new System.Drawing.Size(72, 74);
             this.Penjualan.Text = "Penjualan";
+            this.Penjualan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Penjualan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // Pembelian
             // 
-            this.Pembelian.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Pembelian.Image = global::Apotik.Properties.Resources.basket_icon;
+            this.Pembelian.Image = ((System.Drawing.Image)(resources.GetObject("Pembelian.Image")));
             this.Pembelian.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Pembelian.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.Pembelian.Name = "Pembelian";
-            this.Pembelian.Size = new System.Drawing.Size(68, 59);
+            this.Pembelian.Size = new System.Drawing.Size(76, 74);
             this.Pembelian.Text = "Pembelian";
+            this.Pembelian.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // Tutup
+            // User
             // 
-            this.Tutup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Tutup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tutup.Image = global::Apotik.Properties.Resources.Close_2_icon;
-            this.Tutup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Tutup.Name = "Tutup";
-            this.Tutup.Size = new System.Drawing.Size(59, 59);
-            this.Tutup.Text = "Tutup Aplikasi";
-            this.Tutup.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.Tutup.Click += new System.EventHandler(this.Tutup_Click);
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.User.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tambahToolStripMenuItem1});
-            this.toolStripDropDownButton1.Image = global::Apotik.Properties.Resources.Office_Customer_Male_Light_icon;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(68, 59);
-            this.toolStripDropDownButton1.Text = "User";
-            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            this.User.Image = ((System.Drawing.Image)(resources.GetObject("User.Image")));
+            this.User.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.User.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(74, 74);
+            this.User.Text = "Pengguna";
+            this.User.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.User.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.User.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // tambahToolStripMenuItem1
             // 
             this.tambahToolStripMenuItem1.Name = "tambahToolStripMenuItem1";
-            this.tambahToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.tambahToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.tambahToolStripMenuItem1.Text = "tambah";
             this.tambahToolStripMenuItem1.Click += new System.EventHandler(this.tambahToolStripMenuItem1_Click);
+            // 
+            // Tutup
+            // 
+            this.Tutup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tutup.Image = ((System.Drawing.Image)(resources.GetObject("Tutup.Image")));
+            this.Tutup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Tutup.Name = "Tutup";
+            this.Tutup.Size = new System.Drawing.Size(59, 79);
+            this.Tutup.Text = "Keluar";
+            this.Tutup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Tutup.Click += new System.EventHandler(this.Tutup_Click);
             // 
             // Home
             // 
@@ -197,9 +212,9 @@
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.statusStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Home";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apotik 1.0";
             this.TransparencyKey = System.Drawing.Color.White;
@@ -227,7 +242,7 @@
         private System.Windows.Forms.ToolStripButton Tutup;
         private System.Windows.Forms.ToolStripMenuItem ubahToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hapusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton User;
         private System.Windows.Forms.ToolStripMenuItem tambahToolStripMenuItem1;
     }
 }

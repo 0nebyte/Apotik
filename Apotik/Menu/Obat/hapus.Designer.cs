@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hapus));
             this.txt_nama = new System.Windows.Forms.TextBox();
             this.txt_kode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOK = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOK)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_simpan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_nama
@@ -70,55 +69,56 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Kode Obat";
             // 
-            // pictureBoxClose
+            // button1
             // 
-            this.pictureBoxClose.Image = global::Apotik.Properties.Resources.Actions_window_close_icon;
-            this.pictureBoxClose.Location = new System.Drawing.Point(327, 68);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(40, 38);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 31;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
+            this.button1.Image = global::Apotik.Properties.Resources.UpgradeReport_Error;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(245, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Keluar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBoxOK
+            // btn_simpan
             // 
-            this.pictureBoxOK.Image = global::Apotik.Properties.Resources.ok_icon;
-            this.pictureBoxOK.Location = new System.Drawing.Point(373, 68);
-            this.pictureBoxOK.Name = "pictureBoxOK";
-            this.pictureBoxOK.Size = new System.Drawing.Size(40, 38);
-            this.pictureBoxOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOK.TabIndex = 32;
-            this.pictureBoxOK.TabStop = false;
-            this.pictureBoxOK.Click += new System.EventHandler(this.pictureBoxOK_Click);
+            this.btn_simpan.Image = global::Apotik.Properties.Resources.hapus1;
+            this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_simpan.Location = new System.Drawing.Point(337, 79);
+            this.btn_simpan.Name = "btn_simpan";
+            this.btn_simpan.Size = new System.Drawing.Size(75, 23);
+            this.btn_simpan.TabIndex = 31;
+            this.btn_simpan.Text = "Hapus";
+            this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_simpan.UseVisualStyleBackColor = true;
             // 
             // hapus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 125);
-            this.Controls.Add(this.pictureBoxClose);
-            this.Controls.Add(this.pictureBoxOK);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_simpan);
             this.Controls.Add(this.txt_nama);
             this.Controls.Add(this.txt_kode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "hapus";
-            this.Text = "hapus";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOK)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Hapus - Obat";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBoxClose;
-        private System.Windows.Forms.PictureBox pictureBoxOK;
         private System.Windows.Forms.TextBox txt_nama;
         private System.Windows.Forms.TextBox txt_kode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_simpan;
     }
 }
