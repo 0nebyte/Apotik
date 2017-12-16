@@ -71,6 +71,25 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
+        public int Update(object model, string whereClause)
+        {
+            var type = model.GetType();
+            var tableName = GetTableName(type);
+            var columns = GetColumns(type);
+            var writableColumns = columns.Where(f => !f.field.AutoIncrement);
+            var sqlColumnSet = string.Join(",", writableColumns.Select(
+                f => f.field.Name + " = $" + f.field.Name));
+            var sql = string.Format("UPDATE {0} SET {1} WHERE {2}", tableName, sqlColumnSet, whereClause);
+
+            var command = new SQLiteCommand(sql, connection);
+            foreach (var col in writableColumns)
+            {
+                command.Parameters.AddWithValue("$" + col.field.Name, col.propertyInfo.GetValue(model));
+            }
+
+            return command.ExecuteNonQuery();
+        }
+
         public IEnumerable<T> Query<T>(string whereClause = null) where T: new()
         {
             var type = typeof(T);

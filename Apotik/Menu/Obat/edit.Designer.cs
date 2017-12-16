@@ -44,13 +44,13 @@
             this.btn_cari = new System.Windows.Forms.Button();
             this.gb_cari = new System.Windows.Forms.GroupBox();
             this.gb_data = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_satuan = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_stok = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txt_harga = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txt_stok = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_satuan = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gb_cari.SuspendLayout();
             this.gb_data.SuspendLayout();
             this.SuspendLayout();
@@ -63,112 +63,127 @@
             this.cmb_jenis.Items.AddRange(new object[] {
             "Kode",
             "Nama"});
-            this.cmb_jenis.Location = new System.Drawing.Point(7, 22);
+            this.cmb_jenis.Location = new System.Drawing.Point(10, 34);
+            this.cmb_jenis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_jenis.Name = "cmb_jenis";
-            this.cmb_jenis.Size = new System.Drawing.Size(121, 21);
+            this.cmb_jenis.Size = new System.Drawing.Size(180, 28);
             this.cmb_jenis.TabIndex = 20;
             this.cmb_jenis.SelectedIndexChanged += new System.EventHandler(this.cmb_jenis_SelectedIndexChanged);
             // 
             // txt_supp
             // 
-            this.txt_supp.Location = new System.Drawing.Point(73, 227);
+            this.txt_supp.Location = new System.Drawing.Point(110, 349);
+            this.txt_supp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_supp.Name = "txt_supp";
-            this.txt_supp.Size = new System.Drawing.Size(335, 20);
+            this.txt_supp.Size = new System.Drawing.Size(500, 26);
             this.txt_supp.TabIndex = 24;
             // 
             // txt_ket
             // 
-            this.txt_ket.Location = new System.Drawing.Point(74, 167);
+            this.txt_ket.Location = new System.Drawing.Point(111, 257);
+            this.txt_ket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_ket.Multiline = true;
             this.txt_ket.Name = "txt_ket";
-            this.txt_ket.Size = new System.Drawing.Size(335, 54);
+            this.txt_ket.Size = new System.Drawing.Size(500, 81);
             this.txt_ket.TabIndex = 23;
             // 
             // txt_nama
             // 
-            this.txt_nama.Location = new System.Drawing.Point(74, 52);
+            this.txt_nama.Location = new System.Drawing.Point(111, 80);
+            this.txt_nama.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_nama.Name = "txt_nama";
-            this.txt_nama.Size = new System.Drawing.Size(335, 20);
+            this.txt_nama.Size = new System.Drawing.Size(500, 26);
             this.txt_nama.TabIndex = 22;
             // 
             // txt_kode
             // 
-            this.txt_kode.Location = new System.Drawing.Point(74, 22);
+            this.txt_kode.Location = new System.Drawing.Point(111, 34);
+            this.txt_kode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_kode.Name = "txt_kode";
-            this.txt_kode.Size = new System.Drawing.Size(284, 20);
+            this.txt_kode.Size = new System.Drawing.Size(424, 26);
             this.txt_kode.TabIndex = 21;
             // 
             // txt_cari
             // 
-            this.txt_cari.Location = new System.Drawing.Point(144, 23);
+            this.txt_cari.Location = new System.Drawing.Point(216, 35);
+            this.txt_cari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_cari.Name = "txt_cari";
             this.txt_cari.ReadOnly = true;
-            this.txt_cari.Size = new System.Drawing.Size(335, 20);
+            this.txt_cari.Size = new System.Drawing.Size(500, 26);
             this.txt_cari.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 234);
+            this.label7.Location = new System.Drawing.Point(15, 360);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(67, 20);
             this.label7.TabIndex = 27;
             this.label7.Text = "Supplier";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 174);
+            this.label6.Location = new System.Drawing.Point(15, 268);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 28;
             this.label6.Text = "Keterangan";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 55);
+            this.label5.Location = new System.Drawing.Point(15, 85);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(90, 20);
             this.label5.TabIndex = 29;
             this.label5.Text = "Nama Obat";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 26);
+            this.label4.Location = new System.Drawing.Point(15, 40);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 30;
             this.label4.Text = "Kode Obat";
             // 
             // button1
             // 
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(242, 264);
+            this.button1.Location = new System.Drawing.Point(363, 406);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 26;
             this.button1.Text = "Keluar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_simpan
             // 
             this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_simpan.Location = new System.Drawing.Point(334, 265);
+            this.btn_simpan.Location = new System.Drawing.Point(501, 408);
+            this.btn_simpan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_simpan.Name = "btn_simpan";
-            this.btn_simpan.Size = new System.Drawing.Size(75, 23);
+            this.btn_simpan.Size = new System.Drawing.Size(112, 35);
             this.btn_simpan.TabIndex = 25;
             this.btn_simpan.Text = "Simpan";
             this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_simpan.UseVisualStyleBackColor = true;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // btn_cari
             // 
-            this.btn_cari.Location = new System.Drawing.Point(495, 23);
+            this.btn_cari.Location = new System.Drawing.Point(742, 35);
+            this.btn_cari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_cari.Name = "btn_cari";
-            this.btn_cari.Size = new System.Drawing.Size(75, 23);
+            this.btn_cari.Size = new System.Drawing.Size(112, 35);
             this.btn_cari.TabIndex = 34;
             this.btn_cari.Text = "Cari";
             this.btn_cari.UseVisualStyleBackColor = true;
@@ -179,9 +194,11 @@
             this.gb_cari.Controls.Add(this.txt_cari);
             this.gb_cari.Controls.Add(this.btn_cari);
             this.gb_cari.Controls.Add(this.cmb_jenis);
-            this.gb_cari.Location = new System.Drawing.Point(16, 12);
+            this.gb_cari.Location = new System.Drawing.Point(24, 18);
+            this.gb_cari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gb_cari.Name = "gb_cari";
-            this.gb_cari.Size = new System.Drawing.Size(588, 62);
+            this.gb_cari.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gb_cari.Size = new System.Drawing.Size(882, 95);
             this.gb_cari.TabIndex = 35;
             this.gb_cari.TabStop = false;
             this.gb_cari.Text = "Cari";
@@ -205,62 +222,33 @@
             this.gb_data.Controls.Add(this.label7);
             this.gb_data.Controls.Add(this.txt_ket);
             this.gb_data.Controls.Add(this.txt_nama);
-            this.gb_data.Location = new System.Drawing.Point(16, 93);
+            this.gb_data.Location = new System.Drawing.Point(24, 143);
+            this.gb_data.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gb_data.Name = "gb_data";
-            this.gb_data.Size = new System.Drawing.Size(439, 305);
+            this.gb_data.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gb_data.Size = new System.Drawing.Size(658, 469);
             this.gb_data.TabIndex = 36;
             this.gb_data.TabStop = false;
             this.gb_data.Text = "Data Obat";
             this.gb_data.Visible = false;
             // 
-            // label1
+            // txt_harga
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Satuan";
-            // 
-            // txt_satuan
-            // 
-            this.txt_satuan.Location = new System.Drawing.Point(74, 81);
-            this.txt_satuan.Name = "txt_satuan";
-            this.txt_satuan.ReadOnly = true;
-            this.txt_satuan.Size = new System.Drawing.Size(154, 20);
-            this.txt_satuan.TabIndex = 32;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Stok";
-            // 
-            // txt_stok
-            // 
-            this.txt_stok.Location = new System.Drawing.Point(74, 110);
-            this.txt_stok.Name = "txt_stok";
-            this.txt_stok.Size = new System.Drawing.Size(154, 20);
-            this.txt_stok.TabIndex = 32;
+            this.txt_harga.Location = new System.Drawing.Point(111, 214);
+            this.txt_harga.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_harga.Name = "txt_harga";
+            this.txt_harga.Size = new System.Drawing.Size(229, 26);
+            this.txt_harga.TabIndex = 32;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 146);
+            this.label3.Location = new System.Drawing.Point(15, 225);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "Harga";
-            // 
-            // txt_harga
-            // 
-            this.txt_harga.Location = new System.Drawing.Point(74, 139);
-            this.txt_harga.Name = "txt_harga";
-            this.txt_harga.Size = new System.Drawing.Size(154, 20);
-            this.txt_harga.TabIndex = 32;
             // 
             // comboBox1
             // 
@@ -271,19 +259,58 @@
             "Botol",
             "Strip",
             "Kapsul"});
-            this.comboBox1.Location = new System.Drawing.Point(234, 81);
+            this.comboBox1.Location = new System.Drawing.Point(351, 125);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(180, 28);
             this.comboBox1.TabIndex = 20;
+            // 
+            // txt_stok
+            // 
+            this.txt_stok.Location = new System.Drawing.Point(111, 169);
+            this.txt_stok.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_stok.Name = "txt_stok";
+            this.txt_stok.Size = new System.Drawing.Size(229, 26);
+            this.txt_stok.TabIndex = 32;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Stok";
+            // 
+            // txt_satuan
+            // 
+            this.txt_satuan.Location = new System.Drawing.Point(111, 125);
+            this.txt_satuan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_satuan.Name = "txt_satuan";
+            this.txt_satuan.ReadOnly = true;
+            this.txt_satuan.Size = new System.Drawing.Size(229, 26);
+            this.txt_satuan.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 135);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Satuan";
             // 
             // edit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 412);
+            this.ClientSize = new System.Drawing.Size(945, 634);
             this.Controls.Add(this.gb_data);
             this.Controls.Add(this.gb_cari);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "edit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit - Obat";

@@ -63,5 +63,20 @@ namespace Apotik.Menu.Obat
         {
             txt_cari.ReadOnly = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_simpan_Click(object sender, EventArgs e)
+        {
+            var db = Model.Database.Instance;
+            db.Update(obat, "id_obat = '" + obat.Id + "'");
+
+            controller.Obats = Model.Database.Instance.Query<Model.Obat>();
+
+            Close();
+        }
     }
 }
