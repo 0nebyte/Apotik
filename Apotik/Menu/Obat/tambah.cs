@@ -12,10 +12,13 @@ namespace Apotik.Menu.Obat
 {
     public partial class tambah : Form
     {
+        private Controller controller;
         private Model.Obat model;
 
-        public tambah(Model.Obat obat = null)
+        public tambah(Controller controller, Model.Obat obat = null)
         {
+            this.controller = controller;
+
             InitializeComponent();
 
             if (obat != null)
@@ -41,7 +44,10 @@ namespace Apotik.Menu.Obat
         {
             var db = Model.Database.Instance;
             db.Save(model);
-            this.Close();
+
+            controller.Obats = Model.Database.Instance.Query<Model.Obat>();
+
+            Close();
         }
     }
 }

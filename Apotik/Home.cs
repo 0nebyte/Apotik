@@ -12,10 +12,13 @@ namespace Apotik
 {
     public partial class Home : Form
     {
+        private Controller controller;
         private int childFormNumber = 0;
 
-        public Home()
+        public Home(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
         }
 
@@ -111,7 +114,7 @@ namespace Apotik
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.tambah();
+            var obat = new Menu.Obat.tambah(controller);
             obat.MdiParent = this;
             obat.Show();
         }
@@ -125,7 +128,7 @@ namespace Apotik
 
         private void Obat_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.view();
+            var obat = new Menu.Obat.view(controller);
             obat.MdiParent = this;
             obat.Show();
         }

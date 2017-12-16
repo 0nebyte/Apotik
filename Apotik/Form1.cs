@@ -12,14 +12,18 @@ namespace Apotik
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private Controller controller;
+
+        public Form1(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var login = new login();
+            var login = new login(controller);
             login.Close();
 
             this.Close();
@@ -43,7 +47,7 @@ namespace Apotik
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.tambah();
+            var obat = new Menu.Obat.tambah(controller);
             obat.ShowDialog();
         }
     }

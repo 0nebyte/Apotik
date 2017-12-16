@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grid_obat = new System.Windows.Forms.DataGridView();
+            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +41,6 @@
             this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).BeginInit();
@@ -51,17 +51,19 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(18, 18);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 67);
+            this.panel1.Size = new System.Drawing.Size(424, 103);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Apotik.Properties.Resources.tambah;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(92, 95);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -90,29 +92,33 @@
             this.keteranganDataGridViewTextBoxColumn});
             this.grid_obat.Cursor = System.Windows.Forms.Cursors.Default;
             this.grid_obat.DataSource = this.obatBindingSource;
-            this.grid_obat.Location = new System.Drawing.Point(12, 123);
+            this.grid_obat.Location = new System.Drawing.Point(18, 189);
+            this.grid_obat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_obat.Name = "grid_obat";
             this.grid_obat.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.grid_obat.Size = new System.Drawing.Size(787, 319);
+            this.grid_obat.Size = new System.Drawing.Size(1180, 491);
             this.grid_obat.TabIndex = 1;
+            // 
+            // obatBindingSource
+            // 
+            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kodeDataGridViewTextBoxColumn
             // 
             this.kodeDataGridViewTextBoxColumn.DataPropertyName = "Kode";
-            this.kodeDataGridViewTextBoxColumn.HeaderText = "Kode Obat";
+            this.kodeDataGridViewTextBoxColumn.HeaderText = "Kode";
             this.kodeDataGridViewTextBoxColumn.Name = "kodeDataGridViewTextBoxColumn";
             // 
             // namaDataGridViewTextBoxColumn
             // 
             this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama Obat";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
             this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
             // 
             // satuanDataGridViewTextBoxColumn
@@ -139,24 +145,20 @@
             this.keteranganDataGridViewTextBoxColumn.HeaderText = "Keterangan";
             this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
             // 
-            // obatBindingSource
-            // 
-            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
-            // 
             // view
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(811, 473);
+            this.ClientSize = new System.Drawing.Size(1216, 728);
             this.Controls.Add(this.grid_obat);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "view";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lihat  - Obat";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.view_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).EndInit();
