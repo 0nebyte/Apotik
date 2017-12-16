@@ -71,12 +71,14 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
-        public IEnumerable<T> Query<T>() where T: new()
+        public IEnumerable<T> Query<T>(string whereClause = null) where T: new()
         {
             var type = typeof(T);
             var tableName = GetTableName(type);
             var columns = GetColumns(type);
             var sql = string.Format("SELECT * FROM {0}", tableName);
+            if (whereClause != null)
+                sql += string.Format(" WHERE {0}", whereClause);
             var command = new SQLiteCommand(sql, connection);
             var reader = command.ExecuteReader();
             var result = new List<T>();

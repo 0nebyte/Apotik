@@ -16,6 +16,8 @@ namespace Apotik
 
         public login(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
         }
 
