@@ -16,5 +16,20 @@ namespace Apotik.Menu.Obat
         {
             InitializeComponent();
         }
+
+        private void edit_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_cari_Click(object sender, EventArgs e)
+        {
+            gb_data.Visible = true;
+        }
+
+        private void cmb_jenis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_cari.ReadOnly = false;
+        }
     }
 }
