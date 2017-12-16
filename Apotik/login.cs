@@ -12,7 +12,9 @@ namespace Apotik
 {
     public partial class login : Form
     {
-        public login()
+        private Controller controller;
+
+        public login(Controller controller)
         {
             InitializeComponent();
         }
@@ -21,11 +23,9 @@ namespace Apotik
         {
             if (txt_username.Text == "admin" && txt_password.Text == "admin")
             {
-                var form = new Home();
+                var form = new Home(controller);
                 form.Show();
                 this.Hide();
-        
-
             }
             else
             {

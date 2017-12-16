@@ -12,21 +12,23 @@ namespace Apotik.Menu.Obat
 {
     public partial class view : Form
     {
-        public view()
+        private Controller controller;
+
+        public view(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
-            BindGrid();
+
+            grid_obat.DataBindings.Add("DataSource", controller, "Obats");
+
+            controller.Obats = Model.Database.Instance.Query<Model.Obat>();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah();
+            var tambah = new tambah(controller);
             tambah.ShowDialog();
-        }
-
-        private void BindGrid()
-        {
-            grid_obat.DataSource = Model.Database.Instance.Query<Model.Obat>();
         }
     }
 }

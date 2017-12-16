@@ -15,9 +15,11 @@ namespace Apotik
         [STAThread]
         static void Main()
         {
+            var controller = new Controller();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Home(controller));
         }
 
         static void InitDb()
