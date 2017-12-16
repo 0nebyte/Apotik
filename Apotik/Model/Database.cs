@@ -17,6 +17,11 @@ namespace Apotik.Model
             connection.Open();
         }
 
+        public SQLiteConnection Connection
+        {
+            get { return connection; }
+        }
+
         public int Save(object model)
         {
             var refl = model.GetType();
@@ -64,6 +69,34 @@ namespace Apotik.Model
                 command.Parameters.AddWithValue("$" + field.Name, prop.GetValue(model));
             }
             return command.ExecuteNonQuery();
+        }
+
+        public IEnumerable<T> Query<T>() where T: new()
+        {
+            var type = typeof(T);
+            var tableName = GetTableName(type);
+            var columns = GetColumns(type);
+            var sql = string.Format("SELECT * FROM {0}", tableName);
+            var command = new SQLiteCommand(sql, connection);
+            var reader = command.ExecuteReader();
+            var result = new List<T>();
+            while (reader.Read())
+            {
+                var i = 0;
+                var t = new T();
+                foreach (var column in columns)
+                {
+                    var columnType = column.GetColumnType();
+                    if (columnType == "int")
+                        column.propertyInfo.SetValue(t, reader.GetInt32(i));
+                    else if (columnType == "string")
+                        column.propertyInfo.SetValue(t, reader.GetString(i));
+                    ++i;
+                }
+                result.Add(t);
+            }
+
+            return result;
         }
 
         #region Statics
@@ -120,6 +153,41 @@ namespace Apotik.Model
             }
 
             return tableName;
+        }
+
+        public struct ColumnAccessor
+        {
+            public Attributes.Field field;
+            public System.Reflection.PropertyInfo propertyInfo;
+
+            public ColumnAccessor(Attributes.Field field, System.Reflection.PropertyInfo info)
+            {
+                this.field = field;
+                this.propertyInfo = info;
+            }
+
+            public string GetColumnType()
+            {
+                if (propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                    return "int";
+                else
+                    return "string";
+            }
+        }
+
+        public static IEnumerable<ColumnAccessor> GetColumns(Type type)
+        {
+            var columns = type.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
+                .Select(p =>
+            {
+                var fieldAttr = (Attributes.Field) p.GetCustomAttributes(
+                    typeof(Attributes.Field), false)[0];
+                return new ColumnAccessor(fieldAttr, p);
+            });
+
+            return columns;
         }
 
         public static string CreateFieldsSql(Type refl)

@@ -15,6 +15,7 @@ namespace Apotik.Menu.Obat
         public view()
         {
             InitializeComponent();
+            BindGrid();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -23,9 +24,9 @@ namespace Apotik.Menu.Obat
             tambah.ShowDialog();
         }
 
-        private void view_Load(object sender, EventArgs e)
+        private void BindGrid()
         {
-     
+            grid_obat.DataSource = Model.Database.Instance.Query<Model.Obat>();
         }
     }
 }
