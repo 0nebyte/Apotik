@@ -64,6 +64,13 @@ namespace Apotik.Menu.Obat
             txt_cari.ReadOnly = false;
         }
 
+<<<<<<< HEAD
+=======
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+>>>>>>> 7da185ef342cde66c52cf73df833c0c685e01bf8
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
@@ -74,10 +81,13 @@ namespace Apotik.Menu.Obat
 
             Close();
         }
+<<<<<<< HEAD
 
         private void btn_keluar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+=======
+>>>>>>> 7da185ef342cde66c52cf73df833c0c685e01bf8
     }
 }
