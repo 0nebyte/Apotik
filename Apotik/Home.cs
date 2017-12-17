@@ -137,6 +137,7 @@ namespace Apotik
         {
             var obat = new Menu.Obat.edit(controller);
             obat.MdiParent = this;
+            //obat.StartPosition = FormStartPosition.CenterParent;
             obat.Show();
         }
 

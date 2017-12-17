@@ -64,10 +64,6 @@ namespace Apotik.Menu.Obat
             txt_cari.ReadOnly = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
@@ -77,6 +73,11 @@ namespace Apotik.Menu.Obat
             controller.Obats = Model.Database.Instance.Query<Model.Obat>();
 
             Close();
+        }
+
+        private void btn_keluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
