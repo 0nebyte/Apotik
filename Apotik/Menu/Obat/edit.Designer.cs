@@ -103,7 +103,7 @@
             this.txt_cari.Location = new System.Drawing.Point(144, 23);
             this.txt_cari.Name = "txt_cari";
             this.txt_cari.ReadOnly = true;
-            this.txt_cari.Size = new System.Drawing.Size(335, 20);
+            this.txt_cari.Size = new System.Drawing.Size(295, 20);
             this.txt_cari.TabIndex = 19;
             // 
             // label7
@@ -166,7 +166,7 @@
             // 
             // btn_cari
             // 
-            this.btn_cari.Location = new System.Drawing.Point(495, 23);
+            this.btn_cari.Location = new System.Drawing.Point(455, 23);
             this.btn_cari.Name = "btn_cari";
             this.btn_cari.Size = new System.Drawing.Size(75, 23);
             this.btn_cari.TabIndex = 34;
@@ -181,7 +181,7 @@
             this.gb_cari.Controls.Add(this.cmb_jenis);
             this.gb_cari.Location = new System.Drawing.Point(16, 12);
             this.gb_cari.Name = "gb_cari";
-            this.gb_cari.Size = new System.Drawing.Size(588, 62);
+            this.gb_cari.Size = new System.Drawing.Size(546, 62);
             this.gb_cari.TabIndex = 35;
             this.gb_cari.TabStop = false;
             this.gb_cari.Text = "Cari";
@@ -280,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 412);
+            this.ClientSize = new System.Drawing.Size(591, 412);
             this.Controls.Add(this.gb_data);
             this.Controls.Add(this.gb_cari);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

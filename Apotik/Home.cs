@@ -135,7 +135,7 @@ namespace Apotik
 
         private void ubahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.edit();
+            var obat = new Menu.Obat.edit(controller);
             obat.MdiParent = this;
             obat.Show();
         }
