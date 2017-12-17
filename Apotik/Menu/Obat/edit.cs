@@ -96,7 +96,7 @@ namespace Apotik.Menu.Obat
         private void btn_simpan_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
-            db.Update(obat, "id_obat = '" + obat.Id + "'");
+            db.Update(obat);
 
             controller.Obats = Model.Database.Instance.Query<Model.Obat>();
 
