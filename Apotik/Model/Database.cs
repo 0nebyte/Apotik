@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Collections;
 
 namespace Apotik.Model
 {
@@ -20,6 +21,16 @@ namespace Apotik.Model
         public SQLiteConnection Connection
         {
             get { return connection; }
+        }
+
+        public Column Column(string propertyName)
+        {
+            return new Column(propertyName);
+        }
+
+        public Column Column(int index, string propertyName)
+        {
+            return new Column(propertyName, index);
         }
 
         public int Save(object model)
@@ -71,18 +82,20 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
-        public int Update(object model, string whereClause)
+        public int Update(object model)
         {
             var type = model.GetType();
             var tableName = GetTableName(type);
             var columns = GetColumns(type);
             var writableColumns = columns.Where(f => !f.field.AutoIncrement);
             var sqlColumnSet = string.Join(",", writableColumns.Select(
-                f => f.field.Name + " = $" + f.field.Name));
+                f => string.Format("{0} = ${0}", f.field.Name)));
+            var sqlColumnId = columns.Where(f => f.field.PrimaryKey).FirstOrDefault();
+            var whereClause = string.Format("{0} = ${0}", sqlColumnId.field.Name);
             var sql = string.Format("UPDATE {0} SET {1} WHERE {2}", tableName, sqlColumnSet, whereClause);
 
             var command = new SQLiteCommand(sql, connection);
-            foreach (var col in writableColumns)
+            foreach (var col in columns)
             {
                 command.Parameters.AddWithValue("$" + col.field.Name, col.propertyInfo.GetValue(model));
             }
@@ -118,6 +131,11 @@ namespace Apotik.Model
             }
 
             return result;
+        }
+
+        public Query<T> Query2<T>() where T: new()
+        {
+            return new Query<T>(this);
         }
 
         #region Statics
@@ -211,6 +229,14 @@ namespace Apotik.Model
             return columns;
         }
 
+        public static string GetColumnName(Type type, string propertyName)
+        {
+            var propertyInfo = type.GetProperty(propertyName);
+            var attribute = (Attributes.Field) propertyInfo.GetCustomAttributes(typeof(Attributes.Field),
+                false)[0];
+            return attribute.Name;
+        }
+
         public static string CreateFieldsSql(Type refl)
         {
             var sql = "";
@@ -241,5 +267,185 @@ namespace Apotik.Model
             return string.Join(",\n", columnsSql);
         }
         #endregion
+    }
+
+    interface ISQLSyntax
+    {
+        string ToSqlQuery(IList<Type> model = null);
+    }
+
+    class SQLString : ISQLSyntax
+    {
+        private string str;
+
+        public SQLString(string str)
+        {
+            this.str = str;
+        }
+
+        public string ToSqlQuery(IList<Type> model = null)
+        {
+            return string.Format("\"{0}\"", str);
+        }
+    }
+
+    class Condition : ISQLSyntax
+    {
+        public enum Operator
+        {
+            And,
+            Or,
+            Equals,
+            NotEquals,
+            GreaterThan,
+            GreaterThanOrEquals,
+            LessThan,
+            LessThanOrEquals,
+        }
+
+        private Operator op;
+        private ISQLSyntax lhs;
+        private ISQLSyntax rhs;
+
+        public Condition(Operator op, ISQLSyntax lhs, ISQLSyntax rhs)
+        {
+            this.op = op;
+            this.lhs = lhs;
+            this.rhs = rhs;
+        }
+
+        public string ToSqlQuery(IList<Type> model = null)
+        {
+            string op;
+            switch (this.op)
+            {
+                case Operator.Equals: op = "="; break;
+                case Operator.NotEquals: op = "<>"; break;
+                default: throw new NotImplementedException("Unknown sql operator " + this.op.ToString());
+            }
+            return string.Format("({0} {1} {2})", lhs.ToSqlQuery(model), op, rhs.ToSqlQuery(model));
+        }
+    }
+
+    class Column : ISQLSyntax
+    {
+        private int index;
+        private string propertyName;
+
+        public Column(string propertyName, int index = 0)
+        {
+            this.index = index;
+            this.propertyName = propertyName;
+        }
+
+        public string ToSqlQuery(IList<Type> model = null)
+        {
+            var type = model[index];
+            if (model.Count > 1)
+                return string.Format("{0}.{1}", Database.GetTableName(type),
+                    Database.GetColumnName(type, propertyName));
+            else
+                return string.Format("{0}", Database.GetColumnName(type, propertyName));
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return index.GetHashCode() + propertyName.GetHashCode();
+        }
+
+        public static Condition operator==(Column column, string value)
+        {
+            return new Condition(Condition.Operator.Equals, column, new SQLString(value));
+        }
+
+        public static Condition operator!=(Column column, string value)
+        {
+            return new Condition(Condition.Operator.NotEquals, column, new SQLString(value));
+        }
+
+        public static Condition operator<(Column column, string value)
+        {
+            return new Condition(Condition.Operator.LessThan, column, new SQLString(value));
+        }
+
+        public static Condition operator>(Column column, string value)
+        {
+            return new Condition(Condition.Operator.GreaterThan, column, new SQLString(value));
+        }
+
+        public static Condition operator<=(Column column, string value)
+        {
+            return new Condition(Condition.Operator.LessThanOrEquals, column, new SQLString(value));
+        }
+        public static Condition operator>=(Column column, string value)
+        {
+            return new Condition(Condition.Operator.GreaterThanOrEquals, column, new SQLString(value));
+        }
+    }
+
+    class Query<T> where T: new()
+    {
+        private Database db;
+        private Condition condition;
+
+        public Query(Database db)
+        {
+            this.db = db;
+        }
+
+        public Query<T> Where(Condition condition)
+        {
+            this.condition = condition;
+
+            return this;
+        }
+
+        public Query<T> Where(bool condition)
+        {
+            return this;
+        }
+
+        public IList<T> Execute()
+        {
+            var type = typeof(T);
+            var columns = Database.GetColumns(type);
+            var command = new SQLiteCommand(ToSqlQuery(), db.Connection);
+            var reader = command.ExecuteReader();
+            var result = new List<T>();
+            while (reader.Read())
+            {
+                var i = 0;
+                var t = new T();
+                foreach (var column in columns)
+                {
+                    var columnType = column.GetColumnType();
+                    if (columnType == "int")
+                        column.propertyInfo.SetValue(t, reader.GetInt32(i));
+                    else if (columnType == "string")
+                        column.propertyInfo.SetValue(t, reader.GetString(i));
+                    ++i;
+                }
+                result.Add(t);
+            }
+            return result;
+        }
+
+        public string ToSqlQuery()
+        {
+            var type = typeof(T);
+            var tableName = Database.GetTableName(type);
+            var columns = Database.GetColumns(type);
+            var columnName = string.Join(",", columns.Select(f => f.field.Name));
+            var sql = string.Format("SELECT {1} FROM {0}", tableName, columnName);
+            if (condition != null)
+                sql += string.Format(" WHERE {0}", condition.ToSqlQuery(new List<Type>(){ type }));
+
+            return sql;
+        }
     }
 }

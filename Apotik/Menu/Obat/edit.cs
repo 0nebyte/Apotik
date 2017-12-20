@@ -28,35 +28,59 @@ namespace Apotik.Menu.Obat
 
         private void btn_cari_Click(object sender, EventArgs e)
         {
+            var db = Model.Database.Instance;
             var query = txt_cari.Text;
             var category = cmb_jenis.SelectedItem.ToString();
             IEnumerable<Model.Obat> result;
 
             if (category == "Kode")
             {
-                result = Model.Database.Instance
-                    .Query<Model.Obat>("kode_obat = '" + query + "'");
+                result = db.Query2<Model.Obat>().Where(db.Column("Kode") == query).Execute();
             }
             else if (category == "Nama")
             {
-                result = Model.Database.Instance
-                    .Query<Model.Obat>("nama = '" + query + "'");
+                result = db.Query2<Model.Obat>().Where(db.Column("Nama") == query).Execute();
             }
             else
             {
                 MessageBox.Show("Tidak dapat menemukan obat.");
+                gb_data.Visible = false;
                 return;
             }
 
             obat = result.FirstOrDefault();
-            txt_kode.DataBindings.Add("Text", obat, "Kode");
-            txt_nama.DataBindings.Add("Text", obat, "Nama");
-            txt_satuan.DataBindings.Add("Text", obat, "Satuan");
-            txt_stok.DataBindings.Add("Text", obat, "Stok");
-            txt_harga.DataBindings.Add("Text", obat, "Harga");
-            txt_ket.DataBindings.Add("Text", obat, "Keterangan");
 
-            gb_data.Visible = true;
+            if (obat != null)
+            {
+                txt_kode.DataBindings.Clear();
+                txt_kode.DataBindings.Clear();
+                txt_nama.DataBindings.Clear();
+                txt_satuan.DataBindings.Clear();
+                txt_stok.DataBindings.Clear();
+                txt_harga.DataBindings.Clear();
+                txt_ket.DataBindings.Clear();
+
+                txt_kode.DataBindings.Add("Text", obat, "Kode");
+                txt_nama.DataBindings.Add("Text", obat, "Nama");
+                txt_satuan.DataBindings.Add("Text", obat, "Satuan");
+                txt_stok.DataBindings.Add("Text", obat, "Stok");
+                txt_harga.DataBindings.Add("Text", obat, "Harga");
+                txt_ket.DataBindings.Add("Text", obat, "Keterangan");
+
+                gb_data.Visible = true;
+            }
+            else
+            {
+                txt_kode.DataBindings.Clear();
+                txt_kode.DataBindings.Clear();
+                txt_nama.DataBindings.Clear();
+                txt_satuan.DataBindings.Clear();
+                txt_stok.DataBindings.Clear();
+                txt_harga.DataBindings.Clear();
+                txt_ket.DataBindings.Clear();
+
+                gb_data.Visible = false;
+            }
         }
 
         private void cmb_jenis_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,28 +88,19 @@ namespace Apotik.Menu.Obat
             txt_cari.ReadOnly = false;
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_keluar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-
         private void btn_simpan_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
-            db.Update(obat, "id_obat = '" + obat.Id + "'");
+            db.Update(obat);
 
             controller.Obats = Model.Database.Instance.Query<Model.Obat>();
 
             Close();
         }
-
-
-        private void btn_keluar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }
