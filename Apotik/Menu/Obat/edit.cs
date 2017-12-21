@@ -35,10 +35,12 @@ namespace Apotik.Menu.Obat
 
             if (category == "Kode")
             {
+                //kalau ini pakai Like bisa ko ndre? jadi kode like query
                 result = db.Query2<Model.Obat>().Where(db.Column("Kode") == query).Execute();
             }
             else if (category == "Nama")
             {
+                //kalau ini pakai Like bisa ko ndre? jadi kode like query
                 result = db.Query2<Model.Obat>().Where(db.Column("Nama") == query).Execute();
             }
             else

@@ -19,7 +19,7 @@ namespace Apotik
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home(controller));
+            Application.Run(new login(controller));
         }
 
         static void InitDb()
