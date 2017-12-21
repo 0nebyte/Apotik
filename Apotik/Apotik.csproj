@@ -276,6 +276,9 @@
     <None Include="ico\Button-Close-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ico\user-icon.png" />
+    <None Include="ico\User-Interface-Password-icon.png" />
+    <None Include="ico\Pharmacy-icon.png" />
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
