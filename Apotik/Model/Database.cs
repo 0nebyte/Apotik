@@ -33,6 +33,11 @@ namespace Apotik.Model
             return new Column(propertyName, index);
         }
 
+        public Condition Like(Column column, string condition)
+        {
+            return new Condition(Condition.Operator.Like, column, new SQLString(condition));
+        }
+
         public int Save(object model)
         {
             var refl = model.GetType();
@@ -301,6 +306,7 @@ namespace Apotik.Model
             GreaterThanOrEquals,
             LessThan,
             LessThanOrEquals,
+            Like,
         }
 
         private Operator op;
@@ -321,6 +327,7 @@ namespace Apotik.Model
             {
                 case Operator.Equals: op = "="; break;
                 case Operator.NotEquals: op = "<>"; break;
+                case Operator.Like: op = "LIKE"; break;
                 default: throw new NotImplementedException("Unknown sql operator " + this.op.ToString());
             }
             return string.Format("({0} {1} {2})", lhs.ToSqlQuery(model), op, rhs.ToSqlQuery(model));
