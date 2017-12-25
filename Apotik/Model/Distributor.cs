@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-   public class Dokter : System.ComponentModel.INotifyPropertyChanged
+    public class Distributor : System.ComponentModel.INotifyPropertyChanged
     {
         #region INotifyPropertyChanged implementation
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -17,26 +17,31 @@ namespace Apotik.Model
         }
         #endregion
 
-        public static string tableName = "tb_dokter";
+        public static string tableName = "tb_distributor";
 
         private int id;
         private string kode;
         private string nama;
         private string alamat;
+        private string kota;
         private string telp;
-        private string keterangan;
+        private string norek;
+        private string email;
 
-        public Dokter(int id, string kode, string nama, string alamat, string notelp, string keterangan)
+        public Distributor(int id, string kode, string nama, string alamat, string kota, 
+            string telp, string norek, string email)
         {
             this.id = id;
             this.kode = kode;
             this.nama = nama;
             this.alamat = alamat;
+            this.kota = kota;
             this.telp = telp;
-            this.keterangan = keterangan;
+            this.norek = norek;
+            this.email = email;
         }
 
-        [Attributes.Field(Name = "id_dokter", PrimaryKey = true, AutoIncrement = true)]
+        [Attributes.Field(Name = "id_distributor", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
             get
@@ -51,7 +56,7 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "kode_dokter", AllowNull = false)]
+        [Attributes.Field(Name = "kode_distributor", AllowNull = false)]
         public string Kode
         {
             get
@@ -96,6 +101,21 @@ namespace Apotik.Model
             }
         }
 
+        [Attributes.Field(Name = "kota", AllowNull = false)]
+        public string Kota
+        {
+            get
+            {
+                return kota;
+            }
+
+            set
+            {
+                kota = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kota"));
+            }
+        }
+
         [Attributes.Field(Name = "notelp", AllowNull = false)]
         public string Telp
         {
@@ -111,18 +131,33 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "keterangan", AllowNull = true)]
-        public string Keterangan
+        [Attributes.Field(Name = "norek", AllowNull = false)]
+        public string Norek
         {
             get
             {
-                return keterangan;
+                return norek;
             }
 
             set
             {
-                keterangan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Keterangan"));
+                norek = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Norek"));
+            }
+        }
+
+        [Attributes.Field(Name = "email", AllowNull = true)]
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Email"));
             }
         }
 
@@ -133,8 +168,10 @@ namespace Apotik.Model
                 "\tkode: " + kode + "\n" +
                 "\tnama: " + nama + "\n" +
                 "\talamat: " + alamat + "\n" +
+                "\tkota: " + kota + "\n" +
                 "\ttelp: " + telp + "\n" +
-                "\tketerangan: " + keterangan;
+                "\tnorek: " + norek + "\n" +
+                "\tketerangan: " + email;
         }
     }
 }

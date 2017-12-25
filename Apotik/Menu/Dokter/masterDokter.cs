@@ -19,6 +19,10 @@ namespace Apotik.Menu.Dokter
             this.controller = controller;
             InitializeComponent();
 
+            dataGridViewDokter.DataBindings.Add("DataSource", controller, "Dokters");
+
+           // controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
+
 
         }
 

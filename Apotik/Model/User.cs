@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-   public class Dokter : System.ComponentModel.INotifyPropertyChanged
+    public class User : System.ComponentModel.INotifyPropertyChanged
     {
         #region INotifyPropertyChanged implementation
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -17,26 +17,33 @@ namespace Apotik.Model
         }
         #endregion
 
-        public static string tableName = "tb_dokter";
+        public static string tableName = "tb_user";
 
         private int id;
-        private string kode;
         private string nama;
+        private string jk;
         private string alamat;
+        private string kota;
         private string telp;
-        private string keterangan;
+        private string username;
+        private string password;
+        private string role;
 
-        public Dokter(int id, string kode, string nama, string alamat, string notelp, string keterangan)
+        public User(int id, string nama, string jk, string alamat, string kota,
+            string telp, string username, string password, string role)
         {
             this.id = id;
-            this.kode = kode;
             this.nama = nama;
+            this.jk = jk;
             this.alamat = alamat;
+            this.kota = kota;
             this.telp = telp;
-            this.keterangan = keterangan;
+            this.username = username;
+            this.password = password;
+            this.role = role;
         }
 
-        [Attributes.Field(Name = "id_dokter", PrimaryKey = true, AutoIncrement = true)]
+        [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
             get
@@ -48,21 +55,6 @@ namespace Apotik.Model
             {
                 id = value;
                 InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
-            }
-        }
-
-        [Attributes.Field(Name = "kode_dokter", AllowNull = false)]
-        public string Kode
-        {
-            get
-            {
-                return kode;
-            }
-
-            set
-            {
-                kode = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
             }
         }
 
@@ -78,6 +70,21 @@ namespace Apotik.Model
             {
                 nama = value;
                 InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nama"));
+            }
+        }
+
+        [Attributes.Field(Name = "jk", AllowNull = false)]
+        public string JK
+        {
+            get
+            {
+                return jk;
+            }
+
+            set
+            {
+                jk = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("JK"));
             }
         }
 
@@ -111,18 +118,48 @@ namespace Apotik.Model
             }
         }
 
-        [Attributes.Field(Name = "keterangan", AllowNull = true)]
-        public string Keterangan
+        [Attributes.Field(Name = "username", AllowNull = false)]
+        public string Username
         {
             get
             {
-                return keterangan;
+                return username;
             }
 
             set
             {
-                keterangan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Keterangan"));
+                username = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Username"));
+            }
+        }
+
+        [Attributes.Field(Name = "password", AllowNull = false)]
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                password = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Password"));
+            }
+        }
+
+        [Attributes.Field(Name = "role", AllowNull = false)]
+        public string Role
+        {
+            get
+            {
+                return role;
+            }
+
+            set
+            {
+                role = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Role"));
             }
         }
 
@@ -130,11 +167,13 @@ namespace Apotik.Model
         {
             return base.ToString() + "\n" +
                 "\tid: " + id + "\n" +
-                "\tkode: " + kode + "\n" +
                 "\tnama: " + nama + "\n" +
+                "\tjk: " + jk + "\n" +
                 "\talamat: " + alamat + "\n" +
                 "\ttelp: " + telp + "\n" +
-                "\tketerangan: " + keterangan;
+                "\tusername: " + username + "\n" +
+                "\tpassword: " + password + "\n" +
+                "\trole: " + role;
         }
     }
 }

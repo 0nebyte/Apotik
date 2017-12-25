@@ -166,8 +166,10 @@
     </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\Dokter.cs" />
     <Compile Include="Model\Obat.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
