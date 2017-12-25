@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.User
 {
-    public partial class view : Form
+    public partial class masterUser : MetroFramework.Forms.MetroForm
     {
-        public view()
+        public masterUser()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

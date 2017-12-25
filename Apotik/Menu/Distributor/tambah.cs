@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Distributor
 {
-    public partial class tambah : Form
+    public partial class tambah : MetroFramework.Forms.MetroForm
     {
         public tambah()
         {

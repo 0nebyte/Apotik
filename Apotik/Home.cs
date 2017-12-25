@@ -57,17 +57,6 @@ namespace Apotik
             this.Close();
         }
 
-    
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-       
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-   
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -119,54 +108,17 @@ namespace Apotik
             obat.Show();
         }
 
-        private void hapusToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void Home_Load(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.hapus();
-            obat.MdiParent = this;
-            obat.Show();
+
         }
 
-        private void Obat_Click(object sender, EventArgs e)
+        private void obatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.view(controller);
-            obat.MdiParent = this;
-            obat.Show();
-        }
-
-        private void ubahToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var obat = new Menu.Obat.edit(controller);
-            obat.MdiParent = this;
-            //obat.StartPosition = FormStartPosition.CenterParent;
-            obat.Show();
-        }
-
-        private void tambahToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            var tambahUser = new Menu.User.tambah();
-            tambahUser.MdiParent = this;
-            tambahUser.Show();
-        }
-
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-            var viewUser = new Menu.User.view();
-            viewUser.MdiParent = this;
-            viewUser.Show();
-        }
-
-        private void Dokter_Click(object sender, EventArgs e)
-        {
-            var viewDokter = new Menu.Dokter.view();
-            viewDokter.MdiParent = this;
-            viewDokter.Show();
-        }
-
-        private void Distributor_Click(object sender, EventArgs e)
-        {
-            var viewDsitributor = new Menu.Distributor.view();
-            viewDsitributor.MdiParent = this;
-            viewDsitributor.Show();
+            var masterObat = new Menu.Obat.MasterObat(controller);
+            masterObat.MdiParent = this;
+            masterObat.Show();
         }
     }
 }

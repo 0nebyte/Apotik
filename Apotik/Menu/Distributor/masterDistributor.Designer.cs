@@ -1,6 +1,6 @@
-﻿namespace Apotik.Menu.User
+﻿namespace Apotik.Menu.Distributor
 {
-    partial class view
+    partial class masterDistributor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(view));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.grid_obat = new System.Windows.Forms.DataGridView();
+            this.btn_tambah = new MetroFramework.Controls.MetroTile();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,32 +39,33 @@
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).BeginInit();
+            this.btn_hapus = new MetroFramework.Controls.MetroTile();
+            this.btn_edit = new MetroFramework.Controls.MetroTile();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // btn_tambah
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 67);
-            this.panel1.TabIndex = 2;
+            this.btn_tambah.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_tambah.CustomBackground = true;
+            this.btn_tambah.Location = new System.Drawing.Point(14, 67);
+            this.btn_tambah.Name = "btn_tambah";
+            this.btn_tambah.Size = new System.Drawing.Size(75, 37);
+            this.btn_tambah.TabIndex = 7;
+            this.btn_tambah.Text = "Tambah";
+            this.btn_tambah.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // grid_obat
+            // dataGridView1
             // 
-            this.grid_obat.AllowUserToDeleteRows = false;
-            this.grid_obat.AllowUserToOrderColumns = true;
-            this.grid_obat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grid_obat.AutoGenerateColumns = false;
-            this.grid_obat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid_obat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grid_obat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.grid_obat.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.grid_obat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_obat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.kodeDataGridViewTextBoxColumn,
             this.namaDataGridViewTextBoxColumn,
@@ -73,78 +73,103 @@
             this.stokDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
             this.keteranganDataGridViewTextBoxColumn});
-            this.grid_obat.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grid_obat.DataSource = this.obatBindingSource;
-            this.grid_obat.Location = new System.Drawing.Point(2, 155);
-            this.grid_obat.Name = "grid_obat";
-            this.grid_obat.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.grid_obat.Size = new System.Drawing.Size(933, 319);
-            this.grid_obat.TabIndex = 3;
+            this.dataGridView1.DataSource = this.obatBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 110);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.Size = new System.Drawing.Size(753, 366);
+            this.dataGridView1.TabIndex = 10;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kodeDataGridViewTextBoxColumn
             // 
             this.kodeDataGridViewTextBoxColumn.DataPropertyName = "Kode";
-            this.kodeDataGridViewTextBoxColumn.HeaderText = "Kode Obat";
+            this.kodeDataGridViewTextBoxColumn.HeaderText = "Kode";
             this.kodeDataGridViewTextBoxColumn.Name = "kodeDataGridViewTextBoxColumn";
+            this.kodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // namaDataGridViewTextBoxColumn
             // 
             this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama Obat";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
             this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // satuanDataGridViewTextBoxColumn
             // 
             this.satuanDataGridViewTextBoxColumn.DataPropertyName = "Satuan";
             this.satuanDataGridViewTextBoxColumn.HeaderText = "Satuan";
             this.satuanDataGridViewTextBoxColumn.Name = "satuanDataGridViewTextBoxColumn";
+            this.satuanDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // stokDataGridViewTextBoxColumn
             // 
             this.stokDataGridViewTextBoxColumn.DataPropertyName = "Stok";
             this.stokDataGridViewTextBoxColumn.HeaderText = "Stok";
             this.stokDataGridViewTextBoxColumn.Name = "stokDataGridViewTextBoxColumn";
+            this.stokDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // hargaDataGridViewTextBoxColumn
             // 
             this.hargaDataGridViewTextBoxColumn.DataPropertyName = "Harga";
             this.hargaDataGridViewTextBoxColumn.HeaderText = "Harga";
             this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
+            this.hargaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // keteranganDataGridViewTextBoxColumn
             // 
             this.keteranganDataGridViewTextBoxColumn.DataPropertyName = "Keterangan";
             this.keteranganDataGridViewTextBoxColumn.HeaderText = "Keterangan";
             this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
+            this.keteranganDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // obatBindingSource
             // 
             this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
             // 
-            // view
+            // btn_hapus
+            // 
+            this.btn_hapus.BackColor = System.Drawing.Color.Red;
+            this.btn_hapus.CustomBackground = true;
+            this.btn_hapus.Location = new System.Drawing.Point(176, 67);
+            this.btn_hapus.Name = "btn_hapus";
+            this.btn_hapus.Size = new System.Drawing.Size(75, 37);
+            this.btn_hapus.TabIndex = 8;
+            this.btn_hapus.Text = "Hapus";
+            this.btn_hapus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_edit.CustomBackground = true;
+            this.btn_edit.Location = new System.Drawing.Point(95, 67);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 37);
+            this.btn_edit.TabIndex = 9;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // masterDistributor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 510);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.grid_obat);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "view";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lihat - Pengguna";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.grid_obat)).EndInit();
+            this.ClientSize = new System.Drawing.Size(780, 489);
+            this.Controls.Add(this.btn_tambah);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btn_hapus);
+            this.Controls.Add(this.btn_edit);
+            this.Name = "masterDistributor";
+            this.Style = MetroFramework.MetroColorStyle.Brown;
+            this.Text = "Master Distributor";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -152,8 +177,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView grid_obat;
+        private MetroFramework.Controls.MetroTile btn_tambah;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
@@ -162,5 +187,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keteranganDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource obatBindingSource;
+        private MetroFramework.Controls.MetroTile btn_hapus;
+        private MetroFramework.Controls.MetroTile btn_edit;
     }
 }

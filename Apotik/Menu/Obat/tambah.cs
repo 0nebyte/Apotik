@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Obat
 {
-    public partial class tambah : Form
+    public partial class tambah : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
         private Model.Obat model;

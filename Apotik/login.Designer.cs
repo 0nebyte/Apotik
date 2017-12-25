@@ -53,7 +53,7 @@
             this.txt_username.MaxLength = 20;
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(226, 26);
-            this.txt_username.TabIndex = 2;
+            this.txt_username.TabIndex = 1;
             this.txt_username.Click += new System.EventHandler(this.txt_username_Click);
             this.txt_username.MouseEnter += new System.EventHandler(this.txt_username_MouseEnter);
             // 
@@ -66,7 +66,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(226, 26);
-            this.txt_password.TabIndex = 3;
+            this.txt_password.TabIndex = 2;
             this.txt_password.Click += new System.EventHandler(this.txt_password_Click);
             // 
             // metroButtonLogin
@@ -75,7 +75,7 @@
             this.metroButtonLogin.Name = "metroButtonLogin";
             this.metroButtonLogin.Size = new System.Drawing.Size(152, 39);
             this.metroButtonLogin.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButtonLogin.TabIndex = 13;
+            this.metroButtonLogin.TabIndex = 3;
             this.metroButtonLogin.Text = "Login";
             this.metroButtonLogin.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButtonLogin.Click += new System.EventHandler(this.metroButtonLogin_Click);
@@ -87,7 +87,7 @@
             this.metroButtonClose.Name = "metroButtonClose";
             this.metroButtonClose.Size = new System.Drawing.Size(150, 39);
             this.metroButtonClose.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButtonClose.TabIndex = 14;
+            this.metroButtonClose.TabIndex = 4;
             this.metroButtonClose.Text = "Cancel";
             this.metroButtonClose.Click += new System.EventHandler(this.metroButtonClose_Click);
             // 

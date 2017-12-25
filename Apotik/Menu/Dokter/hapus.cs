@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apotik.Menu.Distributor
+namespace Apotik.Menu.Dokter
 {
-    public partial class view : Form
+    public partial class hapus : MetroFramework.Forms.MetroForm
     {
-        public view()
+        public hapus()
         {
             InitializeComponent();
         }
