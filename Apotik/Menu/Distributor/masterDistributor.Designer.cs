@@ -55,6 +55,7 @@
             this.btn_tambah.TabIndex = 7;
             this.btn_tambah.Text = "Tambah";
             this.btn_tambah.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_tambah.Click += new System.EventHandler(this.btn_tambah_Click);
             // 
             // dataGridView1
             // 
@@ -145,6 +146,7 @@
             this.btn_hapus.TabIndex = 8;
             this.btn_hapus.Text = "Hapus";
             this.btn_hapus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_hapus.Click += new System.EventHandler(this.btn_hapus_Click);
             // 
             // btn_edit
             // 
@@ -156,6 +158,7 @@
             this.btn_edit.TabIndex = 9;
             this.btn_edit.Text = "Edit";
             this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // masterDistributor
             // 

@@ -56,6 +56,7 @@
             this.btn_tambah.Text = "Tambah";
             this.btn_tambah.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_tambah.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_tambah.Click += new System.EventHandler(this.btn_tambah_Click);
             // 
             // dataGridView1
             // 

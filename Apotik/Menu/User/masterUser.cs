@@ -16,5 +16,11 @@ namespace Apotik.Menu.User
         {
             InitializeComponent();
         }
+
+        private void btn_tambah_Click(object sender, EventArgs e)
+        {
+            var tambah = new tambah();
+            tambah.ShowDialog();
+        }
     }
 }

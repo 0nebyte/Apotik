@@ -16,5 +16,23 @@ namespace Apotik.Menu.Dokter
         {
             InitializeComponent();
         }
+
+        private void btn_tambah_Click(object sender, EventArgs e)
+        {
+            var tambah = new tambah();
+            tambah.ShowDialog();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            var edit = new edit();
+            edit.ShowDialog();
+        }
+
+        private void btn_hapus_Click(object sender, EventArgs e)
+        {
+            var hapus = new hapus();
+            hapus.ShowDialog();
+        }
     }
 }

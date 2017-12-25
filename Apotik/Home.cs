@@ -120,5 +120,27 @@ namespace Apotik
             masterObat.MdiParent = this;
             masterObat.Show();
         }
+
+        private void dokterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var masterdokter = new Menu.Dokter.masterDokter();
+            masterdokter.MdiParent = this;
+            masterdokter.Show();
+        }
+
+        private void distributorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var masterDistributor = new Menu.Distributor.masterDistributor();
+            masterDistributor.MdiParent = this;
+            masterDistributor.Show();
+        }
+
+        private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var masterUser = new Menu.User.masterUser();
+            masterUser.MdiParent = this;
+            masterUser.Show();
+
+        }
     }
 }
