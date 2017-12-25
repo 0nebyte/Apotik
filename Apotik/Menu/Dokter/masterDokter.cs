@@ -12,9 +12,14 @@ namespace Apotik.Menu.Dokter
 {
     public partial class masterDokter : MetroFramework.Forms.MetroForm
     {
-        public masterDokter()
+        private Controller controller;
+
+        public masterDokter( Controller controller)
         {
+            this.controller = controller;
             InitializeComponent();
+
+
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)

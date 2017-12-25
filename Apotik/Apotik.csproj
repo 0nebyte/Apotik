@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Dokter.cs" />
     <Compile Include="Model\Obat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -329,9 +330,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="coba\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

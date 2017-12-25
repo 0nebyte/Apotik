@@ -20,6 +20,18 @@ namespace Apotik
             }
         }
 
+        private IEnumerable<Model.Dokter> dokters = new List<Model.Dokter>();
+
+        public IEnumerable<Model.Dokter> Dokters
+        {
+            get { return dokters; }
+            set
+            {
+                dokters = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Dokters"));
+            }
+        }
+
         #region INotifyPropertyChanged implementation
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
