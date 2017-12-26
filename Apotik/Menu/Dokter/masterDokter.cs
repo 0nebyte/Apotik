@@ -17,24 +17,25 @@ namespace Apotik.Menu.Dokter
         public masterDokter( Controller controller)
         {
             this.controller = controller;
+
             InitializeComponent();
 
             dataGridViewDokter.DataBindings.Add("DataSource", controller, "Dokters");
 
-           // controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
-
+            //ndre ini gunanya buat apa? sonde pakai cuma waktu add datanya masuk
+            //controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
 
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah();
+            var tambah = new tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit();
+            var edit = new edit(controller);
             edit.ShowDialog();
         }
 

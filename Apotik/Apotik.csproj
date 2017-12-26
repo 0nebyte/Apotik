@@ -152,6 +152,12 @@
     <Compile Include="Menu\Obat\tambah.Designer.cs">
       <DependentUpon>tambah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\User\edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\User\edit.Designer.cs">
+      <DependentUpon>edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\User\masterUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     <EmbeddedResource Include="Menu\Obat\tambah.resx">
       <DependentUpon>tambah.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\User\edit.resx">
+      <DependentUpon>edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\User\masterUser.resx">
       <DependentUpon>masterUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,7 +238,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Apotik.Model.Distributor.datasource" />
+    <None Include="Properties\DataSources\Apotik.Model.Dokter.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Obat.datasource" />
+    <None Include="Properties\DataSources\Apotik.Model.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

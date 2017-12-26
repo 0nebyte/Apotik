@@ -12,20 +12,28 @@ namespace Apotik.Menu.Distributor
 {
     public partial class masterDistributor : MetroFramework.Forms.MetroForm
     {
-        public masterDistributor()
+        private Controller controller;
+
+        public masterDistributor(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
+
+            dataGridViewDistribtr.DataBindings.Add("DataSource", controller, "Distributors");
+
+            controller.Distributors = Model.Database.Instance.Query<Model.Distributor>();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah();
+            var tambah = new tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit();
+            var edit = new edit(controller);
             edit.ShowDialog();
         }
 

@@ -26,6 +26,10 @@ namespace Apotik.Model
         private string telp;
         private string keterangan;
 
+        public Dokter()
+        {
+        }
+
         public Dokter(int id, string kode, string nama, string alamat, string notelp, string keterangan)
         {
             this.id = id;

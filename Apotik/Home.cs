@@ -123,21 +123,21 @@ namespace Apotik
 
         private void dokterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterdokter = new Menu.Dokter.masterDokter();
+            var masterdokter = new Menu.Dokter.masterDokter(controller);
             masterdokter.MdiParent = this;
             masterdokter.Show();
         }
 
         private void distributorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterDistributor = new Menu.Distributor.masterDistributor();
+            var masterDistributor = new Menu.Distributor.masterDistributor(controller);
             masterDistributor.MdiParent = this;
             masterDistributor.Show();
         }
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterUser = new Menu.User.masterUser();
+            var masterUser = new Menu.User.masterUser(controller);
             masterUser.MdiParent = this;
             masterUser.Show();
 

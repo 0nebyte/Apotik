@@ -69,6 +69,7 @@
             this.btn_cari.TabIndex = 3;
             this.btn_cari.Text = "Cari";
             this.btn_cari.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         //   this.btn_cari.Click += new System.EventHandler(this.btn_cari_Click_1);
             // 
             // cb_jenis
             // 
@@ -234,7 +235,7 @@
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(471, 51);
             this.metroTile1.TabIndex = 58;
-            this.metroTile1.Text = "UBAH OBAT";
+            this.metroTile1.Text = "UBAH DATA OBAT";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;

@@ -49,6 +49,8 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.cmb_bank = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,25 +72,27 @@
             this.btn_cancel.BackColor = System.Drawing.Color.Red;
             this.btn_cancel.CustomBackground = true;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(279, 483);
+            this.btn_cancel.Location = new System.Drawing.Point(279, 528);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 35);
             this.btn_cancel.TabIndex = 66;
             this.btn_cancel.Text = "BATAL";
             this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_cancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_simpan
             // 
             this.btn_simpan.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_simpan.CustomBackground = true;
-            this.btn_simpan.Location = new System.Drawing.Point(361, 483);
+            this.btn_simpan.Location = new System.Drawing.Point(361, 528);
             this.btn_simpan.Name = "btn_simpan";
             this.btn_simpan.Size = new System.Drawing.Size(75, 35);
             this.btn_simpan.TabIndex = 65;
             this.btn_simpan.Text = "SIMPAN";
             this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_simpan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // btn_cari
             // 
@@ -100,6 +104,7 @@
             this.btn_cari.TabIndex = 3;
             this.btn_cari.Text = "Cari";
             this.btn_cari.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_cari.Click += new System.EventHandler(this.btn_cari_Click);
             // 
             // metroPanel1
             // 
@@ -148,14 +153,14 @@
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(106, 440);
+            this.txt_email.Location = new System.Drawing.Point(106, 485);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(330, 23);
             this.txt_email.TabIndex = 81;
             // 
             // txt_norek
             // 
-            this.txt_norek.Location = new System.Drawing.Point(106, 402);
+            this.txt_norek.Location = new System.Drawing.Point(106, 447);
             this.txt_norek.Name = "txt_norek";
             this.txt_norek.Size = new System.Drawing.Size(330, 23);
             this.txt_norek.TabIndex = 80;
@@ -184,7 +189,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(13, 443);
+            this.metroLabel7.Location = new System.Drawing.Point(13, 488);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(41, 19);
             this.metroLabel7.TabIndex = 82;
@@ -200,7 +205,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(13, 405);
+            this.metroLabel6.Location = new System.Drawing.Point(13, 450);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(84, 19);
             this.metroLabel6.TabIndex = 83;
@@ -251,11 +256,42 @@
             this.metroLabel1.TabIndex = 88;
             this.metroLabel1.Text = "Kode";
             // 
+            // cmb_bank
+            // 
+            this.cmb_bank.FormattingEnabled = true;
+            this.cmb_bank.ItemHeight = 23;
+            this.cmb_bank.Items.AddRange(new object[] {
+            "Mandiri",
+            "BRI",
+            "BCA",
+            "BNI",
+            "NTT",
+            "BTN",
+            "CIMB",
+            "Danamon",
+            "Maybank",
+            "lainnya"});
+            this.cmb_bank.Location = new System.Drawing.Point(106, 401);
+            this.cmb_bank.Name = "cmb_bank";
+            this.cmb_bank.Size = new System.Drawing.Size(330, 29);
+            this.cmb_bank.TabIndex = 89;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(13, 407);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel8.TabIndex = 90;
+            this.metroLabel8.Text = "Bank";
+            // 
             // edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 541);
+            this.ClientSize = new System.Drawing.Size(463, 578);
+            this.Controls.Add(this.cmb_bank);
+            this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.txt_alamat);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_norek);
@@ -306,5 +342,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroComboBox cmb_bank;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }

@@ -12,15 +12,29 @@ namespace Apotik.Menu.User
 {
     public partial class masterUser : MetroFramework.Forms.MetroForm
     {
-        public masterUser()
+        private Controller controller;
+
+        public masterUser(Controller controller)
         {
+            this.controller = controller;
+
             InitializeComponent();
+
+            dataGridViewUser.DataBindings.Add("DataSource", controller, "Users");
+
+            controller.Users = Model.Database.Instance.Query<Model.User>();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah();
+            var tambah = new tambah(controller);
             tambah.ShowDialog();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            var edit = new edit(controller);
+            edit.ShowDialog();
         }
     }
 }

@@ -25,11 +25,16 @@ namespace Apotik.Model
         private string alamat;
         private string kota;
         private string telp;
+        private string bank;
         private string norek;
         private string email;
 
+        public Distributor()
+        {
+        }
+
         public Distributor(int id, string kode, string nama, string alamat, string kota, 
-            string telp, string norek, string email)
+            string telp,string bank, string norek, string email)
         {
             this.id = id;
             this.kode = kode;
@@ -37,6 +42,7 @@ namespace Apotik.Model
             this.alamat = alamat;
             this.kota = kota;
             this.telp = telp;
+            this.bank = bank;
             this.norek = norek;
             this.email = email;
         }
@@ -131,6 +137,21 @@ namespace Apotik.Model
             }
         }
 
+        [Attributes.Field(Name = "bank", AllowNull = true)]
+        public string Bank
+        {
+            get
+            {
+                return bank;
+            }
+
+            set
+            {
+                bank = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Bank"));
+            }
+        }
+
         [Attributes.Field(Name = "norek", AllowNull = false)]
         public string Norek
         {
@@ -170,6 +191,7 @@ namespace Apotik.Model
                 "\talamat: " + alamat + "\n" +
                 "\tkota: " + kota + "\n" +
                 "\ttelp: " + telp + "\n" +
+                "\tbank: " + bank + "\n" +
                 "\tnorek: " + norek + "\n" +
                 "\tketerangan: " + email;
         }

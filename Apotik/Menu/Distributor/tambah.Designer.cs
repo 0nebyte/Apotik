@@ -45,6 +45,8 @@
             this.txt_alamat = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.txt_email = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.cmb_bank = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // btn_cancel
@@ -52,30 +54,32 @@
             this.btn_cancel.BackColor = System.Drawing.Color.Red;
             this.btn_cancel.CustomBackground = true;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(158, 425);
+            this.btn_cancel.Location = new System.Drawing.Point(158, 456);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 35);
-            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.TabIndex = 10;
             this.btn_cancel.Text = "BATAL";
             this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_cancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_simpan
             // 
-            this.btn_simpan.Location = new System.Drawing.Point(239, 425);
+            this.btn_simpan.Location = new System.Drawing.Point(239, 456);
             this.btn_simpan.Name = "btn_simpan";
             this.btn_simpan.Size = new System.Drawing.Size(75, 35);
-            this.btn_simpan.TabIndex = 8;
+            this.btn_simpan.TabIndex = 9;
             this.btn_simpan.Text = "SIMPAN";
             this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_simpan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // txt_norek
             // 
-            this.txt_norek.Location = new System.Drawing.Point(106, 324);
+            this.txt_norek.Location = new System.Drawing.Point(106, 355);
             this.txt_norek.Name = "txt_norek";
             this.txt_norek.Size = new System.Drawing.Size(208, 23);
-            this.txt_norek.TabIndex = 6;
+            this.txt_norek.TabIndex = 7;
             // 
             // txt_telp
             // 
@@ -108,7 +112,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(13, 327);
+            this.metroLabel6.Location = new System.Drawing.Point(13, 358);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(84, 19);
             this.metroLabel6.TabIndex = 49;
@@ -181,7 +185,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(13, 365);
+            this.metroLabel7.Location = new System.Drawing.Point(13, 396);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(41, 19);
             this.metroLabel7.TabIndex = 49;
@@ -189,16 +193,46 @@
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(106, 362);
+            this.txt_email.Location = new System.Drawing.Point(106, 393);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(208, 23);
-            this.txt_email.TabIndex = 7;
+            this.txt_email.TabIndex = 8;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(13, 323);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel8.TabIndex = 49;
+            this.metroLabel8.Text = "Bank";
+            // 
+            // cmb_bank
+            // 
+            this.cmb_bank.FormattingEnabled = true;
+            this.cmb_bank.ItemHeight = 23;
+            this.cmb_bank.Items.AddRange(new object[] {
+            "Mandiri",
+            "BRI",
+            "BCA",
+            "BNI",
+            "NTT",
+            "BTN",
+            "CIMB",
+            "Danamon",
+            "Maybank",
+            "lainnya"});
+            this.cmb_bank.Location = new System.Drawing.Point(106, 317);
+            this.cmb_bank.Name = "cmb_bank";
+            this.cmb_bank.Size = new System.Drawing.Size(208, 29);
+            this.cmb_bank.TabIndex = 6;
             // 
             // tambah
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 480);
+            this.ClientSize = new System.Drawing.Size(341, 531);
+            this.Controls.Add(this.cmb_bank);
             this.Controls.Add(this.txt_alamat);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_simpan);
@@ -208,6 +242,7 @@
             this.Controls.Add(this.txt_kota);
             this.Controls.Add(this.txt_nama);
             this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.txt_kode);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroLabel5);
@@ -242,5 +277,7 @@
         private MetroFramework.Controls.MetroTextBox txt_alamat;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTextBox txt_email;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroComboBox cmb_bank;
     }
 }

@@ -31,10 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.btn_tambah = new MetroFramework.Controls.MetroTile();
             this.dataGridViewDokter = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alamatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dokterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_hapus = new MetroFramework.Controls.MetroTile();
             this.btn_edit = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDokter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,8 +65,18 @@
             this.dataGridViewDokter.AllowUserToDeleteRows = false;
             this.dataGridViewDokter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewDokter.AutoGenerateColumns = false;
+            this.dataGridViewDokter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDokter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewDokter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDokter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.kodeDataGridViewTextBoxColumn,
+            this.namaDataGridViewTextBoxColumn,
+            this.alamatDataGridViewTextBoxColumn,
+            this.telpDataGridViewTextBoxColumn,
+            this.keteranganDataGridViewTextBoxColumn});
+            this.dataGridViewDokter.DataSource = this.dokterBindingSource;
             this.dataGridViewDokter.Location = new System.Drawing.Point(23, 106);
             this.dataGridViewDokter.Name = "dataGridViewDokter";
             this.dataGridViewDokter.ReadOnly = true;
@@ -67,9 +85,52 @@
             this.dataGridViewDokter.Size = new System.Drawing.Size(753, 366);
             this.dataGridViewDokter.TabIndex = 10;
             // 
-            // obatBindingSource
+            // idDataGridViewTextBoxColumn
             // 
-            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // kodeDataGridViewTextBoxColumn
+            // 
+            this.kodeDataGridViewTextBoxColumn.DataPropertyName = "Kode";
+            this.kodeDataGridViewTextBoxColumn.HeaderText = "Kode";
+            this.kodeDataGridViewTextBoxColumn.Name = "kodeDataGridViewTextBoxColumn";
+            this.kodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // namaDataGridViewTextBoxColumn
+            // 
+            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
+            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // alamatDataGridViewTextBoxColumn
+            // 
+            this.alamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
+            this.alamatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telpDataGridViewTextBoxColumn
+            // 
+            this.telpDataGridViewTextBoxColumn.DataPropertyName = "Telp";
+            this.telpDataGridViewTextBoxColumn.HeaderText = "Telp";
+            this.telpDataGridViewTextBoxColumn.Name = "telpDataGridViewTextBoxColumn";
+            this.telpDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // keteranganDataGridViewTextBoxColumn
+            // 
+            this.keteranganDataGridViewTextBoxColumn.DataPropertyName = "Keterangan";
+            this.keteranganDataGridViewTextBoxColumn.HeaderText = "Keterangan";
+            this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
+            this.keteranganDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dokterBindingSource
+            // 
+            this.dokterBindingSource.DataSource = typeof(Apotik.Model.Dokter);
             // 
             // btn_hapus
             // 
@@ -110,6 +171,7 @@
             this.Style = MetroFramework.MetroColorStyle.Brown;
             this.Text = "Master Dokter";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDokter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -122,5 +184,12 @@
         private System.Windows.Forms.BindingSource obatBindingSource;
         private MetroFramework.Controls.MetroTile btn_hapus;
         private MetroFramework.Controls.MetroTile btn_edit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alamatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keteranganDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dokterBindingSource;
     }
 }

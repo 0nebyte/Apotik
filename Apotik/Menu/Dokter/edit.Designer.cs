@@ -43,6 +43,8 @@
             this.btn_cancel = new MetroFramework.Controls.MetroTile();
             this.btn_simpan = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txt_ket = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +147,7 @@
             this.btn_cari.TabIndex = 3;
             this.btn_cari.Text = "Cari";
             this.btn_cari.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_cari.Click += new System.EventHandler(this.btn_cari_Click);
             // 
             // cb_jenis
             // 
@@ -158,13 +161,14 @@
             this.cb_jenis.Name = "cb_jenis";
             this.cb_jenis.Size = new System.Drawing.Size(121, 29);
             this.cb_jenis.TabIndex = 1;
+            this.cb_jenis.SelectedIndexChanged += new System.EventHandler(this.cb_jenis_SelectedIndexChanged);
             // 
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.Red;
             this.btn_cancel.CustomBackground = true;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(277, 366);
+            this.btn_cancel.Location = new System.Drawing.Point(277, 405);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 35);
             this.btn_cancel.TabIndex = 90;
@@ -176,13 +180,14 @@
             // 
             this.btn_simpan.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_simpan.CustomBackground = true;
-            this.btn_simpan.Location = new System.Drawing.Point(359, 366);
+            this.btn_simpan.Location = new System.Drawing.Point(359, 405);
             this.btn_simpan.Name = "btn_simpan";
             this.btn_simpan.Size = new System.Drawing.Size(75, 35);
             this.btn_simpan.TabIndex = 89;
             this.btn_simpan.Text = "SIMPAN";
             this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_simpan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // metroTile1
             // 
@@ -197,14 +202,32 @@
             this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(11, 368);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(75, 19);
+            this.metroLabel4.TabIndex = 102;
+            this.metroLabel4.Text = "Keterangan";
+            // 
+            // txt_ket
+            // 
+            this.txt_ket.Location = new System.Drawing.Point(104, 365);
+            this.txt_ket.Name = "txt_ket";
+            this.txt_ket.Size = new System.Drawing.Size(330, 23);
+            this.txt_ket.TabIndex = 97;
+            // 
             // edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 414);
+            this.ClientSize = new System.Drawing.Size(443, 479);
             this.Controls.Add(this.txt_alamat);
+            this.Controls.Add(this.txt_ket);
             this.Controls.Add(this.txt_telp);
             this.Controls.Add(this.txt_nama);
+            this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.txt_kode);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel3);
@@ -240,5 +263,7 @@
         private MetroFramework.Controls.MetroTile btn_cancel;
         private MetroFramework.Controls.MetroTile btn_simpan;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroTextBox txt_ket;
     }
 }

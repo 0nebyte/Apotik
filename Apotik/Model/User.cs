@@ -20,6 +20,7 @@ namespace Apotik.Model
         public static string tableName = "tb_user";
 
         private int id;
+        private string kode;
         private string nama;
         private string jk;
         private string alamat;
@@ -29,10 +30,11 @@ namespace Apotik.Model
         private string password;
         private string role;
 
-        public User(int id, string nama, string jk, string alamat, string kota,
+        public User(int id, string kode, string nama, string jk, string alamat, string kota,
             string telp, string username, string password, string role)
         {
             this.id = id;
+            this.kode = kode;
             this.nama = nama;
             this.jk = jk;
             this.alamat = alamat;
@@ -41,6 +43,11 @@ namespace Apotik.Model
             this.username = username;
             this.password = password;
             this.role = role;
+        }
+
+        public User()
+        {
+
         }
 
         [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
@@ -55,6 +62,21 @@ namespace Apotik.Model
             {
                 id = value;
                 InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
+            }
+        }
+
+        [Attributes.Field(Name = "kode_user", AllowNull = false)]
+        public string Kode
+        {
+            get
+            {
+                return kode;
+            }
+
+            set
+            {
+                kode = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
             }
         }
 

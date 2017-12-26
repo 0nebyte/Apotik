@@ -34,12 +34,6 @@ namespace Apotik.Menu.Obat
             txt_ket.DataBindings.Add("Text", model, "Keterangan");
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btn_simpan_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
@@ -47,6 +41,11 @@ namespace Apotik.Menu.Obat
 
             controller.Obats = Model.Database.Instance.Query<Model.Obat>();
 
+            Close();
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

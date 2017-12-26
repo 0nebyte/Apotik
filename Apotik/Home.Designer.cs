@@ -104,28 +104,28 @@
             // obatToolStripMenuItem
             // 
             this.obatToolStripMenuItem.Name = "obatToolStripMenuItem";
-            this.obatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.obatToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.obatToolStripMenuItem.Text = "Obat";
             this.obatToolStripMenuItem.Click += new System.EventHandler(this.obatToolStripMenuItem_Click);
             // 
             // dokterToolStripMenuItem
             // 
             this.dokterToolStripMenuItem.Name = "dokterToolStripMenuItem";
-            this.dokterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dokterToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.dokterToolStripMenuItem.Text = "Dokter";
             this.dokterToolStripMenuItem.Click += new System.EventHandler(this.dokterToolStripMenuItem_Click);
             // 
             // distributorToolStripMenuItem
             // 
             this.distributorToolStripMenuItem.Name = "distributorToolStripMenuItem";
-            this.distributorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.distributorToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.distributorToolStripMenuItem.Text = "Distributor";
             this.distributorToolStripMenuItem.Click += new System.EventHandler(this.distributorToolStripMenuItem_Click);
             // 
             // penggunaToolStripMenuItem
             // 
             this.penggunaToolStripMenuItem.Name = "penggunaToolStripMenuItem";
-            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.penggunaToolStripMenuItem.Text = "Pengguna";
             this.penggunaToolStripMenuItem.Click += new System.EventHandler(this.penggunaToolStripMenuItem_Click);
             // 
@@ -184,13 +184,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.statusStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apotik 1.0";

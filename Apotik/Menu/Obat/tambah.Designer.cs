@@ -71,6 +71,7 @@
             this.btn_cancel.Text = "BATAL";
             this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_cancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_simpan
             // 

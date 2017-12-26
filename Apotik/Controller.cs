@@ -44,13 +44,13 @@ namespace Apotik
         }
 
 
-        private IEnumerable<Model.User> user = new List<Model.User>();
-        public IEnumerable<Model.User> User
+        private IEnumerable<Model.User> users = new List<Model.User>();
+        public IEnumerable<Model.User> Users
         {
-            get { return user; }
+            get { return users; }
             set
             {
-                user = value;
+                users = value;
                 InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Users"));
             }
         }

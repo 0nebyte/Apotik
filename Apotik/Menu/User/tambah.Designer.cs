@@ -30,27 +30,25 @@
         {
             this.btn_cancel = new MetroFramework.Controls.MetroTile();
             this.btn_simpan = new MetroFramework.Controls.MetroTile();
-            this.txt_ket = new MetroFramework.Controls.MetroTextBox();
             this.txt_alamat = new MetroFramework.Controls.MetroTextBox();
             this.txt_telp = new MetroFramework.Controls.MetroTextBox();
             this.txt_nama = new MetroFramework.Controls.MetroTextBox();
             this.txt_kode = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.cmb_role = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.cmb_jk = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.txt_username = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.txt_password = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.txt_username = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +65,7 @@
             this.btn_cancel.Text = "BATAL";
             this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_cancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_simpan
             // 
@@ -77,13 +76,7 @@
             this.btn_simpan.Text = "SIMPAN";
             this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_simpan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            // 
-            // txt_ket
-            // 
-            this.txt_ket.Location = new System.Drawing.Point(103, 307);
-            this.txt_ket.Name = "txt_ket";
-            this.txt_ket.Size = new System.Drawing.Size(208, 23);
-            this.txt_ket.TabIndex = 60;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // txt_alamat
             // 
@@ -113,15 +106,6 @@
             this.txt_kode.Name = "txt_kode";
             this.txt_kode.Size = new System.Drawing.Size(208, 23);
             this.txt_kode.TabIndex = 56;
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(10, 310);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(75, 19);
-            this.metroLabel6.TabIndex = 63;
-            this.metroLabel6.Text = "Keterangan";
             // 
             // metroLabel4
             // 
@@ -165,7 +149,7 @@
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(724, 51);
             this.metroTile1.TabIndex = 68;
-            this.metroTile1.Text = "TAMBAH KARYAWAN";
+            this.metroTile1.Text = "TAMBAH DATA KARYAWAN";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
@@ -179,16 +163,17 @@
             this.metroLabel5.TabIndex = 63;
             this.metroLabel5.Text = "Jabatan";
             // 
-            // metroComboBox1
+            // cmb_role
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Items.AddRange(new object[] {
+            this.cmb_role.FormattingEnabled = true;
+            this.cmb_role.ItemHeight = 23;
+            this.cmb_role.Items.AddRange(new object[] {
+            "Admin",
             "Karyawan"});
-            this.metroComboBox1.Location = new System.Drawing.Point(103, 270);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(208, 29);
-            this.metroComboBox1.TabIndex = 69;
+            this.cmb_role.Location = new System.Drawing.Point(103, 270);
+            this.cmb_role.Name = "cmb_role";
+            this.cmb_role.Size = new System.Drawing.Size(208, 29);
+            this.cmb_role.TabIndex = 69;
             // 
             // metroLabel7
             // 
@@ -199,37 +184,35 @@
             this.metroLabel7.TabIndex = 66;
             this.metroLabel7.Text = "Jenis Kelamin";
             // 
-            // metroComboBox2
+            // cmb_jk
             // 
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 23;
-            this.metroComboBox2.Items.AddRange(new object[] {
+            this.cmb_jk.FormattingEnabled = true;
+            this.cmb_jk.ItemHeight = 23;
+            this.cmb_jk.Items.AddRange(new object[] {
             "Pria",
             "Wanita"});
-            this.metroComboBox2.Location = new System.Drawing.Point(103, 91);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(208, 29);
-            this.metroComboBox2.TabIndex = 69;
+            this.cmb_jk.Location = new System.Drawing.Point(103, 91);
+            this.cmb_jk.Name = "cmb_jk";
+            this.cmb_jk.Size = new System.Drawing.Size(208, 29);
+            this.cmb_jk.TabIndex = 69;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.metroComboBox2);
+            this.groupBox1.Controls.Add(this.cmb_jk);
             this.groupBox1.Controls.Add(this.txt_kode);
-            this.groupBox1.Controls.Add(this.metroComboBox1);
+            this.groupBox1.Controls.Add(this.cmb_role);
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel3);
-            this.groupBox1.Controls.Add(this.txt_ket);
             this.groupBox1.Controls.Add(this.metroLabel7);
             this.groupBox1.Controls.Add(this.txt_alamat);
             this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.txt_telp);
-            this.groupBox1.Controls.Add(this.metroLabel6);
             this.groupBox1.Controls.Add(this.txt_nama);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Location = new System.Drawing.Point(9, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 344);
+            this.groupBox1.Size = new System.Drawing.Size(326, 312);
             this.groupBox1.TabIndex = 70;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Diri";
@@ -247,21 +230,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Login";
             // 
-            // metroLabel8
+            // txt_password
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(10, 23);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel8.TabIndex = 67;
-            this.metroLabel8.Text = "Username";
-            // 
-            // txt_username
-            // 
-            this.txt_username.Location = new System.Drawing.Point(102, 19);
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(208, 23);
-            this.txt_username.TabIndex = 56;
+            this.txt_password.Location = new System.Drawing.Point(102, 48);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(208, 23);
+            this.txt_password.TabIndex = 56;
             // 
             // metroLabel9
             // 
@@ -272,18 +246,27 @@
             this.metroLabel9.TabIndex = 67;
             this.metroLabel9.Text = "Password";
             // 
-            // txt_password
+            // txt_username
             // 
-            this.txt_password.Location = new System.Drawing.Point(102, 48);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(208, 23);
-            this.txt_password.TabIndex = 56;
+            this.txt_username.Location = new System.Drawing.Point(102, 19);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Size = new System.Drawing.Size(208, 23);
+            this.txt_username.TabIndex = 56;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(10, 23);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel8.TabIndex = 67;
+            this.metroLabel8.Text = "Username";
             // 
             // tambah
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 422);
+            this.ClientSize = new System.Drawing.Size(702, 393);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_simpan);
@@ -303,21 +286,19 @@
 
         private MetroFramework.Controls.MetroTile btn_cancel;
         private MetroFramework.Controls.MetroTile btn_simpan;
-        private MetroFramework.Controls.MetroTextBox txt_ket;
         private MetroFramework.Controls.MetroTextBox txt_alamat;
         private MetroFramework.Controls.MetroTextBox txt_telp;
         private MetroFramework.Controls.MetroTextBox txt_nama;
         private MetroFramework.Controls.MetroTextBox txt_kode;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox cmb_role;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroComboBox metroComboBox2;
+        private MetroFramework.Controls.MetroComboBox cmb_jk;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox txt_password;
