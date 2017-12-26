@@ -113,6 +113,16 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pharmacy_icon {
+            get {
+                object obj = ResourceManager.GetObject("Pharmacy-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tambah {
             get {
                 object obj = ResourceManager.GetObject("tambah", resourceCulture);
@@ -136,6 +146,26 @@ namespace Apotik.Properties {
         internal static System.Drawing.Bitmap UpgradeReport_Success {
             get {
                 object obj = ResourceManager.GetObject("UpgradeReport_Success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon {
+            get {
+                object obj = ResourceManager.GetObject("user-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Interface_Password_icon {
+            get {
+                object obj = ResourceManager.GetObject("User-Interface-Password-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

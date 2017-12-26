@@ -8,32 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apotik.Menu.User
+namespace Apotik.Menu.Dokter
 {
     public partial class tambah : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
-        private Model.User model;
+        private Model.Dokter model;
 
-        public tambah(Controller controller, Model.User user = null)
+        public tambah(Controller controller, Model.Dokter dokter = null)
         {
             this.controller = controller;
 
             InitializeComponent();
 
-            if (user != null)
-                model = user;
+            if (dokter != null)
+                model = dokter;
             else
-                model = new Model.User();
+                model = new Model.Dokter();
 
             txt_kode.DataBindings.Add("Text", model, "Kode");
             txt_nama.DataBindings.Add("Text", model, "Nama");
-            cmb_jk.DataBindings.Add("Text", model, "JK");
             txt_alamat.DataBindings.Add("Text", model, "Alamat");
             txt_telp.DataBindings.Add("Text", model, "Telp");
-            txt_username.DataBindings.Add("Text", model, "Username");
-            txt_password.DataBindings.Add("Text", model, "Password");
-            cmb_role.DataBindings.Add("Text", model, "Role");
+            txt_ket.DataBindings.Add("Text", model, "Keterangan");
         }
 
         private void btn_simpan_Click(object sender, EventArgs e)
@@ -41,7 +38,7 @@ namespace Apotik.Menu.User
             var db = Model.Database.Instance;
             db.Save(model);
 
-            controller.Users = Model.Database.Instance.Query<Model.User>();
+            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
 
             Close();
         }

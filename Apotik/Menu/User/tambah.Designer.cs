@@ -28,246 +28,282 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tambah));
-            this.cmb_jk = new System.Windows.Forms.ComboBox();
-            this.txt_alamat = new System.Windows.Forms.TextBox();
-            this.txt_hp = new System.Windows.Forms.TextBox();
-            this.txt_username = new System.Windows.Forms.TextBox();
-            this.txt_nama = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_pass = new System.Windows.Forms.TextBox();
-            this.cb_role = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_simpan = new System.Windows.Forms.Button();
+            this.btn_cancel = new MetroFramework.Controls.MetroTile();
+            this.btn_simpan = new MetroFramework.Controls.MetroTile();
+            this.txt_alamat = new MetroFramework.Controls.MetroTextBox();
+            this.txt_telp = new MetroFramework.Controls.MetroTextBox();
+            this.txt_nama = new MetroFramework.Controls.MetroTextBox();
+            this.txt_kode = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.cmb_role = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.cmb_jk = new MetroFramework.Controls.MetroComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_password = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.txt_username = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cmb_jk
+            // btn_cancel
             // 
-            this.cmb_jk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_jk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmb_jk.FormattingEnabled = true;
-            this.cmb_jk.Items.AddRange(new object[] {
-            "Pria",
-            "Wanita"});
-            this.cmb_jk.Location = new System.Drawing.Point(123, 44);
-            this.cmb_jk.Name = "cmb_jk";
-            this.cmb_jk.Size = new System.Drawing.Size(121, 21);
-            this.cmb_jk.TabIndex = 2;
-            // 
-            // txt_alamat
-            // 
-            this.txt_alamat.Location = new System.Drawing.Point(123, 104);
-            this.txt_alamat.Multiline = true;
-            this.txt_alamat.Name = "txt_alamat";
-            this.txt_alamat.Size = new System.Drawing.Size(335, 54);
-            this.txt_alamat.TabIndex = 4;
-            // 
-            // txt_hp
-            // 
-            this.txt_hp.Location = new System.Drawing.Point(123, 167);
-            this.txt_hp.Name = "txt_hp";
-            this.txt_hp.Size = new System.Drawing.Size(200, 20);
-            this.txt_hp.TabIndex = 5;
-            // 
-            // txt_username
-            // 
-            this.txt_username.Location = new System.Drawing.Point(123, 197);
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(200, 20);
-            this.txt_username.TabIndex = 6;
-            // 
-            // txt_nama
-            // 
-            this.txt_nama.Location = new System.Drawing.Point(123, 12);
-            this.txt_nama.Name = "txt_nama";
-            this.txt_nama.Size = new System.Drawing.Size(335, 20);
-            this.txt_nama.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 200);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Username";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 170);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 13);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Nomor Telepon /HP";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 107);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Alamat";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Tanggal Lahir";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Jenis Kelamin";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Nama";
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(123, 74);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 233);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Password";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 269);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Role";
-            // 
-            // txt_pass
-            // 
-            this.txt_pass.Location = new System.Drawing.Point(123, 230);
-            this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(200, 20);
-            this.txt_pass.TabIndex = 7;
-            // 
-            // cb_role
-            // 
-            this.cb_role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_role.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cb_role.FormattingEnabled = true;
-            this.cb_role.Items.AddRange(new object[] {
-            "User",
-            "Admin"});
-            this.cb_role.Location = new System.Drawing.Point(123, 261);
-            this.cb_role.Name = "cb_role";
-            this.cb_role.Size = new System.Drawing.Size(121, 21);
-            this.cb_role.TabIndex = 8;
-            // 
-            // button1
-            // 
-           // this.button1.Image = global::Apotik.Properties.Resources.UpgradeReport_Error;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(291, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Keluar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_cancel.CustomBackground = true;
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.Location = new System.Drawing.Point(531, 188);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 35);
+            this.btn_cancel.TabIndex = 62;
+            this.btn_cancel.Text = "BATAL";
+            this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_cancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_simpan
             // 
-            //this.btn_simpan.Image = global::Apotik.Properties.Resources.UpgradeReport_Success;
-            this.btn_simpan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_simpan.Location = new System.Drawing.Point(383, 317);
+            this.btn_simpan.Location = new System.Drawing.Point(612, 188);
             this.btn_simpan.Name = "btn_simpan";
-            this.btn_simpan.Size = new System.Drawing.Size(75, 23);
-            this.btn_simpan.TabIndex = 25;
-            this.btn_simpan.Text = "Simpan";
-            this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_simpan.UseVisualStyleBackColor = true;
+            this.btn_simpan.Size = new System.Drawing.Size(75, 35);
+            this.btn_simpan.TabIndex = 61;
+            this.btn_simpan.Text = "SIMPAN";
+            this.btn_simpan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_simpan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
+            // 
+            // txt_alamat
+            // 
+            this.txt_alamat.Location = new System.Drawing.Point(103, 132);
+            this.txt_alamat.Multiline = true;
+            this.txt_alamat.Name = "txt_alamat";
+            this.txt_alamat.Size = new System.Drawing.Size(208, 86);
+            this.txt_alamat.TabIndex = 58;
+            // 
+            // txt_telp
+            // 
+            this.txt_telp.Location = new System.Drawing.Point(103, 234);
+            this.txt_telp.Name = "txt_telp";
+            this.txt_telp.Size = new System.Drawing.Size(208, 23);
+            this.txt_telp.TabIndex = 59;
+            // 
+            // txt_nama
+            // 
+            this.txt_nama.Location = new System.Drawing.Point(103, 57);
+            this.txt_nama.Name = "txt_nama";
+            this.txt_nama.Size = new System.Drawing.Size(208, 23);
+            this.txt_nama.TabIndex = 57;
+            // 
+            // txt_kode
+            // 
+            this.txt_kode.Location = new System.Drawing.Point(103, 19);
+            this.txt_kode.Name = "txt_kode";
+            this.txt_kode.Size = new System.Drawing.Size(208, 23);
+            this.txt_kode.TabIndex = 56;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(11, 237);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(32, 19);
+            this.metroLabel4.TabIndex = 64;
+            this.metroLabel4.Text = "Telp";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(11, 136);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(51, 19);
+            this.metroLabel3.TabIndex = 65;
+            this.metroLabel3.Text = "Alamat";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(11, 60);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel2.TabIndex = 66;
+            this.metroLabel2.Text = "Nama";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(11, 23);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(39, 19);
+            this.metroLabel1.TabIndex = 67;
+            this.metroLabel1.Text = "Kode";
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.Location = new System.Drawing.Point(0, 6);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(724, 51);
+            this.metroTile1.TabIndex = 68;
+            this.metroTile1.Text = "TAMBAH DATA KARYAWAN";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(11, 273);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(54, 19);
+            this.metroLabel5.TabIndex = 63;
+            this.metroLabel5.Text = "Jabatan";
+            // 
+            // cmb_role
+            // 
+            this.cmb_role.FormattingEnabled = true;
+            this.cmb_role.ItemHeight = 23;
+            this.cmb_role.Items.AddRange(new object[] {
+            "Admin",
+            "Karyawan"});
+            this.cmb_role.Location = new System.Drawing.Point(103, 270);
+            this.cmb_role.Name = "cmb_role";
+            this.cmb_role.Size = new System.Drawing.Size(208, 29);
+            this.cmb_role.TabIndex = 69;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(11, 98);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel7.TabIndex = 66;
+            this.metroLabel7.Text = "Jenis Kelamin";
+            // 
+            // cmb_jk
+            // 
+            this.cmb_jk.FormattingEnabled = true;
+            this.cmb_jk.ItemHeight = 23;
+            this.cmb_jk.Items.AddRange(new object[] {
+            "Pria",
+            "Wanita"});
+            this.cmb_jk.Location = new System.Drawing.Point(103, 91);
+            this.cmb_jk.Name = "cmb_jk";
+            this.cmb_jk.Size = new System.Drawing.Size(208, 29);
+            this.cmb_jk.TabIndex = 69;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cmb_jk);
+            this.groupBox1.Controls.Add(this.txt_kode);
+            this.groupBox1.Controls.Add(this.cmb_role);
+            this.groupBox1.Controls.Add(this.metroLabel1);
+            this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.metroLabel3);
+            this.groupBox1.Controls.Add(this.metroLabel7);
+            this.groupBox1.Controls.Add(this.txt_alamat);
+            this.groupBox1.Controls.Add(this.metroLabel4);
+            this.groupBox1.Controls.Add(this.txt_telp);
+            this.groupBox1.Controls.Add(this.txt_nama);
+            this.groupBox1.Controls.Add(this.metroLabel5);
+            this.groupBox1.Location = new System.Drawing.Point(9, 68);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(326, 312);
+            this.groupBox1.TabIndex = 70;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Data Diri";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txt_password);
+            this.groupBox2.Controls.Add(this.metroLabel9);
+            this.groupBox2.Controls.Add(this.txt_username);
+            this.groupBox2.Controls.Add(this.metroLabel8);
+            this.groupBox2.Location = new System.Drawing.Point(353, 68);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(335, 100);
+            this.groupBox2.TabIndex = 71;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Data Login";
+            // 
+            // txt_password
+            // 
+            this.txt_password.Location = new System.Drawing.Point(102, 48);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(208, 23);
+            this.txt_password.TabIndex = 56;
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(10, 52);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(63, 19);
+            this.metroLabel9.TabIndex = 67;
+            this.metroLabel9.Text = "Password";
+            // 
+            // txt_username
+            // 
+            this.txt_username.Location = new System.Drawing.Point(102, 19);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Size = new System.Drawing.Size(208, 23);
+            this.txt_username.TabIndex = 56;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(10, 23);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel8.TabIndex = 67;
+            this.metroLabel8.Text = "Username";
             // 
             // tambah
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(474, 351);
-            this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(702, 393);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_simpan);
-            this.Controls.Add(this.cb_role);
-            this.Controls.Add(this.cmb_jk);
-            this.Controls.Add(this.txt_alamat);
-            this.Controls.Add(this.txt_hp);
-            this.Controls.Add(this.txt_pass);
-            this.Controls.Add(this.txt_username);
-            this.Controls.Add(this.txt_nama);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
+            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "tambah";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tambah - Pengguna";
+            this.Text = "tambah";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_simpan;
-        private System.Windows.Forms.ComboBox cmb_jk;
-        private System.Windows.Forms.TextBox txt_alamat;
-        private System.Windows.Forms.TextBox txt_hp;
-        private System.Windows.Forms.TextBox txt_username;
-        private System.Windows.Forms.TextBox txt_nama;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_pass;
-        private System.Windows.Forms.ComboBox cb_role;
+        private MetroFramework.Controls.MetroTile btn_cancel;
+        private MetroFramework.Controls.MetroTile btn_simpan;
+        private MetroFramework.Controls.MetroTextBox txt_alamat;
+        private MetroFramework.Controls.MetroTextBox txt_telp;
+        private MetroFramework.Controls.MetroTextBox txt_nama;
+        private MetroFramework.Controls.MetroTextBox txt_kode;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroComboBox cmb_role;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroComboBox cmb_jk;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private MetroFramework.Controls.MetroTextBox txt_password;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroTextBox txt_username;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }

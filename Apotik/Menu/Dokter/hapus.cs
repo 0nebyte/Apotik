@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apotik.Menu.User
+namespace Apotik.Menu.Dokter
 {
-    public partial class view : Form
+    public partial class hapus : MetroFramework.Forms.MetroForm
     {
-        public view()
+        public hapus()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
