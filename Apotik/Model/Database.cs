@@ -168,7 +168,16 @@ namespace Apotik.Model
 
         private static bool InitSchema(Database db)
         {
+            if (!InitSchemaFromTable(db, typeof(Model.Distributor)))
+                return false;
+
+            if (!InitSchemaFromTable(db, typeof(Model.Dokter)))
+                return false;
+
             if (!InitSchemaFromTable(db, typeof(Model.Obat)))
+                return false;
+
+            if (!InitSchemaFromTable(db, typeof(Model.User)))
                 return false;
 
             return true;
