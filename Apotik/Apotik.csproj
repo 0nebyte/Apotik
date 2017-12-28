@@ -152,6 +152,18 @@
     <Compile Include="Menu\Obat\tambah.Designer.cs">
       <DependentUpon>tambah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\dataDokter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\dataDokter.Designer.cs">
+      <DependentUpon>dataDokter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\Jual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\Jual.Designer.cs">
+      <DependentUpon>Jual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\User\edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Obat\tambah.resx">
       <DependentUpon>tambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataDokter.resx">
+      <DependentUpon>dataDokter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Transaksi\Penjualan\Jual.resx">
+      <DependentUpon>Jual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\User\edit.resx">
       <DependentUpon>edit.cs</DependentUpon>

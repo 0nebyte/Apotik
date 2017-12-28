@@ -142,5 +142,11 @@ namespace Apotik
             masterUser.Show();
 
         }
+
+        private void penjualanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var jual = new Menu.Transaksi.Penjualan.Jual(controller);
+            jual.ShowDialog();
+        }
     }
 }
