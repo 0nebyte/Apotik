@@ -23,19 +23,19 @@ namespace Apotik.Model
             get { return connection; }
         }
 
-        public Column Column(string propertyName)
+        public SQLColumn Column(string propertyName)
         {
-            return new Column(propertyName);
+            return new SQLColumn(propertyName);
         }
 
-        public Column Column(int index, string propertyName)
+        public SQLColumn Column(int index, string propertyName)
         {
-            return new Column(propertyName, index);
+            return new SQLColumn(propertyName, index);
         }
 
-        public Condition Like(Column column, string condition)
+        public SQLCondition Like(SQLColumn column, string condition)
         {
-            return new Condition(Condition.Operator.Like, column, new SQLString(condition));
+            return new SQLCondition(SQLCondition.Operator.Like, column, new SQLString(condition));
         }
 
         public int Save(object model)
@@ -138,9 +138,9 @@ namespace Apotik.Model
             return result;
         }
 
-        public Query<T> Query2<T>() where T: new()
+        public SQLQuery<T> Query2<T>() where T: new()
         {
-            return new Query<T>(this);
+            return new SQLQuery<T>(this);
         }
 
         #region Statics
@@ -303,7 +303,7 @@ namespace Apotik.Model
         }
     }
 
-    class Condition : ISQLSyntax
+    class SQLCondition : ISQLSyntax
     {
         public enum Operator
         {
@@ -322,7 +322,7 @@ namespace Apotik.Model
         private ISQLSyntax lhs;
         private ISQLSyntax rhs;
 
-        public Condition(Operator op, ISQLSyntax lhs, ISQLSyntax rhs)
+        public SQLCondition(Operator op, ISQLSyntax lhs, ISQLSyntax rhs)
         {
             this.op = op;
             this.lhs = lhs;
@@ -343,12 +343,12 @@ namespace Apotik.Model
         }
     }
 
-    class Column : ISQLSyntax
+    class SQLColumn : ISQLSyntax
     {
         private int index;
         private string propertyName;
 
-        public Column(string propertyName, int index = 0)
+        public SQLColumn(string propertyName, int index = 0)
         {
             this.index = index;
             this.propertyName = propertyName;
@@ -374,54 +374,54 @@ namespace Apotik.Model
             return index.GetHashCode() + propertyName.GetHashCode();
         }
 
-        public static Condition operator==(Column column, string value)
+        public static SQLCondition operator==(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.Equals, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.Equals, column, new SQLString(value));
         }
 
-        public static Condition operator!=(Column column, string value)
+        public static SQLCondition operator!=(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.NotEquals, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.NotEquals, column, new SQLString(value));
         }
 
-        public static Condition operator<(Column column, string value)
+        public static SQLCondition operator<(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.LessThan, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.LessThan, column, new SQLString(value));
         }
 
-        public static Condition operator>(Column column, string value)
+        public static SQLCondition operator>(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.GreaterThan, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.GreaterThan, column, new SQLString(value));
         }
 
-        public static Condition operator<=(Column column, string value)
+        public static SQLCondition operator<=(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.LessThanOrEquals, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.LessThanOrEquals, column, new SQLString(value));
         }
-        public static Condition operator>=(Column column, string value)
+        public static SQLCondition operator>=(SQLColumn column, string value)
         {
-            return new Condition(Condition.Operator.GreaterThanOrEquals, column, new SQLString(value));
+            return new SQLCondition(SQLCondition.Operator.GreaterThanOrEquals, column, new SQLString(value));
         }
     }
 
-    class Query<T> where T: new()
+    class SQLQuery<T> where T: new()
     {
         private Database db;
-        private Condition condition;
+        private SQLCondition condition;
 
-        public Query(Database db)
+        public SQLQuery(Database db)
         {
             this.db = db;
         }
 
-        public Query<T> Where(Condition condition)
+        public SQLQuery<T> Where(SQLCondition condition)
         {
             this.condition = condition;
 
             return this;
         }
 
-        public Query<T> Where(bool condition)
+        public SQLQuery<T> Where(bool condition)
         {
             return this;
         }
