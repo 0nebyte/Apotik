@@ -22,8 +22,8 @@ namespace Apotik.Menu.Dokter
 
             dataGridViewDokter.DataBindings.Add("DataSource", controller, "Dokters");
 
-            //ndre ini gunanya buat apa? sonde pakai cuma waktu add datanya masuk
-            //controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
+            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
+            
 
         }
 
