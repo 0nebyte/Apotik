@@ -35,7 +35,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_subtotal = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -110,12 +110,12 @@
             this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Text = "Tanggal";
             // 
-            // metroTextBox3
+            // txt_subtotal
             // 
-            this.metroTextBox3.Location = new System.Drawing.Point(93, 8);
-            this.metroTextBox3.Name = "metroTextBox3";
-            this.metroTextBox3.Size = new System.Drawing.Size(200, 23);
-            this.metroTextBox3.TabIndex = 2;
+            this.txt_subtotal.Location = new System.Drawing.Point(93, 8);
+            this.txt_subtotal.Name = "txt_subtotal";
+            this.txt_subtotal.Size = new System.Drawing.Size(200, 23);
+            this.txt_subtotal.TabIndex = 2;
             // 
             // metroPanel1
             // 
@@ -126,7 +126,7 @@
             this.metroPanel1.Controls.Add(this.metroTextBox6);
             this.metroPanel1.Controls.Add(this.metroTextBox5);
             this.metroPanel1.Controls.Add(this.metroTextBox4);
-            this.metroPanel1.Controls.Add(this.metroTextBox3);
+            this.metroPanel1.Controls.Add(this.txt_subtotal);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
@@ -245,7 +245,6 @@
         private System.Windows.Forms.DateTimePicker dtp_jual;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox metroTextBox3;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel6;
@@ -257,5 +256,6 @@
         private MetroFramework.Controls.MetroTile btn_close;
         public MetroFramework.Controls.MetroTextBox txt_dokter;
         public MetroFramework.Controls.MetroLabel metroLabel3;
+        public MetroFramework.Controls.MetroTextBox txt_subtotal;
     }
 }

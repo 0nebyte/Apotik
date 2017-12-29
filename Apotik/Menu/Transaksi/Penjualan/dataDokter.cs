@@ -39,8 +39,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 DataGridViewRow row = this.dgv_dokter.Rows[e.RowIndex];
                 Jual jl = new Jual(controller);
 
-                //error -___-'
+                
                 jl.txt_dokter.Text = row.Cells[1].Value.ToString();
+               // jl.txt_subtotal.Text = row.Cells[1].Value.ToString();
                 MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
             }
             this.Close();
