@@ -40,50 +40,21 @@ namespace Apotik.Model
 
         public int Save(object model)
         {
-            var refl = model.GetType();
-
-            // table name
-            var tableName = refl.Name;
-            var fields = refl.GetFields();
-            foreach (var field in fields)
-            {
-                if (field.Name == "tableName")
-                    tableName = field.GetValue(null).ToString();
-            }
-
-            // column names
-            var columns = new List<Tuple<Attributes.Field, System.Reflection.PropertyInfo>>();
-            var props = refl.GetProperties();
-            foreach (var prop in props)
-            {
-                if (!prop.CanRead || !prop.CanWrite)
-                    continue;
-
-                var fieldAttrs = prop.GetCustomAttributes(typeof(Attributes.Field), false);
-                if (fieldAttrs.Length == 0) continue;
-                var fieldAttr = (Attributes.Field) fieldAttrs[0];
-
-                columns.Add(Tuple.Create(fieldAttr, prop));
-            }
-
-            if (columns.Count == 0)
-                return 0;
-
-            var writableColumns = columns.Where(f => !f.Item1.AutoIncrement);
-            var sqlColumnNames = string.Join(",", writableColumns.Select(v => v.Item1.Name));
-            var sqlColumnValues = string.Join(",", writableColumns.Select(v => "$" + v.Item1.Name));
+            var type = model.GetType();
+            var tableName = GetTableName(type);
+            var columns = GetColumns(type);
+            var writableColumns = columns.Where(f => !f.field.AutoIncrement);
+            var sqlColumnNames = string.Join(",", writableColumns.Select(f => f.field.Name));
+            var sqlColumnValues = string.Join(",", writableColumns.Select(f => "$" + f.field.Name));
             var sql = string.Format("INSERT INTO {0} ({1}) VALUES ({2})", tableName, sqlColumnNames,
                 sqlColumnValues);
 
-            // insert
             var command = new SQLiteCommand(sql, connection);
-            foreach (var col in writableColumns)
+            foreach (var col in columns)
             {
-                var field = col.Item1;
-                var prop = col.Item2;
-                var value = prop.GetValue(model);
-                command.Parameters.AddWithValue("$" + field.Name, prop.GetValue(model));
+                command.Parameters.AddWithValue("$" + col.field.Name, col.propertyInfo.GetValue(model));
             }
+
             return command.ExecuteNonQuery();
         }
 
