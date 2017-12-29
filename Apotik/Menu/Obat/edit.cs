@@ -99,7 +99,5 @@ namespace Apotik.Menu.Obat
 
             Close();
         }
-
-       
     }
 }
