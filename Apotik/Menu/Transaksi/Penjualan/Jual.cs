@@ -39,5 +39,11 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 dokter.Show();
             }
         }
+
+        private void dgv_penjualan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var obat = new dataObat(controller);
+            obat.ShowDialog();
+        }
     }
 }

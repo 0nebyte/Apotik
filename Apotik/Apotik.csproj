@@ -158,6 +158,12 @@
     <Compile Include="Menu\Transaksi\Penjualan\dataDokter.Designer.cs">
       <DependentUpon>dataDokter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\dataObat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\dataObat.Designer.cs">
+      <DependentUpon>dataObat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Transaksi\Penjualan\Jual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,7 @@
     <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\Dokter.cs" />
     <Compile Include="Model\Obat.cs" />
+    <Compile Include="Model\Penjualan.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +245,9 @@
     <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataDokter.resx">
       <DependentUpon>dataDokter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataObat.resx">
+      <DependentUpon>dataObat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\Transaksi\Penjualan\Jual.resx">
       <DependentUpon>Jual.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +269,7 @@
     <None Include="Properties\DataSources\Apotik.Model.Distributor.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Dokter.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Obat.datasource" />
+    <None Include="Properties\DataSources\Apotik.Model.Penjualan.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

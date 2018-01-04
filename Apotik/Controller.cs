@@ -43,6 +43,16 @@ namespace Apotik
             }
         }
 
+        private IEnumerable<Model.Penjualan> penjualans = new List<Model.Penjualan>();
+        public IEnumerable<Model.Penjualan> Penjualans
+        {
+            get { return Penjualans; }
+            set
+            {
+                penjualans = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Penjualans"));
+            }
+        }
 
         private IEnumerable<Model.User> users = new List<Model.User>();
         public IEnumerable<Model.User> Users

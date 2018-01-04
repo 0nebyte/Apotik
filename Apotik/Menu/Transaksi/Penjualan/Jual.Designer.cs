@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_penjualan = new System.Windows.Forms.DataGridView();
             this.txt_faktur = new MetroFramework.Controls.MetroTextBox();
             this.txt_dokter = new MetroFramework.Controls.MetroTextBox();
             this.dtp_jual = new System.Windows.Forms.DateTimePicker();
@@ -45,22 +45,36 @@
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.btn_close = new MetroFramework.Controls.MetroTile();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SATUAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.harga_jual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_penjualan
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Menu;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 186);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(824, 294);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_penjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_penjualan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_penjualan.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_penjualan.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_penjualan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_penjualan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_barang,
+            this.nama_barang,
+            this.SATUAN,
+            this.QTY,
+            this.harga_jual,
+            this.TOTAL});
+            this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
+            this.dgv_penjualan.Location = new System.Drawing.Point(1, 186);
+            this.dgv_penjualan.Name = "dgv_penjualan";
+            this.dgv_penjualan.Size = new System.Drawing.Size(824, 294);
+            this.dgv_penjualan.TabIndex = 0;
+            this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             // 
             // txt_faktur
             // 
@@ -208,6 +222,36 @@
             this.btn_close.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // id_barang
+            // 
+            this.id_barang.HeaderText = "ID BARANG";
+            this.id_barang.Name = "id_barang";
+            // 
+            // nama_barang
+            // 
+            this.nama_barang.HeaderText = "NAMA BARANG";
+            this.nama_barang.Name = "nama_barang";
+            // 
+            // SATUAN
+            // 
+            this.SATUAN.HeaderText = "SATUAN";
+            this.SATUAN.Name = "SATUAN";
+            // 
+            // QTY
+            // 
+            this.QTY.HeaderText = "QTY";
+            this.QTY.Name = "QTY";
+            // 
+            // harga_jual
+            // 
+            this.harga_jual.HeaderText = "HARGA JUAL";
+            this.harga_jual.Name = "harga_jual";
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.Name = "TOTAL";
+            // 
             // Jual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +265,7 @@
             this.Controls.Add(this.dtp_jual);
             this.Controls.Add(this.txt_dokter);
             this.Controls.Add(this.txt_faktur);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_penjualan);
             this.MinimizeBox = false;
             this.Name = "Jual";
             this.ShowIcon = false;
@@ -230,7 +274,7 @@
             this.Text = "Transaksi Penjualan";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Jual_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -239,8 +283,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroTextBox txt_faktur;
         private System.Windows.Forms.DateTimePicker dtp_jual;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -257,5 +299,12 @@
         public MetroFramework.Controls.MetroTextBox txt_dokter;
         public MetroFramework.Controls.MetroLabel metroLabel3;
         public MetroFramework.Controls.MetroTextBox txt_subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_barang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nama_barang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SATUAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn harga_jual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
+        public System.Windows.Forms.DataGridView dgv_penjualan;
     }
 }

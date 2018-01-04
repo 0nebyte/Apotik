@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.btn_tambah = new MetroFramework.Controls.MetroTile();
             this.dataGridViewDokter = new System.Windows.Forms.DataGridView();
+            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_hapus = new MetroFramework.Controls.MetroTile();
+            this.btn_edit = new MetroFramework.Controls.MetroTile();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,12 +41,9 @@
             this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dokterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btn_hapus = new MetroFramework.Controls.MetroTile();
-            this.btn_edit = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDokter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_tambah
@@ -84,6 +84,32 @@
             this.dataGridViewDokter.ShowEditingIcon = false;
             this.dataGridViewDokter.Size = new System.Drawing.Size(753, 366);
             this.dataGridViewDokter.TabIndex = 10;
+            // 
+            // btn_hapus
+            // 
+            this.btn_hapus.BackColor = System.Drawing.Color.Red;
+            this.btn_hapus.CustomBackground = true;
+            this.btn_hapus.Location = new System.Drawing.Point(185, 63);
+            this.btn_hapus.Name = "btn_hapus";
+            this.btn_hapus.Size = new System.Drawing.Size(75, 37);
+            this.btn_hapus.TabIndex = 8;
+            this.btn_hapus.Text = "Hapus";
+            this.btn_hapus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_hapus.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_hapus.Click += new System.EventHandler(this.btn_hapus_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_edit.CustomBackground = true;
+            this.btn_edit.Location = new System.Drawing.Point(104, 63);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 37);
+            this.btn_edit.TabIndex = 9;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_edit.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -132,32 +158,6 @@
             // 
             this.dokterBindingSource.DataSource = typeof(Apotik.Model.Dokter);
             // 
-            // btn_hapus
-            // 
-            this.btn_hapus.BackColor = System.Drawing.Color.Red;
-            this.btn_hapus.CustomBackground = true;
-            this.btn_hapus.Location = new System.Drawing.Point(185, 63);
-            this.btn_hapus.Name = "btn_hapus";
-            this.btn_hapus.Size = new System.Drawing.Size(75, 37);
-            this.btn_hapus.TabIndex = 8;
-            this.btn_hapus.Text = "Hapus";
-            this.btn_hapus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_hapus.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btn_hapus.Click += new System.EventHandler(this.btn_hapus_Click);
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_edit.CustomBackground = true;
-            this.btn_edit.Location = new System.Drawing.Point(104, 63);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(75, 37);
-            this.btn_edit.TabIndex = 9;
-            this.btn_edit.Text = "Edit";
-            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_edit.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
             // masterDokter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,8 +171,8 @@
             this.Style = MetroFramework.MetroColorStyle.Brown;
             this.Text = "Master Dokter";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDokter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dokterBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
