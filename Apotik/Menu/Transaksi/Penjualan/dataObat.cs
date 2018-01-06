@@ -35,8 +35,12 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 jl.txt_dokter.Text = row.Cells[1].Value.ToString();
                 // jl.txt_subtotal.Text = row.Cells[1].Value.ToString();
                 MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
+
+                var dgvtest = new Menu.Transaksi.Penjualan.Jual(controller);
+               // dgvtest.dgv_penjualan.RowsAdded();
             }
-            this.Close();
+            
+
         }
     }
 }

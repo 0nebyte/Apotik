@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dgv_penjualan = new System.Windows.Forms.DataGridView();
+            this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SATUAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.harga_jual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_faktur = new MetroFramework.Controls.MetroTextBox();
             this.txt_dokter = new MetroFramework.Controls.MetroTextBox();
             this.dtp_jual = new System.Windows.Forms.DateTimePicker();
@@ -45,12 +51,6 @@
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.btn_close = new MetroFramework.Controls.MetroTile();
-            this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SATUAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.harga_jual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,29 +70,59 @@
             this.harga_jual,
             this.TOTAL});
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
-            this.dgv_penjualan.Location = new System.Drawing.Point(1, 186);
+            this.dgv_penjualan.Location = new System.Drawing.Point(10, 186);
             this.dgv_penjualan.Name = "dgv_penjualan";
-            this.dgv_penjualan.Size = new System.Drawing.Size(824, 294);
+            this.dgv_penjualan.Size = new System.Drawing.Size(1262, 294);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             // 
+            // id_barang
+            // 
+            this.id_barang.HeaderText = "ID BARANG";
+            this.id_barang.Name = "id_barang";
+            // 
+            // nama_barang
+            // 
+            this.nama_barang.HeaderText = "NAMA BARANG";
+            this.nama_barang.Name = "nama_barang";
+            // 
+            // SATUAN
+            // 
+            this.SATUAN.HeaderText = "SATUAN";
+            this.SATUAN.Name = "SATUAN";
+            // 
+            // QTY
+            // 
+            this.QTY.HeaderText = "QTY";
+            this.QTY.Name = "QTY";
+            // 
+            // harga_jual
+            // 
+            this.harga_jual.HeaderText = "HARGA JUAL";
+            this.harga_jual.Name = "harga_jual";
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.Name = "TOTAL";
+            // 
             // txt_faktur
             // 
-            this.txt_faktur.Location = new System.Drawing.Point(85, 87);
+            this.txt_faktur.Location = new System.Drawing.Point(91, 86);
             this.txt_faktur.Name = "txt_faktur";
             this.txt_faktur.Size = new System.Drawing.Size(200, 23);
             this.txt_faktur.TabIndex = 1;
             // 
             // txt_dokter
             // 
-            this.txt_dokter.Location = new System.Drawing.Point(85, 116);
+            this.txt_dokter.Location = new System.Drawing.Point(91, 115);
             this.txt_dokter.Name = "txt_dokter";
             this.txt_dokter.Size = new System.Drawing.Size(200, 23);
             this.txt_dokter.TabIndex = 2;
             // 
             // dtp_jual
             // 
-            this.dtp_jual.Location = new System.Drawing.Point(85, 149);
+            this.dtp_jual.Location = new System.Drawing.Point(91, 148);
             this.dtp_jual.Name = "dtp_jual";
             this.dtp_jual.Size = new System.Drawing.Size(200, 20);
             this.dtp_jual.TabIndex = 4;
@@ -100,7 +130,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(13, 87);
+            this.metroLabel1.Location = new System.Drawing.Point(19, 86);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(66, 19);
             this.metroLabel1.TabIndex = 0;
@@ -109,7 +139,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(5, 115);
+            this.metroLabel3.Location = new System.Drawing.Point(11, 114);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(74, 19);
             this.metroLabel3.TabIndex = 0;
@@ -118,7 +148,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(25, 144);
+            this.metroLabel2.Location = new System.Drawing.Point(31, 143);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(54, 19);
             this.metroLabel2.TabIndex = 0;
@@ -133,6 +163,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.metroPanel1.Controls.Add(this.metroLabel7);
             this.metroPanel1.Controls.Add(this.metroLabel6);
             this.metroPanel1.Controls.Add(this.metroLabel5);
@@ -144,7 +175,7 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(508, 486);
+            this.metroPanel1.Location = new System.Drawing.Point(955, 486);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(317, 130);
             this.metroPanel1.TabIndex = 5;
@@ -222,41 +253,11 @@
             this.btn_close.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // id_barang
-            // 
-            this.id_barang.HeaderText = "ID BARANG";
-            this.id_barang.Name = "id_barang";
-            // 
-            // nama_barang
-            // 
-            this.nama_barang.HeaderText = "NAMA BARANG";
-            this.nama_barang.Name = "nama_barang";
-            // 
-            // SATUAN
-            // 
-            this.SATUAN.HeaderText = "SATUAN";
-            this.SATUAN.Name = "SATUAN";
-            // 
-            // QTY
-            // 
-            this.QTY.HeaderText = "QTY";
-            this.QTY.Name = "QTY";
-            // 
-            // harga_jual
-            // 
-            this.harga_jual.HeaderText = "HARGA JUAL";
-            this.harga_jual.Name = "harga_jual";
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.HeaderText = "TOTAL";
-            this.TOTAL.Name = "TOTAL";
-            // 
             // Jual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 618);
+            this.ClientSize = new System.Drawing.Size(1283, 618);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.metroLabel2);
