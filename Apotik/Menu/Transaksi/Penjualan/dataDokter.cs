@@ -37,12 +37,14 @@ namespace Apotik.Menu.Transaksi.Penjualan
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgv_dokter.Rows[e.RowIndex];
-                Jual jl = new Jual(controller);
+                var id = row.Cells[0].Value.ToString();
 
-                
-                jl.txt_dokter.Text = row.Cells[1].Value.ToString();
+                var db = Model.Database.Instance;
+                var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
+                controller.DokterResep = dokter;
+                //jl.txt_dokter.Text = row.Cells[1].Value.ToString();
                // jl.txt_subtotal.Text = row.Cells[1].Value.ToString();
-                MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
+                //MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
             }
             this.Close();
         }

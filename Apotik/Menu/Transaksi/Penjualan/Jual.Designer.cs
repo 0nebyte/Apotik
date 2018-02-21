@@ -51,8 +51,10 @@
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.btn_close = new MetroFramework.Controls.MetroTile();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_penjualan
@@ -69,10 +71,11 @@
             this.QTY,
             this.harga_jual,
             this.TOTAL});
+            this.tableLayoutPanel1.SetColumnSpan(this.dgv_penjualan, 3);
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
-            this.dgv_penjualan.Location = new System.Drawing.Point(10, 186);
+            this.dgv_penjualan.Location = new System.Drawing.Point(3, 72);
             this.dgv_penjualan.Name = "dgv_penjualan";
-            this.dgv_penjualan.Size = new System.Drawing.Size(1262, 294);
+            this.dgv_penjualan.Size = new System.Drawing.Size(1245, 301);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             // 
@@ -108,21 +111,24 @@
             // 
             // txt_faktur
             // 
-            this.txt_faktur.Location = new System.Drawing.Point(91, 86);
+            this.txt_faktur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tableLayoutPanel1.SetColumnSpan(this.txt_faktur, 2);
+            this.txt_faktur.Location = new System.Drawing.Point(103, 3);
             this.txt_faktur.Name = "txt_faktur";
-            this.txt_faktur.Size = new System.Drawing.Size(200, 23);
+            this.txt_faktur.Size = new System.Drawing.Size(200, 17);
             this.txt_faktur.TabIndex = 1;
             // 
             // txt_dokter
             // 
-            this.txt_dokter.Location = new System.Drawing.Point(91, 115);
+            this.txt_dokter.Location = new System.Drawing.Point(103, 26);
             this.txt_dokter.Name = "txt_dokter";
-            this.txt_dokter.Size = new System.Drawing.Size(200, 23);
+            this.txt_dokter.Size = new System.Drawing.Size(200, 17);
             this.txt_dokter.TabIndex = 2;
             // 
             // dtp_jual
             // 
-            this.dtp_jual.Location = new System.Drawing.Point(91, 148);
+            this.dtp_jual.Location = new System.Drawing.Point(103, 49);
             this.dtp_jual.Name = "dtp_jual";
             this.dtp_jual.Size = new System.Drawing.Size(200, 20);
             this.dtp_jual.TabIndex = 4;
@@ -130,7 +136,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(19, 86);
+            this.metroLabel1.Location = new System.Drawing.Point(3, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(66, 19);
             this.metroLabel1.TabIndex = 0;
@@ -139,7 +145,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(11, 114);
+            this.metroLabel3.Location = new System.Drawing.Point(3, 23);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(74, 19);
             this.metroLabel3.TabIndex = 0;
@@ -148,7 +154,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(31, 143);
+            this.metroLabel2.Location = new System.Drawing.Point(3, 46);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(54, 19);
             this.metroLabel2.TabIndex = 0;
@@ -163,7 +169,7 @@
             // 
             // metroPanel1
             // 
-            this.metroPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel1.Controls.Add(this.metroLabel7);
             this.metroPanel1.Controls.Add(this.metroLabel6);
             this.metroPanel1.Controls.Add(this.metroLabel5);
@@ -175,9 +181,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(955, 486);
+            this.metroPanel1.Location = new System.Drawing.Point(944, 380);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(317, 130);
+            this.metroPanel1.Size = new System.Drawing.Size(304, 130);
             this.metroPanel1.TabIndex = 5;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -243,7 +249,7 @@
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_close.Location = new System.Drawing.Point(10, 575);
+            this.btn_close.Location = new System.Drawing.Point(3, 469);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(75, 41);
             this.btn_close.Style = MetroFramework.MetroColorStyle.Red;
@@ -253,20 +259,41 @@
             this.btn_close.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 651F));
+            this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroPanel1, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btn_close, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txt_faktur, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dtp_jual, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.metroLabel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txt_dokter, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgv_penjualan, 0, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 82);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1251, 513);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
             // Jual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 618);
-            this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.dtp_jual);
-            this.Controls.Add(this.txt_dokter);
-            this.Controls.Add(this.txt_faktur);
-            this.Controls.Add(this.dgv_penjualan);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.MinimizeBox = false;
             this.Name = "Jual";
             this.ShowIcon = false;
@@ -278,8 +305,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -307,5 +335,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn harga_jual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         public System.Windows.Forms.DataGridView dgv_penjualan;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

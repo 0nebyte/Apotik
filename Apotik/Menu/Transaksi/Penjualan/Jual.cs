@@ -18,7 +18,8 @@ namespace Apotik.Menu.Transaksi.Penjualan
             InitializeComponent();
             this.controller = controller;
             this.KeyPreview = true;
-           
+
+            txt_dokter.DataBindings.Add("Text", controller, "DokterResep");
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             if (e.KeyCode == Keys.F2)
             {
                 var dokter = new dataDokter(controller);
-                dokter.Show();
+                dokter.ShowDialog();
             }
         }
 
@@ -45,5 +46,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             var obat = new dataObat(controller);
             obat.ShowDialog();
         }
+
+       
     }
 }

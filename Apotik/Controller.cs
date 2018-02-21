@@ -8,6 +8,22 @@ namespace Apotik
 {
     public class Controller : System.ComponentModel.INotifyPropertyChanged
     {
+        public Controller()
+        {
+            dokterResep = new Model.Dokter();
+        }
+
+        private Model.Dokter dokterResep;
+        public Model.Dokter DokterResep
+        {
+            get { return dokterResep; }
+            set
+            {
+                dokterResep = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("DokterResep"));
+            }
+        }
+
         private IEnumerable<Model.Obat> obats = new List<Model.Obat>();
         public IEnumerable<Model.Obat> Obats
         {
