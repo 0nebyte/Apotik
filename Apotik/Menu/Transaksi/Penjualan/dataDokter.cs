@@ -16,11 +16,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
         public dataDokter(Controller controller)
         {
             this.controller = controller;
-
             InitializeComponent();
 
             dgv_dokter.DataBindings.Add("DataSource", controller, "Dokters");
-
             controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
         }
 
@@ -38,13 +36,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
             {
                 DataGridViewRow row = this.dgv_dokter.Rows[e.RowIndex];
                 var id = row.Cells[0].Value.ToString();
-
                 var db = Model.Database.Instance;
                 var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
                 controller.DokterResep = dokter;
-                //jl.txt_dokter.Text = row.Cells[1].Value.ToString();
-               // jl.txt_subtotal.Text = row.Cells[1].Value.ToString();
-                //MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
             }
             this.Close();
         }

@@ -11,6 +11,18 @@ namespace Apotik
         public Controller()
         {
             dokterResep = new Model.Dokter();
+            obatResep = new List<Model.Obat>();
+        }
+
+        private IList<Model.Obat> obatResep;
+        public IList<Model.Obat> ObatResep
+        {
+            get { return obatResep; }
+            set
+            {
+                obatResep = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("ObatResep"));
+            }
         }
 
         private Model.Dokter dokterResep;

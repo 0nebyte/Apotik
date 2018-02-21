@@ -20,6 +20,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
             this.KeyPreview = true;
 
             txt_dokter.DataBindings.Add("Text", controller, "DokterResep");
+
+            dgv_penjualan.DataBindings.Add("DataSource", controller, "ObatResep");
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -47,6 +50,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
             obat.ShowDialog();
         }
 
-       
+        private void dgv_penjualan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                var obat = new dataObat(controller);
+                obat.ShowDialog();
+            }
+        }
     }
 }

@@ -20,7 +20,6 @@ namespace Apotik.Menu.Transaksi.Penjualan
             InitializeComponent();
 
             dgv_obat.DataBindings.Add("DataSource", controller, "Obats");
-
             controller.Obats = Model.Database.Instance.Query<Model.Obat>();
         }
 
@@ -29,18 +28,15 @@ namespace Apotik.Menu.Transaksi.Penjualan
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgv_obat.Rows[e.RowIndex];
-                Jual jl = new Jual(controller);
 
-                //jl.dgv_penjualan.SelectedRows
-                jl.txt_dokter.Text = row.Cells[1].Value.ToString();
-                // jl.txt_subtotal.Text = row.Cells[1].Value.ToString();
-                MessageBox.Show(row.Cells[2].Value.ToString(), "test", MessageBoxButtons.OK);
-
-                var dgvtest = new Menu.Transaksi.Penjualan.Jual(controller);
-               // dgvtest.dgv_penjualan.RowsAdded();
+                var id = row.Cells[0].Value.ToString();
+                var db = Model.Database.Instance;
+                var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
+                controller.ObatResep.Add(obat);
+                controller.ObatResep = controller.ObatResep.ToList();
             }
-            
 
+            this.Close();
         }
     }
 }

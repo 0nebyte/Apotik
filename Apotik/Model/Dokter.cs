@@ -132,7 +132,7 @@ namespace Apotik.Model
 
         public override string ToString()
         {
-            return kode + " " + nama;
+            return nama;
             //return base.ToString() + "\n" +
             //    "\tid: " + id + "\n" +
             //    "\tkode: " + kode + "\n" +
