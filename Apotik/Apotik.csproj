@@ -152,6 +152,12 @@
     <Compile Include="Menu\Obat\tambah.Designer.cs">
       <DependentUpon>tambah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Transaksi\Pembelian\Beli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Transaksi\Pembelian\Beli.Designer.cs">
+      <DependentUpon>Beli.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Transaksi\Penjualan\dataDokter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Obat\tambah.resx">
       <DependentUpon>tambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Transaksi\Pembelian\Beli.resx">
+      <DependentUpon>Beli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataDokter.resx">
       <DependentUpon>dataDokter.cs</DependentUpon>

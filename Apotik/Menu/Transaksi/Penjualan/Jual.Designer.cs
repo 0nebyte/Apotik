@@ -47,6 +47,8 @@
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.btn_close = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +56,8 @@
             this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -76,7 +79,9 @@
             this.satuanDataGridViewTextBoxColumn,
             this.stokDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
-            this.keteranganDataGridViewTextBoxColumn});
+            this.keteranganDataGridViewTextBoxColumn,
+            this.Qty,
+            this.Rupiah});
             this.tableLayoutPanel1.SetColumnSpan(this.dgv_penjualan, 3);
             this.dgv_penjualan.DataSource = this.obatBindingSource;
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
@@ -101,12 +106,12 @@
             // 
             this.txt_dokter.Location = new System.Drawing.Point(103, 26);
             this.txt_dokter.Name = "txt_dokter";
-            this.txt_dokter.Size = new System.Drawing.Size(200, 17);
+            this.txt_dokter.Size = new System.Drawing.Size(200, 16);
             this.txt_dokter.TabIndex = 2;
             // 
             // dtp_jual
             // 
-            this.dtp_jual.Location = new System.Drawing.Point(103, 49);
+            this.dtp_jual.Location = new System.Drawing.Point(103, 48);
             this.dtp_jual.Name = "dtp_jual";
             this.dtp_jual.Size = new System.Drawing.Size(200, 20);
             this.dtp_jual.TabIndex = 4;
@@ -132,7 +137,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 46);
+            this.metroLabel2.Location = new System.Drawing.Point(3, 45);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(54, 19);
             this.metroLabel2.TabIndex = 0;
@@ -242,10 +247,11 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 651F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.metroPanel1, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.btn_close, 0, 4);
@@ -255,16 +261,30 @@
             this.tableLayoutPanel1.Controls.Add(this.metroLabel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txt_dokter, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgv_penjualan, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 82);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1251, 513);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(603, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "[F3] Daftar Barang";
+            // 
+            // obatBindingSource
+            // 
+            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -316,9 +336,17 @@
             this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
             this.keteranganDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // obatBindingSource
+            // Qty
             // 
-            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
+            this.Qty.DataPropertyName = "Id";
+            this.Qty.HeaderText = "QTY";
+            this.Qty.Name = "Qty";
+            // 
+            // Rupiah
+            // 
+            this.Rupiah.DataPropertyName = "Id";
+            this.Rupiah.HeaderText = "Rupiah";
+            this.Rupiah.Name = "Rupiah";
             // 
             // Jual
             // 
@@ -364,6 +392,7 @@
         public System.Windows.Forms.DataGridView dgv_penjualan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.BindingSource obatBindingSource;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
@@ -371,5 +400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keteranganDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rupiah;
     }
 }
