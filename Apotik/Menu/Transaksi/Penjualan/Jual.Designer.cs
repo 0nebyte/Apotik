@@ -90,7 +90,6 @@
             this.dgv_penjualan.Size = new System.Drawing.Size(1245, 301);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
-            this.dgv_penjualan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_penjualan_KeyDown);
             // 
             // txt_faktur
             // 

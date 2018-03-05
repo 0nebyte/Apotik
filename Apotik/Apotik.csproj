@@ -158,6 +158,7 @@
     <Compile Include="Menu\Transaksi\Pembelian\Beli.Designer.cs">
       <DependentUpon>Beli.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Transaksi\Penjualan\Controller.cs" />
     <Compile Include="Menu\Transaksi\Penjualan\dataDokter.cs">
       <SubType>Form</SubType>
     </Compile>

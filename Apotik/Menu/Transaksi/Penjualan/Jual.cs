@@ -13,16 +13,16 @@ namespace Apotik.Menu.Transaksi.Penjualan
     public partial class Jual : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
-        public Jual(Controller controller)
+
+        public Jual()
         {
             InitializeComponent();
-            this.controller = controller;
-            this.KeyPreview = true;
 
-            txt_dokter.DataBindings.Add("Text", controller, "DokterResep");
+            controller = new Controller();
+            KeyPreview = true;
 
-            dgv_penjualan.DataBindings.Add("DataSource", controller, "ObatResep");
-
+            txt_dokter.DataBindings.Add("Text", controller, "Dokter");
+            dgv_penjualan.DataBindings.Add("DataSource", controller, "DaftarObat");
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             if (dialogresult == DialogResult.Yes)
             {
                 this.Close();
-            }  
+            }
         }
 
         private void Jual_KeyDown(object sender, KeyEventArgs e)

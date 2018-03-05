@@ -13,20 +13,24 @@ namespace Apotik.Menu.Transaksi.Penjualan
     public partial class dataDokter : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
+        private IEnumerable<Model.Dokter> daftarDokter;
+
         public dataDokter(Controller controller)
         {
             this.controller = controller;
+
             InitializeComponent();
 
-            dgv_dokter.DataBindings.Add("DataSource", controller, "Dokters");
-            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
+            // Init data
+            daftarDokter = Model.Database.Instance.Query2<Model.Dokter>().Execute();
+            dgv_dokter.DataSource = daftarDokter;
         }
 
         private void dataDokter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -38,14 +42,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
                 var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
-                controller.DokterResep = dokter;
+                controller.Dokter = dokter;
             }
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }
