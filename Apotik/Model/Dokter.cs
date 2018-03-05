@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-   public class Dokter : System.ComponentModel.INotifyPropertyChanged
+   public class Dokter : BaseModel
     {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
-
         public static string tableName = "tb_dokter";
 
         private int id;
@@ -43,11 +34,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_dokter", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
-            get
-            {
-                return id;
-            }
-
+            get { return id; }
             set
             {
                 id = value;
@@ -58,11 +45,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "kode_dokter", AllowNull = false)]
         public string Kode
         {
-            get
-            {
-                return kode;
-            }
-
+            get { return kode; }
             set
             {
                 kode = value;
@@ -73,11 +56,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "nama", AllowNull = false)]
         public string Nama
         {
-            get
-            {
-                return nama;
-            }
-
+            get { return nama; }
             set
             {
                 nama = value;
@@ -88,11 +67,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "alamat", AllowNull = false)]
         public string Alamat
         {
-            get
-            {
-                return alamat;
-            }
-
+            get { return alamat; }
             set
             {
                 alamat = value;
@@ -103,11 +78,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "notelp", AllowNull = false)]
         public string Telp
         {
-            get
-            {
-                return telp;
-            }
-
+            get { return telp; }
             set
             {
                 telp = value;
@@ -118,11 +89,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "keterangan", AllowNull = true)]
         public string Keterangan
         {
-            get
-            {
-                return keterangan;
-            }
-
+            get { return keterangan; }
             set
             {
                 keterangan = value;
@@ -133,13 +100,6 @@ namespace Apotik.Model
         public override string ToString()
         {
             return nama;
-            //return base.ToString() + "\n" +
-            //    "\tid: " + id + "\n" +
-            //    "\tkode: " + kode + "\n" +
-            //    "\tnama: " + nama + "\n" +
-            //    "\talamat: " + alamat + "\n" +
-            //    "\ttelp: " + telp + "\n" +
-            //    "\tketerangan: " + keterangan;
         }
     }
 }

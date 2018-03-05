@@ -254,6 +254,18 @@ namespace Apotik.Model
         #endregion
     }
 
+    public class BaseModel : System.ComponentModel.INotifyPropertyChanged
+    {
+        #region INotifyPropertyChanged implementation
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, e);
+        }
+        #endregion
+    }
+
     interface ISQLSyntax
     {
         string ToSqlQuery(IList<Type> model = null);

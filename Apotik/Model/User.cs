@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-    public class User : System.ComponentModel.INotifyPropertyChanged
+    public class User : BaseModel
     {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
-
         public static string tableName = "tb_user";
 
         private int id;
@@ -47,17 +38,12 @@ namespace Apotik.Model
 
         public User()
         {
-
         }
 
         [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
-            get
-            {
-                return id;
-            }
-
+            get { return id; }
             set
             {
                 id = value;
@@ -68,11 +54,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "kode_user", AllowNull = false)]
         public string Kode
         {
-            get
-            {
-                return kode;
-            }
-
+            get { return kode; }
             set
             {
                 kode = value;
@@ -83,11 +65,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "nama", AllowNull = false)]
         public string Nama
         {
-            get
-            {
-                return nama;
-            }
-
+            get { return nama; }
             set
             {
                 nama = value;
@@ -98,11 +76,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "jk", AllowNull = false)]
         public string JK
         {
-            get
-            {
-                return jk;
-            }
-
+            get { return jk; }
             set
             {
                 jk = value;
@@ -113,11 +87,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "alamat", AllowNull = false)]
         public string Alamat
         {
-            get
-            {
-                return alamat;
-            }
-
+            get { return alamat; }
             set
             {
                 alamat = value;
@@ -128,11 +98,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "notelp", AllowNull = false)]
         public string Telp
         {
-            get
-            {
-                return telp;
-            }
-
+            get { return telp; }
             set
             {
                 telp = value;
@@ -143,11 +109,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "username", AllowNull = false)]
         public string Username
         {
-            get
-            {
-                return username;
-            }
-
+            get { return username; }
             set
             {
                 username = value;
@@ -158,11 +120,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "password", AllowNull = false)]
         public string Password
         {
-            get
-            {
-                return password;
-            }
-
+            get { return password; }
             set
             {
                 password = value;
@@ -173,11 +131,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "role", AllowNull = false)]
         public string Role
         {
-            get
-            {
-                return role;
-            }
-
+            get { return role; }
             set
             {
                 role = value;

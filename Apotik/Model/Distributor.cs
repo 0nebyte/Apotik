@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-    public class Distributor : System.ComponentModel.INotifyPropertyChanged
+    public class Distributor : BaseModel
     {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
-
         public static string tableName = "tb_distributor";
 
         private int id;
@@ -50,11 +41,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_distributor", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
-            get
-            {
-                return id;
-            }
-
+            get { return id; }
             set
             {
                 id = value;
@@ -65,11 +52,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "kode_distributor", AllowNull = false)]
         public string Kode
         {
-            get
-            {
-                return kode;
-            }
-
+            get { return kode; }
             set
             {
                 kode = value;
@@ -80,11 +63,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "nama", AllowNull = false)]
         public string Nama
         {
-            get
-            {
-                return nama;
-            }
-
+            get { return nama; }
             set
             {
                 nama = value;
@@ -95,11 +74,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "alamat", AllowNull = false)]
         public string Alamat
         {
-            get
-            {
-                return alamat;
-            }
-
+            get { return alamat; }
             set
             {
                 alamat = value;
@@ -110,11 +85,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "kota", AllowNull = false)]
         public string Kota
         {
-            get
-            {
-                return kota;
-            }
-
+            get { return kota; }
             set
             {
                 kota = value;
@@ -125,11 +96,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "notelp", AllowNull = false)]
         public string Telp
         {
-            get
-            {
-                return telp;
-            }
-
+            get { return telp; }
             set
             {
                 telp = value;
@@ -140,11 +107,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "bank", AllowNull = true)]
         public string Bank
         {
-            get
-            {
-                return bank;
-            }
-
+            get { return bank; }
             set
             {
                 bank = value;
@@ -155,11 +118,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "norek", AllowNull = false)]
         public string Norek
         {
-            get
-            {
-                return norek;
-            }
-
+            get { return norek; }
             set
             {
                 norek = value;
@@ -170,11 +129,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "email", AllowNull = true)]
         public string Email
         {
-            get
-            {
-                return email;
-            }
-
+            get { return email; }
             set
             {
                 email = value;

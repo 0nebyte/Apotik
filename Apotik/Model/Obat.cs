@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-    public class Obat : System.ComponentModel.INotifyPropertyChanged
+    public class Obat : BaseModel
     {
         public static string tableName = "tb_obat";
 
@@ -37,11 +37,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_obat", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
-            get
-            {
-                return id;
-            }
-
+            get { return id; }
             set
             {
                 id = value;
@@ -52,11 +48,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "kode_obat", AllowNull = false)]
         public string Kode
         {
-            get
-            {
-                return kode;
-            }
-
+            get { return kode; }
             set
             {
                 kode = value;
@@ -67,11 +59,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "nama", AllowNull = false)]
         public string Nama
         {
-            get
-            {
-                return nama;
-            }
-
+            get { return nama; }
             set
             {
                 nama = value;
@@ -82,11 +70,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "satuan", AllowNull = false)]
         public string Satuan
         {
-            get
-            {
-                return satuan;
-            }
-
+            get { return satuan; }
             set
             {
                 satuan = value;
@@ -97,11 +81,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "stok", AllowNull = false)]
         public int Stok
         {
-            get
-            {
-                return stok;
-            }
-
+            get { return stok; }
             set
             {
                 stok = value;
@@ -112,11 +92,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "harga", AllowNull = false)]
         public int Harga
         {
-            get
-            {
-                return harga;
-            }
-
+            get { return harga; }
             set
             {
                 harga = value;
@@ -127,11 +103,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "keterangan", AllowNull = false)]
         public string Keterangan
         {
-            get
-            {
-                return keterangan;
-            }
-
+            get { return keterangan; }
             set
             {
                 keterangan = value;
@@ -142,24 +114,6 @@ namespace Apotik.Model
         public override string ToString()
         {
             return nama;
-
-            //return base.ToString() + "\n" +
-            //    "\tid: " + id + "\n" +
-            //    "\tkode: " + kode + "\n" +
-            //    "\tnama: " + nama + "\n" +
-            //    "\tsatuan: " + satuan + "\n" +
-            //    "\tstok: " + stok + "\n" +
-            //    "\tharga: " + harga + "\n" +
-            //    "\tketerangan: " + keterangan;
         }
-
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
     }
 }

@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-    public class Penjualan : System.ComponentModel.INotifyPropertyChanged
+    public class Penjualan : BaseModel
     {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
-
         public static string tableName = "tb_jual";
 
         private int id;
@@ -53,11 +44,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_jual", PrimaryKey = true, AutoIncrement = true)]
         public int Id
         {
-            get
-            {
-                return id;
-            }
-
+            get { return id; }
             set
             {
                 id = value;
@@ -68,11 +55,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_dokter", AllowNull = true)]
         public string ID_Dokter
         {
-            get
-            {
-                return id_dokter;
-            }
-
+            get { return id_dokter; }
             set
             {
                 id_dokter = value;
@@ -83,11 +66,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "no_faktur", AllowNull = true)]
         public string Faktur
         {
-            get
-            {
-                return faktur;
-            }
-
+            get { return faktur; }
             set
             {
                 faktur = value;
@@ -98,11 +77,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "id_obat", AllowNull = true)]
         public string ID_Obat
         {
-            get
-            {
-                return id_dokter;
-            }
-
+            get { return id_dokter; }
             set
             {
                 id_obat = value;
@@ -113,11 +88,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "qty", AllowNull = true)]
         public string Qty
         {
-            get
-            {
-                return qty;
-            }
-
+            get { return qty; }
             set
             {
                 qty = value;
@@ -128,11 +99,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "total", AllowNull = true)]
         public string Total
         {
-            get
-            {
-                return total;
-            }
-
+            get { return total; }
             set
             {
                 total = value;
@@ -143,11 +110,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "sub_total", AllowNull = true)]
         public string Sub_Total
         {
-            get
-            {
-                return sub_total;
-            }
-
+            get { return sub_total; }
             set
             {
                 sub_total = value;
@@ -158,11 +121,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "diskon", AllowNull = true)]
         public string Diskon
         {
-            get
-            {
-                return diskon;
-            }
-
+            get { return diskon; }
             set
             {
                 diskon = value;
@@ -173,11 +132,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "ppn", AllowNull = true)]
         public string PPN
         {
-            get
-            {
-                return ppn;
-            }
-
+            get { return ppn; }
             set
             {
                 ppn = value;
@@ -188,11 +143,7 @@ namespace Apotik.Model
         [Attributes.Field(Name = "grand_total", AllowNull = true)]
         public string Grand_Total
         {
-            get
-            {
-                return grand_total;
-            }
-
+            get { return grand_total; }
             set
             {
                 grand_total = value;
