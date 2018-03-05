@@ -42,21 +42,17 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var dokter = new dataDokter(controller);
                 dokter.ShowDialog();
             }
+            else if (e.KeyCode == Keys.F3)
+            {
+                var obat = new dataObat(controller);
+                obat.ShowDialog();
+            }
         }
 
         private void dgv_penjualan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var obat = new dataObat(controller);
             obat.ShowDialog();
-        }
-
-        private void dgv_penjualan_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F3)
-            {
-                var obat = new dataObat(controller);
-                obat.ShowDialog();
-            }
         }
     }
 }
