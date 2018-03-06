@@ -41,8 +41,8 @@ namespace Apotik.Model
         public int Save(object model)
         {
             var type = model.GetType();
-            var tableName = GetTableName(type);
-            var columns = GetColumns(type);
+            var tableName = BaseModel.GetTableName(type);
+            var columns = BaseModel.GetColumns(type);
             var writableColumns = columns.Where(f => !f.field.AutoIncrement);
             var sqlColumnNames = string.Join(",", writableColumns.Select(f => f.field.Name));
             var sqlColumnValues = string.Join(",", writableColumns.Select(f => "$" + f.field.Name));
@@ -61,8 +61,8 @@ namespace Apotik.Model
         public int Update(object model)
         {
             var type = model.GetType();
-            var tableName = GetTableName(type);
-            var columns = GetColumns(type);
+            var tableName = BaseModel.GetTableName(type);
+            var columns = BaseModel.GetColumns(type);
             var writableColumns = columns.Where(f => !f.field.AutoIncrement);
             var sqlColumnSet = string.Join(",", writableColumns.Select(
                 f => string.Format("{0} = ${0}", f.field.Name)));
@@ -82,8 +82,8 @@ namespace Apotik.Model
         public IEnumerable<T> Query<T>(string whereClause = null) where T: new()
         {
             var type = typeof(T);
-            var tableName = GetTableName(type);
-            var columns = GetColumns(type);
+            var tableName = BaseModel.GetTableName(type);
+            var columns = BaseModel.GetColumns(type);
             var sql = string.Format("SELECT * FROM {0}", tableName);
             if (whereClause != null)
                 sql += string.Format(" WHERE {0}", whereClause);
@@ -156,8 +156,8 @@ namespace Apotik.Model
 
         private static bool InitSchemaFromTable(Database db, Type type)
         {
-            var tableName = GetTableName(type);
-            var fieldsSql = CreateFieldsSql(type);
+            var tableName = BaseModel.GetTableName(type);
+            var fieldsSql = BaseModel.CreateFieldsSql(type);
             var sql = string.Format("CREATE TABLE IF NOT EXISTS {0} ({1})", tableName, fieldsSql);
             var command = new SQLiteCommand(sql, db.connection);
 
@@ -165,7 +165,21 @@ namespace Apotik.Model
 
             return true;
         }
+        #endregion
+    }
 
+    public class BaseModel : System.ComponentModel.INotifyPropertyChanged
+    {
+        #region System.ComponentModel.INotifyPropertyChanged implementation
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, e);
+        }
+        #endregion
+
+        #region Table metadata access methods
         public static string GetTableName(Type type)
         {
             var tableName = type.Name;
@@ -177,6 +191,34 @@ namespace Apotik.Model
             }
 
             return tableName;
+        }
+
+        public static string CreateFieldsSql(Type refl)
+        {
+            var columnsSql = refl.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
+                .Select(p =>
+            {
+                var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
+                    typeof(Attributes.Field), false)[0];
+
+                var sql = fieldAttr.Name;
+                if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                    sql += " INTEGER";
+                else
+                    sql += " TEXT";
+                if (fieldAttr.PrimaryKey)
+                    sql += " PRIMARY KEY";
+                if (fieldAttr.AutoIncrement)
+                    sql += " AUTOINCREMENT";
+                if (!fieldAttr.AllowNull)
+                    sql += " NOT NULL";
+
+                return sql;
+            });
+
+            return string.Join(",\n", columnsSql);
         }
 
         public struct ColumnAccessor
@@ -220,48 +262,6 @@ namespace Apotik.Model
             var attribute = (Attributes.Field) propertyInfo.GetCustomAttributes(typeof(Attributes.Field),
                 false)[0];
             return attribute.Name;
-        }
-
-        public static string CreateFieldsSql(Type refl)
-        {
-            var sql = "";
-
-            var columnsSql = refl.GetProperties()
-                .Where(p => p.CanRead && p.CanWrite)
-                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
-                .Select(p =>
-            {
-                var fieldAttr = (Attributes.Field) p.GetCustomAttributes(
-                    typeof(Attributes.Field), false)[0];
-
-                sql = fieldAttr.Name;
-                if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
-                    sql += " INTEGER";
-                else
-                    sql += " TEXT";
-                if (fieldAttr.PrimaryKey)
-                    sql += " PRIMARY KEY";
-                if (fieldAttr.AutoIncrement)
-                    sql += " AUTOINCREMENT";
-                if (!fieldAttr.AllowNull)
-                    sql += " NOT NULL";
-
-                return sql;
-            });
-
-            return string.Join(",\n", columnsSql);
-        }
-        #endregion
-    }
-
-    public class BaseModel : System.ComponentModel.INotifyPropertyChanged
-    {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
         }
         #endregion
     }
@@ -341,10 +341,10 @@ namespace Apotik.Model
         {
             var type = model[index];
             if (model.Count > 1)
-                return string.Format("{0}.{1}", Database.GetTableName(type),
-                    Database.GetColumnName(type, propertyName));
+                return string.Format("{0}.{1}", BaseModel.GetTableName(type),
+                    BaseModel.GetColumnName(type, propertyName));
             else
-                return string.Format("{0}", Database.GetColumnName(type, propertyName));
+                return string.Format("{0}", BaseModel.GetColumnName(type, propertyName));
         }
 
         public override bool Equals(object obj)
@@ -412,7 +412,7 @@ namespace Apotik.Model
         public IList<T> Execute()
         {
             var type = typeof(T);
-            var columns = Database.GetColumns(type);
+            var columns = BaseModel.GetColumns(type);
             var command = new SQLiteCommand(ToSqlQuery(), db.Connection);
             var reader = command.ExecuteReader();
             var result = new List<T>();
@@ -437,8 +437,8 @@ namespace Apotik.Model
         public string ToSqlQuery()
         {
             var type = typeof(T);
-            var tableName = Database.GetTableName(type);
-            var columns = Database.GetColumns(type);
+            var tableName = BaseModel.GetTableName(type);
+            var columns = BaseModel.GetColumns(type);
             var columnName = string.Join(",", columns.Select(f => f.field.Name));
             var sql = string.Format("SELECT {1} FROM {0}", tableName, columnName);
             if (condition != null)
