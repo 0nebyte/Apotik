@@ -5,14 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Collections;
+using System.Reflection;
+using System.Reflection.Emit;
 
 namespace Apotik.Model
 {
     class Database
     {
-        private SQLiteConnection connection;
+        public struct Schema
+        {
+            public Type baseType;
+            public Type type;
+            public string tableName;
+            public IEnumerable<BaseModel.ColumnAccessor> columns;
+            public IEnumerable<BaseModel.ReferenceColumnAccessor> refColumns;
 
-        private Database(string filename)
+            public BaseModel.ColumnAccessor GetPrimaryKey()
+            {
+                return columns.Where(p => p.field.PrimaryKey == true).First();
+            }
+
+            public string GetReferenceColumnName()
+            {
+                return string.Format("{0}_{1}", tableName, GetPrimaryKey().field.Name);
+            }
+        }
+
+        private SQLiteConnection connection;
+        private Dictionary<string, Schema> schemas = new Dictionary<string, Schema>();
+
+        public Database(string filename)
         {
             connection = new SQLiteConnection("Data Source=" + filename +";Version=3");
             connection.Open();
@@ -38,42 +60,90 @@ namespace Apotik.Model
             return new SQLCondition(SQLCondition.Operator.Like, column, new SQLString(condition));
         }
 
-        public int Save(object model)
+        public int Save<T>(T model) where T: BaseModel
         {
             var type = model.GetType();
-            var tableName = BaseModel.GetTableName(type);
-            var columns = BaseModel.GetColumns(type);
-            var writableColumns = columns.Where(f => !f.field.AutoIncrement);
-            var sqlColumnNames = string.Join(",", writableColumns.Select(f => f.field.Name));
-            var sqlColumnValues = string.Join(",", writableColumns.Select(f => "$" + f.field.Name));
-            var sql = string.Format("INSERT INTO {0} ({1}) VALUES ({2})", tableName, sqlColumnNames,
-                sqlColumnValues);
+            var typeSignature = type.Name;
+
+            if (!schemas.ContainsKey(typeSignature))
+                throw new NotImplementedException(string.Format("{0} is no registered. " +
+                    "Register using Database.RegisterSchema() method."));
+
+            var schema = schemas[typeSignature];
+            var baseType = schema.baseType;
+            var tableName = schema.tableName;
+
+            var columns = schema.columns.Where(f => !f.field.AutoIncrement);
+            var refColumns = schema.refColumns;
+            var allColumns = columns.Select(f => f.field.Name)
+                .Concat(refColumns.Select(f => GetSchema(f.reference.Type).GetReferenceColumnName()));
+
+            var sql = string.Format("INSERT INTO {0} ({1}) VALUES ({2})", tableName,
+                string.Join(",", allColumns),
+                string.Join(",", allColumns.Select(c => "$" + c)));
 
             var command = new SQLiteCommand(sql, connection);
+
             foreach (var col in columns)
             {
                 command.Parameters.AddWithValue("$" + col.field.Name, col.propertyInfo.GetValue(model));
             }
 
-            return command.ExecuteNonQuery();
+            foreach (var col in refColumns)
+            {
+                var refObj = col.propertyInfo.GetValue(model);
+                var pk = BaseModel.GetPrimaryKey(refObj.GetType().BaseType);
+                command.Parameters.AddWithValue("$" + GetSchema(col.reference.Type).GetReferenceColumnName(),
+                    pk.propertyInfo.GetValue(refObj));
+            }
+
+            var transaction = connection.BeginTransaction();
+            var ret = command.ExecuteNonQuery();
+            // TODO update id of model here
+            //var newModel = Query2<T>().Where(Column("Id") == "1").Execute();
+            transaction.Commit();
+            return ret;
         }
 
-        public int Update(object model)
+        public int Save<T>(IEnumerable<T> models) where T: BaseModel
         {
-            var type = model.GetType();
-            var tableName = BaseModel.GetTableName(type);
-            var columns = BaseModel.GetColumns(type);
-            var writableColumns = columns.Where(f => !f.field.AutoIncrement);
-            var sqlColumnSet = string.Join(",", writableColumns.Select(
-                f => string.Format("{0} = ${0}", f.field.Name)));
-            var sqlColumnId = columns.Where(f => f.field.PrimaryKey).FirstOrDefault();
-            var whereClause = string.Format("{0} = ${0}", sqlColumnId.field.Name);
-            var sql = string.Format("UPDATE {0} SET {1} WHERE {2}", tableName, sqlColumnSet, whereClause);
-
-            var command = new SQLiteCommand(sql, connection);
-            foreach (var col in columns)
+            var retVal = 0;
+            foreach (var m in models)
             {
-                command.Parameters.AddWithValue("$" + col.field.Name, col.propertyInfo.GetValue(model));
+                retVal += Save(m);
+            }
+            return retVal;
+        }
+
+        public int Update<T>(T model) where T: BaseModel
+        {
+            var type = typeof(T);
+            var schema = GetSchema(type);
+
+            var columns = schema.columns.Where(f => !f.field.AutoIncrement);
+            var refColumns = schema.refColumns;
+            var allColumns = columns.Select(f => f.field.Name)
+                .Concat(refColumns.Select(f => GetSchema(f.reference.Type).GetReferenceColumnName()));
+            var sqlColumnSet = string.Join(",", allColumns.Select(f => string.Format("{0} = ${0}", f)));
+
+            var sqlColumnId = schema.columns.Where(f => f.field.PrimaryKey).First();
+            var whereClause = string.Format("{0} = ${0}", sqlColumnId.field.Name);
+
+            var sql = string.Format("UPDATE {0} SET {1} WHERE {2}", schema.tableName,
+                sqlColumnSet, whereClause);
+            var command = new SQLiteCommand(sql, connection);
+
+            foreach (var c in schema.columns)
+            {
+                command.Parameters.AddWithValue("$" + c.field.Name, c.propertyInfo.GetValue(model));
+            }
+
+            foreach (var col in refColumns)
+            {
+                var refObj = col.propertyInfo.GetValue(model);
+                var pk = BaseModel.GetPrimaryKey(refObj.GetType().BaseType);
+                command.Parameters.AddWithValue("$" + GetSchema(col.reference.Type).GetReferenceColumnName(),
+                    pk.propertyInfo.GetValue(refObj));
             }
 
             return command.ExecuteNonQuery();
@@ -109,9 +179,48 @@ namespace Apotik.Model
             return result;
         }
 
-        public SQLQuery<T> Query2<T>() where T: new()
+        public SQLQuery<T> Query2<T>() where T: BaseModel
         {
             return new SQLQuery<T>(this);
+        }
+
+        public bool RegisterSchema<T>() where T: BaseModel
+        {
+            var baseType = typeof(T);
+            var typeSignature = GetTypeSignature(baseType);
+
+            if (schemas.ContainsKey(typeSignature))
+                return true;
+
+            var schema = new Schema();
+            schema.baseType = baseType;
+            schema.type = BaseModel.CreateType(typeSignature, baseType);
+            schema.tableName = BaseModel.GetTableName(baseType);
+            schema.columns = BaseModel.GetColumns(baseType);
+            schema.refColumns = BaseModel.GetReferenceColumns(baseType);
+
+            var fieldsSql = BaseModel.CreateFieldsSql(baseType);
+            var sql = string.Format("CREATE TABLE IF NOT EXISTS {0} ({1})", schema.tableName, fieldsSql);
+            var command = new SQLiteCommand(sql, connection);
+
+            schemas[typeSignature] = schema;
+
+            command.ExecuteNonQuery();
+
+            return true;
+        }
+
+        public Schema GetSchema(Type type)
+        {
+            if (schemas.ContainsKey(GetTypeSignature(type)))
+                return schemas[GetTypeSignature(type)];
+            else
+                return schemas[type.Name];
+        }
+
+        private string GetTypeSignature(Type baseType)
+        {
+            return baseType.Name + "Impl";
         }
 
         #region Statics
@@ -139,29 +248,17 @@ namespace Apotik.Model
 
         private static bool InitSchema(Database db)
         {
-            if (!InitSchemaFromTable(db, typeof(Model.Distributor)))
+            if (!db.RegisterSchema<Model.Distributor>())
                 return false;
 
-            if (!InitSchemaFromTable(db, typeof(Model.Dokter)))
+            if (!db.RegisterSchema<Model.Dokter>())
                 return false;
 
-            if (!InitSchemaFromTable(db, typeof(Model.Obat)))
+            if (!db.RegisterSchema<Model.Obat>())
                 return false;
 
-            if (!InitSchemaFromTable(db, typeof(Model.User)))
+            if (!db.RegisterSchema<Model.User>())
                 return false;
-
-            return true;
-        }
-
-        private static bool InitSchemaFromTable(Database db, Type type)
-        {
-            var tableName = BaseModel.GetTableName(type);
-            var fieldsSql = BaseModel.CreateFieldsSql(type);
-            var sql = string.Format("CREATE TABLE IF NOT EXISTS {0} ({1})", tableName, fieldsSql);
-            var command = new SQLiteCommand(sql, db.connection);
-
-            command.ExecuteNonQuery();
 
             return true;
         }
@@ -174,8 +271,7 @@ namespace Apotik.Model
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
         {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -195,30 +291,59 @@ namespace Apotik.Model
 
         public static string CreateFieldsSql(Type refl)
         {
+            // fields
             var columnsSql = refl.GetProperties()
                 .Where(p => p.CanRead && p.CanWrite)
                 .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
                 .Select(p =>
-            {
-                var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
-                    typeof(Attributes.Field), false)[0];
+                {
+                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
+                        typeof(Attributes.Field), false)[0];
 
-                var sql = fieldAttr.Name;
-                if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
-                    sql += " INTEGER";
-                else
-                    sql += " TEXT";
-                if (fieldAttr.PrimaryKey)
-                    sql += " PRIMARY KEY";
-                if (fieldAttr.AutoIncrement)
-                    sql += " AUTOINCREMENT";
-                if (!fieldAttr.AllowNull)
-                    sql += " NOT NULL";
+                    var sql = fieldAttr.Name;
+                    if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                        sql += " INTEGER";
+                    else
+                        sql += " TEXT";
+                    if (fieldAttr.PrimaryKey)
+                        sql += " PRIMARY KEY";
+                    if (fieldAttr.AutoIncrement)
+                        sql += " AUTOINCREMENT";
+                    if (!fieldAttr.AllowNull)
+                        sql += " NOT NULL";
 
-                return sql;
-            });
+                    return sql;
+                });
 
-            return string.Join(",\n", columnsSql);
+            // constraint references
+            var constraintSql = refl.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
+                .Select(p =>
+                {
+                    var refAttr = (Attributes.Reference)p.GetCustomAttributes(
+                        typeof(Attributes.Reference), false)[0];
+
+                    var refTableName = GetTableName(refAttr.Type);
+
+                    var refPrimaryKey = GetPrimaryKey(refAttr.Type);
+
+                    var columnType = "TEXT";
+                    if (refPrimaryKey.propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                        columnType = "INTEGER";
+
+                    var refColumnName = refPrimaryKey.field.Name;
+
+                    var columnName = GetReferenceColumnName(refAttr);
+
+                    return string.Format("{0} {1} REFERENCES {2}({3}) ON UPDATE CASCADE",
+                        columnName,
+                        columnType,
+                        refTableName,
+                        refColumnName);
+                });
+
+            return string.Join(",\n", columnsSql.Concat(constraintSql));
         }
 
         public struct ColumnAccessor
@@ -241,19 +366,76 @@ namespace Apotik.Model
             }
         }
 
+        public struct ReferenceColumnAccessor
+        {
+            public Attributes.Reference reference;
+            public PropertyInfo propertyInfo;
+
+            public ReferenceColumnAccessor(Attributes.Reference reference, PropertyInfo info)
+            {
+                this.reference = reference;
+                this.propertyInfo = info;
+            }
+        }
+
         public static IEnumerable<ColumnAccessor> GetColumns(Type type)
         {
             var columns = type.GetProperties()
                 .Where(p => p.CanRead && p.CanWrite)
                 .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
                 .Select(p =>
-            {
-                var fieldAttr = (Attributes.Field) p.GetCustomAttributes(
-                    typeof(Attributes.Field), false)[0];
-                return new ColumnAccessor(fieldAttr, p);
-            });
+                {
+                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
+                        typeof(Attributes.Field), false)[0];
+                    return new ColumnAccessor(fieldAttr, p);
+                });
 
             return columns;
+        }
+
+        public static IEnumerable<ReferenceColumnAccessor> GetReferenceColumns(Type type)
+        {
+            return type.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
+                .Select(p =>
+                {
+                    var refAttr = (Attributes.Reference)p.GetCustomAttributes(
+                        typeof(Attributes.Reference), false)[0];
+                    return new ReferenceColumnAccessor(refAttr, p);
+                });
+        }
+
+        public static ColumnAccessor GetPrimaryKey(Type type)
+        {
+            return type.GetProperties()
+                .Where(p =>
+                {
+                    if (p.GetCustomAttributes(typeof(Attributes.Field), false).Length == 0)
+                        return false;
+
+                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(typeof(Attributes.Field),
+                        false)[0];
+
+                    if (fieldAttr.PrimaryKey != true)
+                        return false;
+
+                    return true;
+                })
+                .Select(p =>
+                {
+                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(typeof(Attributes.Field),
+                        false)[0];
+
+                    return new ColumnAccessor(fieldAttr, p);
+                })
+                .First();
+        }
+
+        public static string GetReferenceColumnName(Attributes.Reference reference)
+        {
+            return string.Format("{0}_{1}", GetTableName(reference.Type),
+                GetPrimaryKey(reference.Type).field.Name);
         }
 
         public static string GetColumnName(Type type, string propertyName)
@@ -262,6 +444,112 @@ namespace Apotik.Model
             var attribute = (Attributes.Field) propertyInfo.GetCustomAttributes(typeof(Attributes.Field),
                 false)[0];
             return attribute.Name;
+        }
+        #endregion
+
+        #region Concrete type creation
+        private static Dictionary<string, Type> types = new Dictionary<string, Type>();
+
+        public static T New<T>() where T : BaseModel
+        {
+            var parentType = typeof(T);
+            var typeSignature = parentType.Name + "Impl";
+
+            if (!types.ContainsKey(typeSignature))
+            {
+                var typeBuilder = CreateType(typeSignature, parentType);
+
+                var constructorBuilder = typeBuilder.DefineDefaultConstructor(
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.RTSpecialName);
+
+                foreach (var p in GetColumns(parentType))
+                {
+                    CreateProperty(typeBuilder, p.propertyInfo.Name, p.propertyInfo.GetMethod.ReturnType);
+                }
+
+                foreach (var p in GetReferenceColumns(parentType))
+                {
+                    CreateProperty(typeBuilder, p.propertyInfo.Name, p.propertyInfo.GetMethod.ReturnType);
+                }
+
+                types[typeSignature] = typeBuilder.CreateType();
+            }
+
+            var type = types[typeSignature];
+            return (T)Activator.CreateInstance(type);
+        }
+
+        public static TypeBuilder CreateType(string typeSignature, Type parent)
+        {
+            var assemblyName = new AssemblyName(typeSignature);
+            var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName,
+                AssemblyBuilderAccess.Run);
+            var moduleBuilder = assemblyBuilder.DefineDynamicModule("MainModule");
+            return moduleBuilder.DefineType(typeSignature,
+                TypeAttributes.Public |
+                TypeAttributes.Class |
+                TypeAttributes.AutoClass |
+                TypeAttributes.AnsiClass |
+                TypeAttributes.BeforeFieldInit |
+                TypeAttributes.AutoLayout,
+                parent);
+        }
+
+        public static void CreateProperty(TypeBuilder typeBuilder, string propertyName, Type propertyType)
+        {
+            var fieldBuilder = typeBuilder.DefineField("_" + propertyName, propertyType,
+                FieldAttributes.Private);
+            var propertyBuilder = typeBuilder.DefineProperty(propertyName, PropertyAttributes.HasDefault,
+                propertyType, null);
+
+            // Property get method
+            var getMethodBuilder = typeBuilder.DefineMethod("get_" + propertyName,
+                MethodAttributes.Public |
+                MethodAttributes.Virtual |
+                MethodAttributes.SpecialName |
+                MethodAttributes.HideBySig,
+                propertyType, Type.EmptyTypes);
+            var getILGen = getMethodBuilder.GetILGenerator();
+
+            getILGen.Emit(OpCodes.Ldarg_0);
+            getILGen.Emit(OpCodes.Ldfld, fieldBuilder);
+            getILGen.Emit(OpCodes.Ret);
+
+            // Property set method
+            var setMethodBuilder = typeBuilder.DefineMethod("set_" + propertyName,
+                MethodAttributes.Public |
+                MethodAttributes.Virtual |
+                MethodAttributes.SpecialName |
+                MethodAttributes.HideBySig,
+                null, new[] { propertyType });
+            var setILGen = setMethodBuilder.GetILGenerator();
+
+            var modifyProperty = setILGen.DefineLabel();
+            var exitSet = setILGen.DefineLabel();
+
+            setILGen.MarkLabel(modifyProperty);
+            setILGen.Emit(OpCodes.Ldarg_0);
+            setILGen.Emit(OpCodes.Ldarg_1);
+            setILGen.Emit(OpCodes.Stfld, fieldBuilder);
+
+            var propertyChangedEventArgsConstructor = typeof(System.ComponentModel.PropertyChangedEventArgs)
+                .GetConstructor(new[] { typeof(string) });
+            var invokePropertyChanged = typeof(BaseModel).GetMethod("InvokePropertyChanged",
+                new[] { typeof(System.ComponentModel.PropertyChangedEventArgs) });
+
+            setILGen.Emit(OpCodes.Ldarg_0);
+            setILGen.Emit(OpCodes.Ldstr, propertyName);
+            setILGen.Emit(OpCodes.Newobj, propertyChangedEventArgsConstructor);
+            setILGen.Emit(OpCodes.Call, invokePropertyChanged);
+
+            setILGen.Emit(OpCodes.Nop);
+            setILGen.MarkLabel(exitSet);
+            setILGen.Emit(OpCodes.Ret);
+
+            propertyBuilder.SetGetMethod(getMethodBuilder);
+            propertyBuilder.SetSetMethod(setMethodBuilder);
         }
         #endregion
     }
@@ -387,7 +675,7 @@ namespace Apotik.Model
         }
     }
 
-    class SQLQuery<T> where T: new()
+    class SQLQuery<T> where T: BaseModel
     {
         private Database db;
         private SQLCondition condition;
@@ -412,21 +700,21 @@ namespace Apotik.Model
         public IList<T> Execute()
         {
             var type = typeof(T);
-            var columns = BaseModel.GetColumns(type);
+            var schema = db.GetSchema(type);
             var command = new SQLiteCommand(ToSqlQuery(), db.Connection);
             var reader = command.ExecuteReader();
             var result = new List<T>();
             while (reader.Read())
             {
                 var i = 0;
-                var t = new T();
-                foreach (var column in columns)
+                var t = BaseModel.New<T>();
+                foreach (var c in schema.columns)
                 {
-                    var columnType = column.GetColumnType();
+                    var columnType = c.GetColumnType();
                     if (columnType == "int")
-                        column.propertyInfo.SetValue(t, reader.GetInt32(i));
+                        c.propertyInfo.SetValue(t, reader.GetInt32(i));
                     else if (columnType == "string")
-                        column.propertyInfo.SetValue(t, reader.GetString(i));
+                        c.propertyInfo.SetValue(t, reader.GetString(i));
                     ++i;
                 }
                 result.Add(t);
@@ -437,12 +725,11 @@ namespace Apotik.Model
         public string ToSqlQuery()
         {
             var type = typeof(T);
-            var tableName = BaseModel.GetTableName(type);
-            var columns = BaseModel.GetColumns(type);
-            var columnName = string.Join(",", columns.Select(f => f.field.Name));
-            var sql = string.Format("SELECT {1} FROM {0}", tableName, columnName);
+            var schema = db.GetSchema(type);
+            var columnName = string.Join(",", schema.columns.Select(f => f.field.Name));
+            var sql = string.Format("SELECT {1} FROM {0}", schema.tableName, columnName);
             if (condition != null)
-                sql += string.Format(" WHERE {0}", condition.ToSqlQuery(new List<Type>(){ type }));
+                sql += string.Format(" WHERE {0}", condition.ToSqlQuery(new[] { type }));
 
             return sql;
         }

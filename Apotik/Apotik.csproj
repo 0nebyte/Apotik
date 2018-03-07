@@ -196,6 +196,7 @@
       <DependentUpon>tambah.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
+    <Compile Include="Model\Attributes\Reference.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\Dokter.cs" />
