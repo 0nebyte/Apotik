@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Transaksi.Penjualan
 {
-    //public partial class Jual : MetroFramework.Forms.MetroForm
     public partial class Jual : Form
     {
         private Controller controller;

@@ -97,10 +97,14 @@ namespace Apotik.Model
                     pk.propertyInfo.GetValue(refObj));
             }
 
+            var pkProp = schema.GetPrimaryKey().propertyInfo;
+            var pkName = pkProp.Name;
+
             var transaction = connection.BeginTransaction();
             var ret = command.ExecuteNonQuery();
-            // TODO update id of model here
-            //var newModel = Query2<T>().Where(Column("Id") == "1").Execute();
+            var newModel = Query2<T>().OrderBy(Column(pkName), false).Limit(1).Execute().First();
+            var newId = pkProp.GetMethod.Invoke(newModel, null);
+            pkProp.SetMethod.Invoke(model, new[] { newId });
             transaction.Commit();
             return ret;
         }
@@ -637,7 +641,7 @@ namespace Apotik.Model
             this.propertyName = propertyName;
         }
 
-        public string ToSqlQuery(IList<Type> model = null)
+        public string ToSqlQuery(IList<Type> model)
         {
             var type = model[index];
             if (model.Count > 1)
@@ -692,6 +696,14 @@ namespace Apotik.Model
         private Database db;
         private SQLCondition condition;
 
+        private bool order = false;
+        private SQLColumn orderBy;
+        private bool orderAscending = true;
+
+        private bool limit = false;
+        private int limitStart = 0;
+        private int limitCount = 1;
+
         public SQLQuery(Database db)
         {
             this.db = db;
@@ -706,6 +718,33 @@ namespace Apotik.Model
 
         public SQLQuery<T> Where(bool condition)
         {
+            return this;
+        }
+
+        public SQLQuery<T> OrderBy(SQLColumn column, bool ascending = true)
+        {
+            order = true;
+            orderBy = column;
+            orderAscending = ascending;
+
+            return this;
+        }
+
+        public SQLQuery<T> Limit(int count)
+        {
+            limit = true;
+            limitStart = 0;
+            limitCount = count;
+
+            return this;
+        }
+
+        public SQLQuery<T> Limit(int start, int count)
+        {
+            limit = true;
+            limitStart = start;
+            limitCount = count;
+
             return this;
         }
 
@@ -748,6 +787,17 @@ namespace Apotik.Model
             var sql = string.Format("SELECT {1} FROM {0}", schema.tableName, columnName);
             if (condition != null)
                 sql += string.Format(" WHERE {0}", condition.ToSqlQuery(new[] { type }));
+
+            if (order)
+            {
+                sql += string.Format(" ORDER BY {0} {1}", orderBy.ToSqlQuery(new[] { type }),
+                    orderAscending ? "ASC" : "DESC");
+            }
+
+            if (limit)
+            {
+                sql += string.Format(" LIMIT {0},{1}", limitStart, limitCount);
+            }
 
             return sql;
         }
