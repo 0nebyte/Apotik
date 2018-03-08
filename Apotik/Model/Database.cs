@@ -260,6 +260,12 @@ namespace Apotik.Model
             if (!db.RegisterSchema<Model.User>())
                 return false;
 
+            if (!db.RegisterSchema<Model.Penjualan>())
+                return false;
+
+            if (!db.RegisterSchema<Model.DetailJual>())
+                return false;
+
             return true;
         }
         #endregion

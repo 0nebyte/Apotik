@@ -35,8 +35,18 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
                 var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
-                controller.DaftarObat.Add(obat);
-                controller.DaftarObat = controller.DaftarObat.ToList();
+
+                var detail = controller.DetailJual.FirstOrDefault(p => p.Obat.Id == obat.Id);
+                if (detail == null)
+                {
+                    detail = new Model.DetailJual();
+                    detail.Obat = obat;
+                    controller.DetailJual.Add(detail);
+                }
+
+                detail.Quantity += 1;
+
+                controller.DetailJual = controller.DetailJual.ToList();
             }
 
             Close();

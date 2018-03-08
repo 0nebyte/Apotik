@@ -198,6 +198,7 @@
     <Compile Include="Model\Attributes\Field.cs" />
     <Compile Include="Model\Attributes\Reference.cs" />
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\DetailJual.cs" />
     <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\Dokter.cs" />
     <Compile Include="Model\Obat.cs" />
@@ -277,6 +278,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Apotik.Model.DetailJual.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Distributor.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Dokter.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Obat.datasource" />

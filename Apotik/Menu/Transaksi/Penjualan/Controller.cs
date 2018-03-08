@@ -8,14 +8,14 @@ namespace Apotik.Menu.Transaksi.Penjualan
 {
     public class Controller : System.ComponentModel.INotifyPropertyChanged
     {
-        private IList<Apotik.Model.Obat> daftarObat = new List<Apotik.Model.Obat>();
-        public IList<Apotik.Model.Obat> DaftarObat
+        private IList<Model.DetailJual> detailJual = new List<Model.DetailJual>();
+        public IList<Model.DetailJual> DetailJual
         {
-            get { return daftarObat; }
+            get { return detailJual; }
             set
             {
-                daftarObat = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("DaftarObat"));
+                detailJual = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("DetailJual"));
             }
         }
 

@@ -22,7 +22,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             KeyPreview = true;
 
             txt_dokter.DataBindings.Add("Text", controller, "Dokter");
-            dgv_penjualan.DataBindings.Add("DataSource", controller, "DaftarObat");
+            dgv_penjualan.DataBindings.Add("DataSource", controller, "DetailJual");
         }
 
         private void btn_close_Click(object sender, EventArgs e)

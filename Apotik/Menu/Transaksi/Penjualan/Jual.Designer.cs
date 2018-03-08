@@ -48,20 +48,14 @@
             this.btn_close = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailJualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.obatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.penjualanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailJualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_penjualan
@@ -73,21 +67,16 @@
             this.dgv_penjualan.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_penjualan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_penjualan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.kodeDataGridViewTextBoxColumn,
-            this.namaDataGridViewTextBoxColumn,
-            this.satuanDataGridViewTextBoxColumn,
-            this.stokDataGridViewTextBoxColumn,
-            this.hargaDataGridViewTextBoxColumn,
-            this.keteranganDataGridViewTextBoxColumn,
-            this.Qty,
-            this.Rupiah});
+            this.obatDataGridViewTextBoxColumn,
+            this.penjualanDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn});
             this.tableLayoutPanel1.SetColumnSpan(this.dgv_penjualan, 3);
-            this.dgv_penjualan.DataSource = this.obatBindingSource;
+            this.dgv_penjualan.DataSource = this.detailJualBindingSource;
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
-            this.dgv_penjualan.Location = new System.Drawing.Point(3, 72);
+            this.dgv_penjualan.Location = new System.Drawing.Point(4, 111);
+            this.dgv_penjualan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_penjualan.Name = "dgv_penjualan";
-            this.dgv_penjualan.Size = new System.Drawing.Size(1245, 301);
+            this.dgv_penjualan.Size = new System.Drawing.Size(1868, 462);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             // 
@@ -96,29 +85,33 @@
             this.txt_faktur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel1.SetColumnSpan(this.txt_faktur, 2);
-            this.txt_faktur.Location = new System.Drawing.Point(103, 3);
+            this.txt_faktur.Location = new System.Drawing.Point(154, 5);
+            this.txt_faktur.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_faktur.Name = "txt_faktur";
-            this.txt_faktur.Size = new System.Drawing.Size(200, 17);
+            this.txt_faktur.Size = new System.Drawing.Size(300, 25);
             this.txt_faktur.TabIndex = 1;
             // 
             // txt_dokter
             // 
-            this.txt_dokter.Location = new System.Drawing.Point(103, 26);
+            this.txt_dokter.Location = new System.Drawing.Point(154, 40);
+            this.txt_dokter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_dokter.Name = "txt_dokter";
-            this.txt_dokter.Size = new System.Drawing.Size(200, 16);
+            this.txt_dokter.Size = new System.Drawing.Size(300, 24);
             this.txt_dokter.TabIndex = 2;
             // 
             // dtp_jual
             // 
-            this.dtp_jual.Location = new System.Drawing.Point(103, 48);
+            this.dtp_jual.Location = new System.Drawing.Point(154, 74);
+            this.dtp_jual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtp_jual.Name = "dtp_jual";
-            this.dtp_jual.Size = new System.Drawing.Size(200, 20);
+            this.dtp_jual.Size = new System.Drawing.Size(298, 26);
             this.dtp_jual.TabIndex = 4;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 0);
+            this.metroLabel1.Location = new System.Drawing.Point(4, 0);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(66, 19);
             this.metroLabel1.TabIndex = 0;
@@ -127,7 +120,8 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 23);
+            this.metroLabel3.Location = new System.Drawing.Point(4, 35);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(74, 19);
             this.metroLabel3.TabIndex = 0;
@@ -136,7 +130,8 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 45);
+            this.metroLabel2.Location = new System.Drawing.Point(4, 69);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(54, 19);
             this.metroLabel2.TabIndex = 0;
@@ -144,9 +139,10 @@
             // 
             // txt_subtotal
             // 
-            this.txt_subtotal.Location = new System.Drawing.Point(93, 8);
+            this.txt_subtotal.Location = new System.Drawing.Point(140, 12);
+            this.txt_subtotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_subtotal.Name = "txt_subtotal";
-            this.txt_subtotal.Size = new System.Drawing.Size(200, 23);
+            this.txt_subtotal.Size = new System.Drawing.Size(300, 35);
             this.txt_subtotal.TabIndex = 2;
             // 
             // metroPanel1
@@ -162,19 +158,21 @@
             this.metroPanel1.Controls.Add(this.txt_subtotal);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(944, 380);
+            this.metroPanel1.HorizontalScrollbarSize = 15;
+            this.metroPanel1.Location = new System.Drawing.Point(1416, 584);
+            this.metroPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(304, 130);
+            this.metroPanel1.Size = new System.Drawing.Size(456, 200);
             this.metroPanel1.TabIndex = 5;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.metroPanel1.VerticalScrollbarSize = 15;
             // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(11, 101);
+            this.metroLabel7.Location = new System.Drawing.Point(16, 155);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(76, 19);
             this.metroLabel7.TabIndex = 0;
@@ -183,7 +181,8 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(52, 72);
+            this.metroLabel6.Location = new System.Drawing.Point(78, 111);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(35, 19);
             this.metroLabel6.TabIndex = 0;
@@ -192,7 +191,8 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(40, 43);
+            this.metroLabel5.Location = new System.Drawing.Point(60, 66);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(47, 19);
             this.metroLabel5.TabIndex = 0;
@@ -201,7 +201,8 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(30, 12);
+            this.metroLabel4.Location = new System.Drawing.Point(45, 18);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(57, 19);
             this.metroLabel4.TabIndex = 0;
@@ -209,31 +210,35 @@
             // 
             // metroTextBox6
             // 
-            this.metroTextBox6.Location = new System.Drawing.Point(93, 97);
+            this.metroTextBox6.Location = new System.Drawing.Point(140, 149);
+            this.metroTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTextBox6.Name = "metroTextBox6";
-            this.metroTextBox6.Size = new System.Drawing.Size(200, 23);
+            this.metroTextBox6.Size = new System.Drawing.Size(300, 35);
             this.metroTextBox6.TabIndex = 2;
             // 
             // metroTextBox5
             // 
-            this.metroTextBox5.Location = new System.Drawing.Point(93, 68);
+            this.metroTextBox5.Location = new System.Drawing.Point(140, 105);
+            this.metroTextBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTextBox5.Name = "metroTextBox5";
-            this.metroTextBox5.Size = new System.Drawing.Size(200, 23);
+            this.metroTextBox5.Size = new System.Drawing.Size(300, 35);
             this.metroTextBox5.TabIndex = 2;
             // 
             // metroTextBox4
             // 
-            this.metroTextBox4.Location = new System.Drawing.Point(93, 39);
+            this.metroTextBox4.Location = new System.Drawing.Point(140, 60);
+            this.metroTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.Size = new System.Drawing.Size(200, 23);
+            this.metroTextBox4.Size = new System.Drawing.Size(300, 35);
             this.metroTextBox4.TabIndex = 2;
             // 
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_close.Location = new System.Drawing.Point(3, 469);
+            this.btn_close.Location = new System.Drawing.Point(4, 721);
+            this.btn_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(75, 41);
+            this.btn_close.Size = new System.Drawing.Size(112, 63);
             this.btn_close.Style = MetroFramework.MetroColorStyle.Red;
             this.btn_close.TabIndex = 6;
             this.btn_close.Text = "Exit";
@@ -247,10 +252,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 651F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 750F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 976F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.metroPanel1, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.btn_close, 0, 4);
@@ -261,100 +266,60 @@
             this.tableLayoutPanel1.Controls.Add(this.txt_dokter, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgv_penjualan, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 82);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(34, 126);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1251, 513);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1876, 789);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(603, 45);
+            this.label1.Location = new System.Drawing.Point(904, 69);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.Size = new System.Drawing.Size(141, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "[F3] Daftar Barang";
             // 
-            // obatBindingSource
+            // detailJualBindingSource
             // 
-            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
+            this.detailJualBindingSource.DataSource = typeof(Apotik.Model.DetailJual);
             // 
-            // idDataGridViewTextBoxColumn
+            // obatDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.obatDataGridViewTextBoxColumn.DataPropertyName = "Obat";
+            this.obatDataGridViewTextBoxColumn.HeaderText = "Obat";
+            this.obatDataGridViewTextBoxColumn.Name = "obatDataGridViewTextBoxColumn";
             // 
-            // kodeDataGridViewTextBoxColumn
+            // penjualanDataGridViewTextBoxColumn
             // 
-            this.kodeDataGridViewTextBoxColumn.DataPropertyName = "Kode";
-            this.kodeDataGridViewTextBoxColumn.HeaderText = "KODE";
-            this.kodeDataGridViewTextBoxColumn.Name = "kodeDataGridViewTextBoxColumn";
-            this.kodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.penjualanDataGridViewTextBoxColumn.DataPropertyName = "Penjualan";
+            this.penjualanDataGridViewTextBoxColumn.HeaderText = "Penjualan";
+            this.penjualanDataGridViewTextBoxColumn.Name = "penjualanDataGridViewTextBoxColumn";
             // 
-            // namaDataGridViewTextBoxColumn
+            // quantityDataGridViewTextBoxColumn
             // 
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "NAMA";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // satuanDataGridViewTextBoxColumn
-            // 
-            this.satuanDataGridViewTextBoxColumn.DataPropertyName = "Satuan";
-            this.satuanDataGridViewTextBoxColumn.HeaderText = "SATUAN";
-            this.satuanDataGridViewTextBoxColumn.Name = "satuanDataGridViewTextBoxColumn";
-            this.satuanDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stokDataGridViewTextBoxColumn
-            // 
-            this.stokDataGridViewTextBoxColumn.DataPropertyName = "Stok";
-            this.stokDataGridViewTextBoxColumn.HeaderText = "STOK";
-            this.stokDataGridViewTextBoxColumn.Name = "stokDataGridViewTextBoxColumn";
-            this.stokDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hargaDataGridViewTextBoxColumn
-            // 
-            this.hargaDataGridViewTextBoxColumn.DataPropertyName = "Harga";
-            this.hargaDataGridViewTextBoxColumn.HeaderText = "HARGA";
-            this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
-            this.hargaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // keteranganDataGridViewTextBoxColumn
-            // 
-            this.keteranganDataGridViewTextBoxColumn.DataPropertyName = "Keterangan";
-            this.keteranganDataGridViewTextBoxColumn.HeaderText = "KETERANGAN";
-            this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
-            this.keteranganDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.DataPropertyName = "Id";
-            this.Qty.HeaderText = "QTY";
-            this.Qty.Name = "Qty";
-            // 
-            // Rupiah
-            // 
-            this.Rupiah.DataPropertyName = "Id";
-            this.Rupiah.HeaderText = "Rupiah";
-            this.Rupiah.Name = "Rupiah";
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             // 
             // Jual
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 618);
+            this.ClientSize = new System.Drawing.Size(1924, 951);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
             this.Name = "Jual";
+            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Magenta;
@@ -366,7 +331,7 @@
             this.metroPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailJualBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,16 +355,10 @@
         public MetroFramework.Controls.MetroTextBox txt_subtotal;
         public System.Windows.Forms.DataGridView dgv_penjualan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.BindingSource obatBindingSource;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn satuanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keteranganDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rupiah;
+        private System.Windows.Forms.BindingSource detailJualBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn penjualanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
     }
 }
