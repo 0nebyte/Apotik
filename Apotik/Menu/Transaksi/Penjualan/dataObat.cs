@@ -39,7 +39,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var detail = controller.DetailJual.FirstOrDefault(p => p.Detail.Obat.Id == obat.Id);
                 if (detail == null)
                 {
-                    var d = new Model.DetailJual();
+                    var d = Model.BaseModel.New<Model.DetailJual>();
                     d.Penjualan = controller.Penjualan;
                     d.Obat = obat;
 
@@ -48,6 +48,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 }
 
                 detail.Quantity += 1;
+
+                // Update Penjualan
+                controller.Penjualan.Sub_Total =
+                    controller.DetailJual.Aggregate(0, (sum, d) => sum + d.SubTotal);
+                var diskon = (int)(controller.Penjualan.Sub_Total * controller.Penjualan.Diskon / 100.0f);
+                var ppn = (int)(controller.Penjualan.Sub_Total * controller.Penjualan.PPN / 100.0f);
+                controller.Penjualan.Grand_Total = controller.Penjualan.Sub_Total - diskon + ppn;
 
                 controller.DetailJual = controller.DetailJual.ToList();
             }

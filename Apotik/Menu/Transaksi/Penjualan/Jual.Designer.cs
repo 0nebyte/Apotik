@@ -42,19 +42,19 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox6 = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_grandtotal = new MetroFramework.Controls.MetroTextBox();
+            this.txt_ppn = new MetroFramework.Controls.MetroTextBox();
+            this.txt_diskon = new MetroFramework.Controls.MetroTextBox();
             this.btn_close = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
             this.kodeObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -158,9 +158,9 @@
             this.metroPanel1.Controls.Add(this.metroLabel6);
             this.metroPanel1.Controls.Add(this.metroLabel5);
             this.metroPanel1.Controls.Add(this.metroLabel4);
-            this.metroPanel1.Controls.Add(this.metroTextBox6);
-            this.metroPanel1.Controls.Add(this.metroTextBox5);
-            this.metroPanel1.Controls.Add(this.metroTextBox4);
+            this.metroPanel1.Controls.Add(this.txt_grandtotal);
+            this.metroPanel1.Controls.Add(this.txt_ppn);
+            this.metroPanel1.Controls.Add(this.txt_diskon);
             this.metroPanel1.Controls.Add(this.txt_subtotal);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
@@ -214,29 +214,29 @@
             this.metroLabel4.TabIndex = 0;
             this.metroLabel4.Text = "Subtotal";
             // 
-            // metroTextBox6
+            // txt_grandtotal
             // 
-            this.metroTextBox6.Location = new System.Drawing.Point(140, 149);
-            this.metroTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroTextBox6.Name = "metroTextBox6";
-            this.metroTextBox6.Size = new System.Drawing.Size(300, 35);
-            this.metroTextBox6.TabIndex = 2;
+            this.txt_grandtotal.Location = new System.Drawing.Point(140, 149);
+            this.txt_grandtotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_grandtotal.Name = "txt_grandtotal";
+            this.txt_grandtotal.Size = new System.Drawing.Size(300, 35);
+            this.txt_grandtotal.TabIndex = 2;
             // 
-            // metroTextBox5
+            // txt_ppn
             // 
-            this.metroTextBox5.Location = new System.Drawing.Point(140, 105);
-            this.metroTextBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroTextBox5.Name = "metroTextBox5";
-            this.metroTextBox5.Size = new System.Drawing.Size(300, 35);
-            this.metroTextBox5.TabIndex = 2;
+            this.txt_ppn.Location = new System.Drawing.Point(140, 105);
+            this.txt_ppn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_ppn.Name = "txt_ppn";
+            this.txt_ppn.Size = new System.Drawing.Size(300, 35);
+            this.txt_ppn.TabIndex = 2;
             // 
-            // metroTextBox4
+            // txt_diskon
             // 
-            this.metroTextBox4.Location = new System.Drawing.Point(140, 60);
-            this.metroTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.Size = new System.Drawing.Size(300, 35);
-            this.metroTextBox4.TabIndex = 2;
+            this.txt_diskon.Location = new System.Drawing.Point(140, 60);
+            this.txt_diskon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_diskon.Name = "txt_diskon";
+            this.txt_diskon.Size = new System.Drawing.Size(300, 35);
+            this.txt_diskon.TabIndex = 2;
             // 
             // btn_close
             // 
@@ -294,6 +294,10 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "[F3] Daftar Barang";
             // 
+            // detailDataSourceBinding
+            // 
+            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
+            // 
             // kodeObatDataGridViewTextBoxColumn
             // 
             this.kodeObatDataGridViewTextBoxColumn.DataPropertyName = "KodeObat";
@@ -324,20 +328,16 @@
             // hargaDataGridViewTextBoxColumn
             // 
             this.hargaDataGridViewTextBoxColumn.DataPropertyName = "Harga";
-            this.hargaDataGridViewTextBoxColumn.HeaderText = "Harga";
+            this.hargaDataGridViewTextBoxColumn.HeaderText = "Harga Satuan";
             this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
             this.hargaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // subTotalDataGridViewTextBoxColumn
             // 
             this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
+            this.subTotalDataGridViewTextBoxColumn.HeaderText = "Harga";
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // detailDataSourceBinding
-            // 
-            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
             // 
             // Jual
             // 
@@ -375,9 +375,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroTextBox metroTextBox6;
-        private MetroFramework.Controls.MetroTextBox metroTextBox5;
-        private MetroFramework.Controls.MetroTextBox metroTextBox4;
+        private MetroFramework.Controls.MetroTextBox txt_grandtotal;
+        private MetroFramework.Controls.MetroTextBox txt_ppn;
+        private MetroFramework.Controls.MetroTextBox txt_diskon;
         private MetroFramework.Controls.MetroTile btn_close;
         public MetroFramework.Controls.MetroTextBox txt_dokter;
         public MetroFramework.Controls.MetroLabel metroLabel3;

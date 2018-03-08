@@ -8,16 +8,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
 {
     public class Controller : System.ComponentModel.INotifyPropertyChanged
     {
-        public Model.Penjualan penjualan = new Model.Penjualan();
-        public Model.Penjualan Penjualan
-        {
-            get { return penjualan; }
-            set
-            {
-                penjualan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Penjualan"));
-            }
-        }
+        public Model.Penjualan Penjualan { get; } = Model.BaseModel.New<Model.Penjualan>();
 
         private IList<DetailDataSource> detailJual = new List<DetailDataSource>();
         public IList<DetailDataSource> DetailJual

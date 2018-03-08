@@ -15,8 +15,8 @@ namespace Apotik.Model
         {
         }
 
-        public Penjualan(int id, string id_dokter, string faktur, string id_obat, string qty, string total, 
-            string sub_total, string diskon, string ppn, string grand_total)
+        public Penjualan(int id, string id_dokter, string faktur, int total, int sub_total, int diskon,
+            int ppn, int grand_total)
         {
             Id = id;
             ID_Dokter = id_dokter;
@@ -29,28 +29,28 @@ namespace Apotik.Model
         }
 
         [Attributes.Field(Name = "id_jual", PrimaryKey = true, AutoIncrement = true)]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [Attributes.Field(Name = "id_dokter", AllowNull = true)]
-        public string ID_Dokter { get; set; }
+        public virtual string ID_Dokter { get; set; }
 
         [Attributes.Field(Name = "no_faktur", AllowNull = true)]
-        public string Faktur { get; set; }
+        public virtual string Faktur { get; set; }
 
         [Attributes.Field(Name = "total", AllowNull = true)]
-        public string Total { get; set; }
+        public virtual int Total { get; set; }
 
         [Attributes.Field(Name = "sub_total", AllowNull = true)]
-        public string Sub_Total { get; set; }
+        public virtual int Sub_Total { get; set; }
 
         [Attributes.Field(Name = "diskon", AllowNull = true)]
-        public string Diskon { get; set; }
+        public virtual int Diskon { get; set; }
 
         [Attributes.Field(Name = "ppn", AllowNull = true)]
-        public string PPN { get; set; }
+        public virtual int PPN { get; set; }
 
         [Attributes.Field(Name = "grand_total", AllowNull = true)]
-        public string Grand_Total { get; set; }
+        public virtual int Grand_Total { get; set; }
 
         public override string ToString()
         {
