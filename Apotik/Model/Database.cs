@@ -505,8 +505,6 @@ namespace Apotik.Model
 
         public static void CreateProperty(TypeBuilder typeBuilder, string propertyName, Type propertyType)
         {
-            var fieldBuilder = typeBuilder.DefineField("_" + propertyName, propertyType,
-                FieldAttributes.Private);
             var propertyBuilder = typeBuilder.DefineProperty(propertyName, PropertyAttributes.HasDefault,
                 propertyType, null);
 
@@ -519,8 +517,12 @@ namespace Apotik.Model
                 propertyType, Type.EmptyTypes);
             var getILGen = getMethodBuilder.GetILGenerator();
 
+            // Call base type get property
+            var baseType = typeBuilder.BaseType;
+            var baseGetMethod = baseType.GetProperty(propertyName).GetMethod;
+
             getILGen.Emit(OpCodes.Ldarg_0);
-            getILGen.Emit(OpCodes.Ldfld, fieldBuilder);
+            getILGen.Emit(OpCodes.Call, baseGetMethod);
             getILGen.Emit(OpCodes.Ret);
 
             // Property set method
@@ -536,10 +538,15 @@ namespace Apotik.Model
             var exitSet = setILGen.DefineLabel();
 
             setILGen.MarkLabel(modifyProperty);
+
+            // Call base type set property
+            var baseSetMethod = baseType.GetProperty(propertyName).SetMethod;
+
             setILGen.Emit(OpCodes.Ldarg_0);
             setILGen.Emit(OpCodes.Ldarg_1);
-            setILGen.Emit(OpCodes.Stfld, fieldBuilder);
+            setILGen.Emit(OpCodes.Call, baseSetMethod);
 
+            // Call BaseModel.InvokePropertyChanged
             var propertyChangedEventArgsConstructor = typeof(System.ComponentModel.PropertyChangedEventArgs)
                 .GetConstructor(new[] { typeof(string) });
             var invokePropertyChanged = typeof(BaseModel).GetMethod("InvokePropertyChanged",
@@ -550,7 +557,6 @@ namespace Apotik.Model
             setILGen.Emit(OpCodes.Newobj, propertyChangedEventArgsConstructor);
             setILGen.Emit(OpCodes.Call, invokePropertyChanged);
 
-            setILGen.Emit(OpCodes.Nop);
             setILGen.MarkLabel(exitSet);
             setILGen.Emit(OpCodes.Ret);
 
@@ -718,9 +724,15 @@ namespace Apotik.Model
                 {
                     var columnType = c.GetColumnType();
                     if (columnType == "int")
-                        c.propertyInfo.SetValue(t, reader.GetInt32(i));
+                    {
+                        var value = reader.GetInt32(i);
+                        c.propertyInfo.SetValue(t, value);
+                    }
                     else if (columnType == "string")
-                        c.propertyInfo.SetValue(t, reader.GetString(i));
+                    {
+                        var value = reader.GetString(i);
+                        c.propertyInfo.SetValue(t, value);
+                    }
                     ++i;
                 }
                 result.Add(t);
