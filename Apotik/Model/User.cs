@@ -29,31 +29,31 @@ namespace Apotik.Model
         }
 
         [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [Attributes.Field(Name = "kode_user", AllowNull = false)]
-        public string Kode { get; set; }
+        public virtual string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama { get; set; }
+        public virtual string Nama { get; set; }
 
         [Attributes.Field(Name = "jk", AllowNull = false)]
-        public string JK { get; set; }
+        public virtual string JK { get; set; }
 
         [Attributes.Field(Name = "alamat", AllowNull = false)]
-        public string Alamat { get; set; }
+        public virtual string Alamat { get; set; }
 
         [Attributes.Field(Name = "notelp", AllowNull = false)]
-        public string Telp { get; set; }
+        public virtual string Telp { get; set; }
 
         [Attributes.Field(Name = "username", AllowNull = false)]
-        public string Username { get; set; }
+        public virtual string Username { get; set; }
 
         [Attributes.Field(Name = "password", AllowNull = false)]
-        public string Password { get; set; }
+        public virtual string Password { get; set; }
 
         [Attributes.Field(Name = "role", AllowNull = false)]
-        public string Role { get; set; }
+        public virtual string Role { get; set; }
 
         public override string ToString()
         {

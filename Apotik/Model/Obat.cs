@@ -27,25 +27,25 @@ namespace Apotik.Model
         }
 
         [Attributes.Field(Name = "id_obat", PrimaryKey = true, AutoIncrement = true)]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [Attributes.Field(Name = "kode_obat", AllowNull = false)]
-        public string Kode { get; set; }
+        public virtual string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama { get; set; }
+        public virtual string Nama { get; set; }
 
         [Attributes.Field(Name = "satuan", AllowNull = false)]
-        public string Satuan { get; set; }
+        public virtual string Satuan { get; set; }
 
         [Attributes.Field(Name = "stok", AllowNull = false)]
-        public int Stok { get; set; }
+        public virtual int Stok { get; set; }
 
         [Attributes.Field(Name = "harga", AllowNull = false)]
-        public int Harga { get; set; }
+        public virtual int Harga { get; set; }
 
         [Attributes.Field(Name = "keterangan", AllowNull = false)]
-        public string Keterangan { get; set; }
+        public virtual string Keterangan { get; set; }
 
         public override string ToString()
         {
