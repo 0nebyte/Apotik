@@ -10,14 +10,6 @@ namespace Apotik.Model
     {
         public static string tableName = "tb_obat";
 
-        private int id;
-        private string kode;
-        private string nama;
-        private string satuan;
-        private int stok;
-        private int harga;
-        private string keterangan;
-
         public Obat()
         {
         }
@@ -25,95 +17,39 @@ namespace Apotik.Model
         public Obat(int id, string kode, string nama, string satuan, int stok, int harga,
             string keterangan)
         {
-            this.id = id;
-            this.kode = kode;
-            this.nama = nama;
-            this.satuan = satuan;
-            this.stok = stok;
-            this.harga = harga;
-            this.keterangan = keterangan;
+            Id = id;
+            Kode = kode;
+            Nama = nama;
+            Satuan = satuan;
+            Stok = stok;
+            Harga = harga;
+            Keterangan = keterangan;
         }
 
         [Attributes.Field(Name = "id_obat", PrimaryKey = true, AutoIncrement = true)]
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
-            }
-        }
+        public int Id { get; set; }
 
         [Attributes.Field(Name = "kode_obat", AllowNull = false)]
-        public string Kode
-        {
-            get { return kode; }
-            set
-            {
-                kode = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
-            }
-        }
+        public string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama
-        {
-            get { return nama; }
-            set
-            {
-                nama = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nama"));
-            }
-        }
+        public string Nama { get; set; }
 
         [Attributes.Field(Name = "satuan", AllowNull = false)]
-        public string Satuan
-        {
-            get { return satuan; }
-            set
-            {
-                satuan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Satuan"));
-            }
-        }
+        public string Satuan { get; set; }
 
         [Attributes.Field(Name = "stok", AllowNull = false)]
-        public int Stok
-        {
-            get { return stok; }
-            set
-            {
-                stok = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Stok"));
-            }
-        }
+        public int Stok { get; set; }
 
         [Attributes.Field(Name = "harga", AllowNull = false)]
-        public int Harga
-        {
-            get { return harga; }
-            set
-            {
-                harga = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Harga"));
-            }
-        }
+        public int Harga { get; set; }
 
         [Attributes.Field(Name = "keterangan", AllowNull = false)]
-        public string Keterangan
-        {
-            get { return keterangan; }
-            set
-            {
-                keterangan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Keterangan"));
-            }
-        }
+        public string Keterangan { get; set; }
 
         public override string ToString()
         {
-            return nama;
+            return Nama;
         }
     }
 }
