@@ -20,6 +20,11 @@ namespace Apotik.Model
             public IEnumerable<BaseModel.ColumnAccessor> columns;
             public IEnumerable<BaseModel.ReferenceColumnAccessor> refColumns;
 
+            public bool HasPrimaryKey()
+            {
+                return columns.Aggregate(false, (c, p) => c || p.field.PrimaryKey == true);
+            }
+
             public BaseModel.ColumnAccessor GetPrimaryKey()
             {
                 return columns.Where(p => p.field.PrimaryKey == true).First();
@@ -63,13 +68,7 @@ namespace Apotik.Model
         public int Save<T>(T model) where T: BaseModel
         {
             var type = model.GetType();
-            var typeSignature = GetTypeSignature(type);
-
-            if (!schemas.ContainsKey(typeSignature))
-                throw new NotImplementedException(string.Format("{0} is no registered. " +
-                    "Register using Database.RegisterSchema() method."));
-
-            var schema = schemas[typeSignature];
+            var schema = GetSchema(type);
             var baseType = schema.baseType;
             var tableName = schema.tableName;
 
@@ -92,19 +91,28 @@ namespace Apotik.Model
             foreach (var col in refColumns)
             {
                 var refObj = col.propertyInfo.GetValue(model);
+                if (refObj == null)
+                {
+                    command.Parameters.AddWithValue(
+                        "$" + GetSchema(col.reference.Type).GetReferenceColumnName(), null);
+                    continue;
+                }
+
                 var pk = BaseModel.GetPrimaryKey(refObj.GetType().BaseType);
                 command.Parameters.AddWithValue("$" + GetSchema(col.reference.Type).GetReferenceColumnName(),
                     pk.propertyInfo.GetValue(refObj));
             }
 
-            var pkProp = schema.GetPrimaryKey().propertyInfo;
-            var pkName = pkProp.Name;
-
             var transaction = connection.BeginTransaction();
             var ret = command.ExecuteNonQuery();
-            var newModel = Query2<T>().OrderBy(Column(pkName), false).Limit(1).Execute().First();
-            var newId = pkProp.GetMethod.Invoke(newModel, null);
-            pkProp.SetMethod.Invoke(model, new[] { newId });
+            if (schema.HasPrimaryKey())
+            {
+                var pkProp = schema.GetPrimaryKey().propertyInfo;
+                var pkName = pkProp.Name;
+                var newModel = Query2<T>().OrderBy(Column(pkName), false).Limit(1).Execute().First();
+                var newId = pkProp.GetMethod.Invoke(newModel, null);
+                pkProp.SetMethod.Invoke(model, new[] { newId });
+            }
             transaction.Commit();
             return ret;
         }
@@ -761,6 +769,12 @@ namespace Apotik.Model
                 var t = BaseModel.New<T>();
                 foreach (var c in schema.columns)
                 {
+                    if (reader.IsDBNull(i))
+                    {
+                        c.propertyInfo.SetValue(t, null);
+                        continue;
+                    }
+
                     var columnType = c.GetColumnType();
                     if (columnType == "int")
                     {

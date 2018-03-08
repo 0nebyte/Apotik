@@ -65,6 +65,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
+            var db = Model.Database.Instance;
+
+            db.Save(controller.Penjualan);
+            foreach (var item in controller.DetailJual)
+            {
+                db.Save(item.Detail);
+            }
         }
     }
 }
