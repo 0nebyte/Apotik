@@ -21,17 +21,6 @@ namespace Apotik.Menu.Transaksi.Penjualan
             }
         }
 
-        private Model.Dokter dokter;
-        public Model.Dokter Dokter
-        {
-            get { return dokter; }
-            set
-            {
-                dokter = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Dokter"));
-            }
-        }
-
         #region INotifyPropertyChangedImplementation
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)

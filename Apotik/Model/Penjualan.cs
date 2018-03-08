@@ -10,7 +10,6 @@ namespace Apotik.Model
     {
         public static string tableName = "tb_jual";
         
-
         public Penjualan()
         {
         }
@@ -20,7 +19,6 @@ namespace Apotik.Model
         {
             Id = id;
             Faktur = faktur;
-            Total = total;
             SubTotal = sub_total;
             Diskon = diskon;
             PPN = ppn;
@@ -33,8 +31,8 @@ namespace Apotik.Model
         [Attributes.Field(Name = "no_faktur", AllowNull = true)]
         public virtual string Faktur { get; set; }
 
-        [Attributes.Field(Name = "total", AllowNull = true)]
-        public virtual int Total { get; set; }
+        [Attributes.Reference(Type = typeof(Dokter), AllowNull = true)]
+        public virtual Dokter Dokter { get; set; }
 
         [Attributes.Field(Name = "sub_total", AllowNull = true)]
         public virtual int SubTotal { get; set; }
@@ -53,7 +51,6 @@ namespace Apotik.Model
             return base.ToString() + "\n" +
                 "\tid: " + Id + "\n" +
                 "\tfaktur: " + Faktur + "\n" +
-                "\ttotal: " + Total + "\n" +
                 "\tsubtotal: " + SubTotal + "\n" +
                 "\tdiskon: " + Diskon + "\n" +
                 "\tppn: " + PPN + "\n" +

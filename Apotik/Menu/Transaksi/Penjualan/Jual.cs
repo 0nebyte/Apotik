@@ -21,7 +21,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             controller = new Controller();
             KeyPreview = true;
 
-            txt_dokter.DataBindings.Add("Text", controller, "Dokter");
+            txt_dokter.DataBindings.Add("Text", controller.Penjualan, "Dokter");
             txt_subtotal.DataBindings.Add("Text", controller.Penjualan, "SubTotal");
             txt_diskon.DataBindings.Add("Text", controller.Penjualan, "Diskon");
             txt_ppn.DataBindings.Add("Text", controller.Penjualan, "PPN");

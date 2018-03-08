@@ -42,7 +42,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
                 var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
-                controller.Dokter = dokter;
+                controller.Penjualan.Dokter = dokter;
             }
             Close();
         }

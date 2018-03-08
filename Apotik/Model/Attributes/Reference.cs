@@ -23,5 +23,7 @@ namespace Apotik.Model.Attributes
             get { return multiple; }
             set { multiple = value; }
         }
+
+        public bool AllowNull { get; set; }
     }
 }
