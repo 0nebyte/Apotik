@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Transaksi.Penjualan
 {
-    public partial class Jual : MetroFramework.Forms.MetroForm
+    //public partial class Jual : MetroFramework.Forms.MetroForm
+    public partial class Jual : Form
     {
         private Controller controller;
 
@@ -29,16 +30,6 @@ namespace Apotik.Menu.Transaksi.Penjualan
             dgv_penjualan.DataBindings.Add("DataSource", controller, "DetailJual");
         }
 
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogresult = MessageBox.Show("Keluar dari form ini?","Exit", 
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dialogresult == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void Jual_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F2)
@@ -51,12 +42,30 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var obat = new dataObat(controller);
                 obat.ShowDialog();
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
 
         private void dgv_penjualan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var obat = new dataObat(controller);
             obat.ShowDialog();
+        }
+
+        private void btn_batal_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogresult = MessageBox.Show("Keluar dari form ini?","Exit",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dialogresult == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void btn_simpan_Click(object sender, EventArgs e)
+        {
         }
     }
 }

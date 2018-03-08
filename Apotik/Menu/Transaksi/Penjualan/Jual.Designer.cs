@@ -29,41 +29,56 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgv_penjualan = new System.Windows.Forms.DataGridView();
-            this.txt_faktur = new MetroFramework.Controls.MetroTextBox();
-            this.txt_dokter = new MetroFramework.Controls.MetroTextBox();
-            this.dtp_jual = new System.Windows.Forms.DateTimePicker();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txt_subtotal = new MetroFramework.Controls.MetroTextBox();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.txt_grandtotal = new MetroFramework.Controls.MetroTextBox();
-            this.txt_ppn = new MetroFramework.Controls.MetroTextBox();
-            this.txt_diskon = new MetroFramework.Controls.MetroTextBox();
-            this.btn_close = new MetroFramework.Controls.MetroTile();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_penjualan = new System.Windows.Forms.DataGridView();
+            this.dtp_jual = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_dokter = new System.Windows.Forms.TextBox();
+            this.txt_faktur = new System.Windows.Forms.TextBox();
+            this.txt_subtotal = new System.Windows.Forms.TextBox();
+            this.txt_diskon = new System.Windows.Forms.TextBox();
+            this.txt_ppn = new System.Windows.Forms.TextBox();
+            this.txt_grandtotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_batal = new System.Windows.Forms.Button();
+            this.btn_simpan = new System.Windows.Forms.Button();
             this.kodeObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
-            this.metroPanel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detailDataSourceBinding)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(615, 86);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "[F3] Daftar Barang";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // dgv_penjualan
             // 
-            this.dgv_penjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_penjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_penjualan.AutoGenerateColumns = false;
             this.dgv_penjualan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_penjualan.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -76,227 +91,175 @@
             this.quantityDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
             this.subTotalDataGridViewTextBoxColumn});
-            this.tableLayoutPanel1.SetColumnSpan(this.dgv_penjualan, 3);
             this.dgv_penjualan.DataSource = this.detailDataSourceBinding;
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
-            this.dgv_penjualan.Location = new System.Drawing.Point(4, 111);
+            this.dgv_penjualan.Location = new System.Drawing.Point(22, 131);
             this.dgv_penjualan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_penjualan.Name = "dgv_penjualan";
-            this.dgv_penjualan.Size = new System.Drawing.Size(1868, 462);
+            this.dgv_penjualan.Size = new System.Drawing.Size(734, 244);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             // 
-            // txt_faktur
-            // 
-            this.txt_faktur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txt_faktur, 2);
-            this.txt_faktur.Location = new System.Drawing.Point(154, 5);
-            this.txt_faktur.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_faktur.Name = "txt_faktur";
-            this.txt_faktur.Size = new System.Drawing.Size(300, 25);
-            this.txt_faktur.TabIndex = 1;
-            // 
-            // txt_dokter
-            // 
-            this.txt_dokter.Location = new System.Drawing.Point(154, 40);
-            this.txt_dokter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_dokter.Name = "txt_dokter";
-            this.txt_dokter.Size = new System.Drawing.Size(300, 24);
-            this.txt_dokter.TabIndex = 2;
-            // 
             // dtp_jual
             // 
-            this.dtp_jual.Location = new System.Drawing.Point(154, 74);
+            this.dtp_jual.Location = new System.Drawing.Point(122, 81);
             this.dtp_jual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtp_jual.Name = "dtp_jual";
             this.dtp_jual.Size = new System.Drawing.Size(298, 26);
             this.dtp_jual.TabIndex = 4;
             // 
-            // metroLabel1
+            // label2
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(4, 0);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(66, 19);
-            this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "No Faktur";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "No. Faktur";
             // 
-            // metroLabel3
+            // label3
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(4, 35);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(74, 19);
-            this.metroLabel3.TabIndex = 0;
-            this.metroLabel3.Text = "[F2] Dokter";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "[F2] Dokter";
             // 
-            // metroLabel2
+            // label4
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(4, 69);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(54, 19);
-            this.metroLabel2.TabIndex = 0;
-            this.metroLabel2.Text = "Tanggal";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Tanggal";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txt_grandtotal);
+            this.groupBox1.Controls.Add(this.txt_ppn);
+            this.groupBox1.Controls.Add(this.txt_diskon);
+            this.groupBox1.Controls.Add(this.txt_subtotal);
+            this.groupBox1.Location = new System.Drawing.Point(342, 383);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(414, 153);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            // 
+            // txt_dokter
+            // 
+            this.txt_dokter.Location = new System.Drawing.Point(122, 47);
+            this.txt_dokter.Name = "txt_dokter";
+            this.txt_dokter.Size = new System.Drawing.Size(298, 26);
+            this.txt_dokter.TabIndex = 12;
+            // 
+            // txt_faktur
+            // 
+            this.txt_faktur.Location = new System.Drawing.Point(122, 15);
+            this.txt_faktur.Name = "txt_faktur";
+            this.txt_faktur.Size = new System.Drawing.Size(298, 26);
+            this.txt_faktur.TabIndex = 13;
             // 
             // txt_subtotal
             // 
-            this.txt_subtotal.Location = new System.Drawing.Point(140, 12);
-            this.txt_subtotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_subtotal.Location = new System.Drawing.Point(96, 19);
             this.txt_subtotal.Name = "txt_subtotal";
-            this.txt_subtotal.Size = new System.Drawing.Size(300, 35);
-            this.txt_subtotal.TabIndex = 2;
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel1.Controls.Add(this.metroLabel7);
-            this.metroPanel1.Controls.Add(this.metroLabel6);
-            this.metroPanel1.Controls.Add(this.metroLabel5);
-            this.metroPanel1.Controls.Add(this.metroLabel4);
-            this.metroPanel1.Controls.Add(this.txt_grandtotal);
-            this.metroPanel1.Controls.Add(this.txt_ppn);
-            this.metroPanel1.Controls.Add(this.txt_diskon);
-            this.metroPanel1.Controls.Add(this.txt_subtotal);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 15;
-            this.metroPanel1.Location = new System.Drawing.Point(1416, 584);
-            this.metroPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(456, 200);
-            this.metroPanel1.TabIndex = 5;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 15;
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(16, 155);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(76, 19);
-            this.metroLabel7.TabIndex = 0;
-            this.metroLabel7.Text = "Grand Total";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(78, 111);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(35, 19);
-            this.metroLabel6.TabIndex = 0;
-            this.metroLabel6.Text = "PPN";
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(60, 66);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel5.TabIndex = 0;
-            this.metroLabel5.Text = "Diskon";
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(45, 18);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(57, 19);
-            this.metroLabel4.TabIndex = 0;
-            this.metroLabel4.Text = "Subtotal";
-            // 
-            // txt_grandtotal
-            // 
-            this.txt_grandtotal.Location = new System.Drawing.Point(140, 149);
-            this.txt_grandtotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_grandtotal.Name = "txt_grandtotal";
-            this.txt_grandtotal.Size = new System.Drawing.Size(300, 35);
-            this.txt_grandtotal.TabIndex = 2;
-            // 
-            // txt_ppn
-            // 
-            this.txt_ppn.Location = new System.Drawing.Point(140, 105);
-            this.txt_ppn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_ppn.Name = "txt_ppn";
-            this.txt_ppn.Size = new System.Drawing.Size(300, 35);
-            this.txt_ppn.TabIndex = 2;
+            this.txt_subtotal.Size = new System.Drawing.Size(312, 26);
+            this.txt_subtotal.TabIndex = 0;
             // 
             // txt_diskon
             // 
-            this.txt_diskon.Location = new System.Drawing.Point(140, 60);
-            this.txt_diskon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_diskon.Location = new System.Drawing.Point(96, 51);
             this.txt_diskon.Name = "txt_diskon";
-            this.txt_diskon.Size = new System.Drawing.Size(300, 35);
-            this.txt_diskon.TabIndex = 2;
+            this.txt_diskon.Size = new System.Drawing.Size(312, 26);
+            this.txt_diskon.TabIndex = 1;
             // 
-            // btn_close
+            // txt_ppn
             // 
-            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_close.Location = new System.Drawing.Point(4, 721);
-            this.btn_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(112, 63);
-            this.btn_close.Style = MetroFramework.MetroColorStyle.Red;
-            this.btn_close.TabIndex = 6;
-            this.btn_close.Text = "Exit";
-            this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_close.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            this.txt_ppn.Location = new System.Drawing.Point(96, 83);
+            this.txt_ppn.Name = "txt_ppn";
+            this.txt_ppn.Size = new System.Drawing.Size(312, 26);
+            this.txt_ppn.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // txt_grandtotal
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 750F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 976F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroPanel1, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btn_close, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txt_faktur, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dtp_jual, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txt_dokter, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgv_penjualan, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(34, 126);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 211F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1876, 789);
-            this.tableLayoutPanel1.TabIndex = 7;
+            this.txt_grandtotal.Location = new System.Drawing.Point(96, 115);
+            this.txt_grandtotal.Name = "txt_grandtotal";
+            this.txt_grandtotal.Size = new System.Drawing.Size(312, 26);
+            this.txt_grandtotal.TabIndex = 3;
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(904, 69);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "[F3] Daftar Barang";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Subtotal";
             // 
-            // detailDataSourceBinding
+            // label6
             // 
-            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Diskon";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "PPN";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Grandtotal";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.btn_simpan);
+            this.groupBox2.Controls.Add(this.btn_batal);
+            this.groupBox2.Location = new System.Drawing.Point(22, 383);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(314, 153);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            // 
+            // btn_batal
+            // 
+            this.btn_batal.Location = new System.Drawing.Point(6, 19);
+            this.btn_batal.Name = "btn_batal";
+            this.btn_batal.Size = new System.Drawing.Size(107, 47);
+            this.btn_batal.TabIndex = 0;
+            this.btn_batal.Text = "[ESC] Batal";
+            this.btn_batal.UseVisualStyleBackColor = true;
+            this.btn_batal.Click += new System.EventHandler(this.btn_batal_Click);
+            // 
+            // btn_simpan
+            // 
+            this.btn_simpan.Location = new System.Drawing.Point(119, 19);
+            this.btn_simpan.Name = "btn_simpan";
+            this.btn_simpan.Size = new System.Drawing.Size(109, 46);
+            this.btn_simpan.TabIndex = 1;
+            this.btn_simpan.Text = "[F8] Simpan";
+            this.btn_simpan.UseVisualStyleBackColor = true;
+            this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
             // 
             // kodeObatDataGridViewTextBoxColumn
             // 
@@ -339,58 +302,71 @@
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // detailDataSourceBinding
+            // 
+            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
+            // 
             // Jual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 951);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(778, 544);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txt_faktur);
+            this.Controls.Add(this.txt_dokter);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dgv_penjualan);
+            this.Controls.Add(this.dtp_jual);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Jual";
             this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Style = MetroFramework.MetroColorStyle.Magenta;
             this.Text = "Transaksi Penjualan";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Jual_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).EndInit();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.detailDataSourceBinding)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox txt_faktur;
-        private System.Windows.Forms.DateTimePicker dtp_jual;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroTextBox txt_grandtotal;
-        private MetroFramework.Controls.MetroTextBox txt_ppn;
-        private MetroFramework.Controls.MetroTextBox txt_diskon;
-        private MetroFramework.Controls.MetroTile btn_close;
-        public MetroFramework.Controls.MetroTextBox txt_dokter;
-        public MetroFramework.Controls.MetroLabel metroLabel3;
-        public MetroFramework.Controls.MetroTextBox txt_subtotal;
-        public System.Windows.Forms.DataGridView dgv_penjualan;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource detailDataSourceBinding;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView dgv_penjualan;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodeObatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaObatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn satuanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dtp_jual;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_dokter;
+        private System.Windows.Forms.TextBox txt_faktur;
+        private System.Windows.Forms.TextBox txt_grandtotal;
+        private System.Windows.Forms.TextBox txt_ppn;
+        private System.Windows.Forms.TextBox txt_diskon;
+        private System.Windows.Forms.TextBox txt_subtotal;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_simpan;
+        private System.Windows.Forms.Button btn_batal;
     }
 }
