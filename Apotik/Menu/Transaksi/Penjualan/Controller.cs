@@ -8,8 +8,19 @@ namespace Apotik.Menu.Transaksi.Penjualan
 {
     public class Controller : System.ComponentModel.INotifyPropertyChanged
     {
-        private IList<Model.DetailJual> detailJual = new List<Model.DetailJual>();
-        public IList<Model.DetailJual> DetailJual
+        public Model.Penjualan penjualan = new Model.Penjualan();
+        public Model.Penjualan Penjualan
+        {
+            get { return penjualan; }
+            set
+            {
+                penjualan = value;
+                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Penjualan"));
+            }
+        }
+
+        private IList<DetailDataSource> detailJual = new List<DetailDataSource>();
+        public IList<DetailDataSource> DetailJual
         {
             get { return detailJual; }
             set
@@ -38,5 +49,23 @@ namespace Apotik.Menu.Transaksi.Penjualan
             if (handler != null) handler(this, e);
         }
         #endregion
+    }
+
+    public class DetailDataSource
+    {
+        private Model.DetailJual detail;
+
+        public DetailDataSource(Model.DetailJual detail)
+        {
+            this.detail = detail;
+        }
+
+        public Model.DetailJual Detail { get { return detail; } }
+        public string KodeObat { get { return detail.Obat.Kode; } }
+        public string NamaObat { get { return detail.Obat.Nama; } }
+        public string Satuan { get { return detail.Obat.Satuan; } }
+        public int Quantity { get { return detail.Quantity; } set { detail.Quantity = value; } }
+        public int Harga { get { return detail.Obat.Harga; } }
+        public int SubTotal { get { return detail.Obat.Harga * detail.Quantity; } }
     }
 }

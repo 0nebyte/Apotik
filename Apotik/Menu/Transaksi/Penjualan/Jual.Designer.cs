@@ -48,14 +48,17 @@
             this.btn_close = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.detailJualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.obatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.penjualanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kodeObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.detailJualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailDataSourceBinding)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_penjualan
@@ -67,11 +70,14 @@
             this.dgv_penjualan.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_penjualan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_penjualan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.obatDataGridViewTextBoxColumn,
-            this.penjualanDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn});
+            this.kodeObatDataGridViewTextBoxColumn,
+            this.namaObatDataGridViewTextBoxColumn,
+            this.satuanDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.hargaDataGridViewTextBoxColumn,
+            this.subTotalDataGridViewTextBoxColumn});
             this.tableLayoutPanel1.SetColumnSpan(this.dgv_penjualan, 3);
-            this.dgv_penjualan.DataSource = this.detailJualBindingSource;
+            this.dgv_penjualan.DataSource = this.detailDataSourceBinding;
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
             this.dgv_penjualan.Location = new System.Drawing.Point(4, 111);
             this.dgv_penjualan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -288,27 +294,50 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "[F3] Daftar Barang";
             // 
-            // detailJualBindingSource
+            // kodeObatDataGridViewTextBoxColumn
             // 
-            this.detailJualBindingSource.DataSource = typeof(Apotik.Model.DetailJual);
+            this.kodeObatDataGridViewTextBoxColumn.DataPropertyName = "KodeObat";
+            this.kodeObatDataGridViewTextBoxColumn.HeaderText = "Kode Obat";
+            this.kodeObatDataGridViewTextBoxColumn.Name = "kodeObatDataGridViewTextBoxColumn";
+            this.kodeObatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // obatDataGridViewTextBoxColumn
+            // namaObatDataGridViewTextBoxColumn
             // 
-            this.obatDataGridViewTextBoxColumn.DataPropertyName = "Obat";
-            this.obatDataGridViewTextBoxColumn.HeaderText = "Obat";
-            this.obatDataGridViewTextBoxColumn.Name = "obatDataGridViewTextBoxColumn";
+            this.namaObatDataGridViewTextBoxColumn.DataPropertyName = "NamaObat";
+            this.namaObatDataGridViewTextBoxColumn.HeaderText = "Nama Obat";
+            this.namaObatDataGridViewTextBoxColumn.Name = "namaObatDataGridViewTextBoxColumn";
+            this.namaObatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // penjualanDataGridViewTextBoxColumn
+            // satuanDataGridViewTextBoxColumn
             // 
-            this.penjualanDataGridViewTextBoxColumn.DataPropertyName = "Penjualan";
-            this.penjualanDataGridViewTextBoxColumn.HeaderText = "Penjualan";
-            this.penjualanDataGridViewTextBoxColumn.Name = "penjualanDataGridViewTextBoxColumn";
+            this.satuanDataGridViewTextBoxColumn.DataPropertyName = "Satuan";
+            this.satuanDataGridViewTextBoxColumn.HeaderText = "Satuan";
+            this.satuanDataGridViewTextBoxColumn.Name = "satuanDataGridViewTextBoxColumn";
+            this.satuanDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // quantityDataGridViewTextBoxColumn
             // 
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // hargaDataGridViewTextBoxColumn
+            // 
+            this.hargaDataGridViewTextBoxColumn.DataPropertyName = "Harga";
+            this.hargaDataGridViewTextBoxColumn.HeaderText = "Harga";
+            this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
+            this.hargaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subTotalDataGridViewTextBoxColumn
+            // 
+            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
+            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
+            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // detailDataSourceBinding
+            // 
+            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
             // 
             // Jual
             // 
@@ -331,7 +360,7 @@
             this.metroPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.detailJualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailDataSourceBinding)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,9 +385,12 @@
         public System.Windows.Forms.DataGridView dgv_penjualan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource detailJualBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn obatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn penjualanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource detailDataSourceBinding;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kodeObatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaObatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn satuanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
     }
 }

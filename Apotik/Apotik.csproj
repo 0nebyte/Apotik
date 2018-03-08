@@ -278,6 +278,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Apotik.Menu.Transaksi.Penjualan.DetailDataSource.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.DetailJual.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Distributor.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Dokter.datasource" />

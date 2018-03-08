@@ -36,11 +36,14 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var db = Model.Database.Instance;
                 var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
 
-                var detail = controller.DetailJual.FirstOrDefault(p => p.Obat.Id == obat.Id);
+                var detail = controller.DetailJual.FirstOrDefault(p => p.Detail.Obat.Id == obat.Id);
                 if (detail == null)
                 {
-                    detail = new Model.DetailJual();
-                    detail.Obat = obat;
+                    var d = new Model.DetailJual();
+                    d.Penjualan = controller.Penjualan;
+                    d.Obat = obat;
+
+                    detail = new DetailDataSource(d);
                     controller.DetailJual.Add(detail);
                 }
 
