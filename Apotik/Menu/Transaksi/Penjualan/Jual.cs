@@ -22,10 +22,10 @@ namespace Apotik.Menu.Transaksi.Penjualan
             KeyPreview = true;
 
             txt_dokter.DataBindings.Add("Text", controller, "Dokter");
-            txt_subtotal.DataBindings.Add("Text", controller.Penjualan, "Sub_Total");
+            txt_subtotal.DataBindings.Add("Text", controller.Penjualan, "SubTotal");
             txt_diskon.DataBindings.Add("Text", controller.Penjualan, "Diskon");
             txt_ppn.DataBindings.Add("Text", controller.Penjualan, "PPN");
-            txt_grandtotal.DataBindings.Add("Text", controller.Penjualan, "Grand_Total");
+            txt_grandtotal.DataBindings.Add("Text", controller.Penjualan, "GrandTotal");
             dgv_penjualan.DataBindings.Add("DataSource", controller, "DetailJual");
         }
 

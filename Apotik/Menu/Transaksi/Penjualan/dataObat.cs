@@ -50,11 +50,11 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 detail.Quantity += 1;
 
                 // Update Penjualan
-                controller.Penjualan.Sub_Total =
+                controller.Penjualan.SubTotal =
                     controller.DetailJual.Aggregate(0, (sum, d) => sum + d.SubTotal);
-                var diskon = (int)(controller.Penjualan.Sub_Total * controller.Penjualan.Diskon / 100.0f);
-                var ppn = (int)(controller.Penjualan.Sub_Total * controller.Penjualan.PPN / 100.0f);
-                controller.Penjualan.Grand_Total = controller.Penjualan.Sub_Total - diskon + ppn;
+                var diskon = (int)(controller.Penjualan.SubTotal * controller.Penjualan.Diskon / 100.0f);
+                var ppn = (int)(controller.Penjualan.SubTotal * controller.Penjualan.PPN / 100.0f);
+                controller.Penjualan.GrandTotal = controller.Penjualan.SubTotal - diskon + ppn;
 
                 controller.DetailJual = controller.DetailJual.ToList();
             }
