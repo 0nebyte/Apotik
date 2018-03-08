@@ -63,7 +63,7 @@ namespace Apotik.Model
         public int Save<T>(T model) where T: BaseModel
         {
             var type = model.GetType();
-            var typeSignature = type.Name;
+            var typeSignature = GetTypeSignature(type);
 
             if (!schemas.ContainsKey(typeSignature))
                 throw new NotImplementedException(string.Format("{0} is no registered. " +
