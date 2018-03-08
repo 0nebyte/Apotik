@@ -10,30 +10,18 @@ namespace Apotik.Model
     {
         public static string tableName = "tb_user";
 
-        private int id;
-        private string kode;
-        private string nama;
-        private string jk;
-        private string alamat;
-        private string kota;
-        private string telp;
-        private string username;
-        private string password;
-        private string role;
-
         public User(int id, string kode, string nama, string jk, string alamat, string kota,
             string telp, string username, string password, string role)
         {
-            this.id = id;
-            this.kode = kode;
-            this.nama = nama;
-            this.jk = jk;
-            this.alamat = alamat;
-            this.kota = kota;
-            this.telp = telp;
-            this.username = username;
-            this.password = password;
-            this.role = role;
+            Id = id;
+            Kode = kode;
+            Nama = nama;
+            JK = jk;
+            Alamat = alamat;
+            Telp = telp;
+            Username = username;
+            Password = password;
+            Role = role;
         }
 
         public User()
@@ -41,115 +29,43 @@ namespace Apotik.Model
         }
 
         [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
-            }
-        }
+        public int Id { get; set; }
 
         [Attributes.Field(Name = "kode_user", AllowNull = false)]
-        public string Kode
-        {
-            get { return kode; }
-            set
-            {
-                kode = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
-            }
-        }
+        public string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama
-        {
-            get { return nama; }
-            set
-            {
-                nama = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nama"));
-            }
-        }
+        public string Nama { get; set; }
 
         [Attributes.Field(Name = "jk", AllowNull = false)]
-        public string JK
-        {
-            get { return jk; }
-            set
-            {
-                jk = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("JK"));
-            }
-        }
+        public string JK { get; set; }
 
         [Attributes.Field(Name = "alamat", AllowNull = false)]
-        public string Alamat
-        {
-            get { return alamat; }
-            set
-            {
-                alamat = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Alamat"));
-            }
-        }
+        public string Alamat { get; set; }
 
         [Attributes.Field(Name = "notelp", AllowNull = false)]
-        public string Telp
-        {
-            get { return telp; }
-            set
-            {
-                telp = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Telp"));
-            }
-        }
+        public string Telp { get; set; }
 
         [Attributes.Field(Name = "username", AllowNull = false)]
-        public string Username
-        {
-            get { return username; }
-            set
-            {
-                username = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Username"));
-            }
-        }
+        public string Username { get; set; }
 
         [Attributes.Field(Name = "password", AllowNull = false)]
-        public string Password
-        {
-            get { return password; }
-            set
-            {
-                password = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Password"));
-            }
-        }
+        public string Password { get; set; }
 
         [Attributes.Field(Name = "role", AllowNull = false)]
-        public string Role
-        {
-            get { return role; }
-            set
-            {
-                role = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Role"));
-            }
-        }
+        public string Role { get; set; }
 
         public override string ToString()
         {
             return base.ToString() + "\n" +
-                "\tid: " + id + "\n" +
-                "\tnama: " + nama + "\n" +
-                "\tjk: " + jk + "\n" +
-                "\talamat: " + alamat + "\n" +
-                "\ttelp: " + telp + "\n" +
-                "\tusername: " + username + "\n" +
-                "\tpassword: " + password + "\n" +
-                "\trole: " + role;
+                "\tid: " + Id + "\n" +
+                "\tnama: " + Nama + "\n" +
+                "\tjk: " + JK + "\n" +
+                "\talamat: " + Alamat + "\n" +
+                "\ttelp: " + Telp + "\n" +
+                "\tusername: " + Username + "\n" +
+                "\tpassword: " + Password + "\n" +
+                "\trole: " + Role;
         }
     }
 }

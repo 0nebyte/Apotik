@@ -10,96 +10,41 @@ namespace Apotik.Model
     {
         public static string tableName = "tb_dokter";
 
-        private int id;
-        private string kode;
-        private string nama;
-        private string alamat;
-        private string telp;
-        private string keterangan;
-
         public Dokter()
         {
         }
 
         public Dokter(int id, string kode, string nama, string alamat, string notelp, string keterangan)
         {
-            this.id = id;
-            this.kode = kode;
-            this.nama = nama;
-            this.alamat = alamat;
-            this.telp = telp;
-            this.keterangan = keterangan;
+            Id = id;
+            Kode = kode;
+            Nama = nama;
+            Alamat = alamat;
+            Telp = Telp;
+            Keterangan = keterangan;
         }
 
         [Attributes.Field(Name = "id_dokter", PrimaryKey = true, AutoIncrement = true)]
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
-            }
-        }
+        public int Id { get; set; }
 
         [Attributes.Field(Name = "kode_dokter", AllowNull = false)]
-        public string Kode
-        {
-            get { return kode; }
-            set
-            {
-                kode = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
-            }
-        }
+        public string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama
-        {
-            get { return nama; }
-            set
-            {
-                nama = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nama"));
-            }
-        }
+        public string Nama { get; set; }
 
         [Attributes.Field(Name = "alamat", AllowNull = false)]
-        public string Alamat
-        {
-            get { return alamat; }
-            set
-            {
-                alamat = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Alamat"));
-            }
-        }
+        public string Alamat { get; set; }
 
         [Attributes.Field(Name = "notelp", AllowNull = false)]
-        public string Telp
-        {
-            get { return telp; }
-            set
-            {
-                telp = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Telp"));
-            }
-        }
+        public string Telp { get; set; }
 
         [Attributes.Field(Name = "keterangan", AllowNull = true)]
-        public string Keterangan
-        {
-            get { return keterangan; }
-            set
-            {
-                keterangan = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Keterangan"));
-            }
-        }
+        public string Keterangan { get; set; }
 
         public override string ToString()
         {
-            return nama;
+            return Nama;
         }
     }
 }
