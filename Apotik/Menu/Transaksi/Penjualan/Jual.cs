@@ -41,6 +41,10 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var obat = new dataObat(controller);
                 obat.ShowDialog();
             }
+            else if (e.KeyCode == Keys.F8)
+            {
+                btn_simpan_Click(null, null);
+            }
             else if (e.KeyCode == Keys.Escape)
             {
                 Close();
@@ -66,6 +70,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
         private void btn_simpan_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
+
+            if (controller.DetailJual.Count() == 0)
+            {
+                MessageBox.Show("Penjualan kosong tidak diperbolehkan.", "Peringatan",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             db.Save(controller.Penjualan);
             foreach (var item in controller.DetailJual)
