@@ -138,5 +138,16 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 detail.Quantity = 1;
             }
         }
+
+        private void dgv_penjualan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgv = (DataGridView)sender;
+
+            if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >=0)
+            {
+                var kodeObat = (string)dgv.Rows[e.RowIndex].Cells[0].Value;
+                controller.DeleteObat(kodeObat);
+            }
+        }
     }
 }

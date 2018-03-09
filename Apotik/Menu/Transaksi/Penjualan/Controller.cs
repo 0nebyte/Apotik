@@ -21,6 +21,12 @@ namespace Apotik.Menu.Transaksi.Penjualan
             }
         }
 
+        public void DeleteObat(string kode)
+        {
+            detailJual.Remove(detailJual.FirstOrDefault(p => p.KodeObat == kode));
+            DetailJual = detailJual.ToList();
+        }
+
         #region INotifyPropertyChangedImplementation
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)

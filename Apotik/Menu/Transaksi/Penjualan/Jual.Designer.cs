@@ -49,13 +49,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_simpan = new System.Windows.Forms.Button();
             this.btn_batal = new System.Windows.Forms.Button();
+            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
             this.kodeObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailDataSourceBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.Toolbox = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,7 +91,8 @@
             this.satuanDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
-            this.subTotalDataGridViewTextBoxColumn});
+            this.subTotalDataGridViewTextBoxColumn,
+            this.Toolbox});
             this.dgv_penjualan.DataSource = this.detailDataSourceBinding;
             this.dgv_penjualan.GridColor = System.Drawing.SystemColors.Menu;
             this.dgv_penjualan.Location = new System.Drawing.Point(22, 131);
@@ -98,6 +100,7 @@
             this.dgv_penjualan.Name = "dgv_penjualan";
             this.dgv_penjualan.Size = new System.Drawing.Size(734, 244);
             this.dgv_penjualan.TabIndex = 0;
+            this.dgv_penjualan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellContentClick);
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
             this.dgv_penjualan.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellValueChanged);
             this.dgv_penjualan.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_penjualan_DataError);
@@ -263,6 +266,10 @@
             this.btn_batal.UseVisualStyleBackColor = true;
             this.btn_batal.Click += new System.EventHandler(this.btn_batal_Click);
             // 
+            // detailDataSourceBinding
+            // 
+            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
+            // 
             // kodeObatDataGridViewTextBoxColumn
             // 
             this.kodeObatDataGridViewTextBoxColumn.DataPropertyName = "KodeObat";
@@ -304,9 +311,12 @@
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // detailDataSourceBinding
+            // Toolbox
             // 
-            this.detailDataSourceBinding.DataSource = typeof(Apotik.Menu.Transaksi.Penjualan.DetailDataSource);
+            this.Toolbox.HeaderText = "";
+            this.Toolbox.Name = "Toolbox";
+            this.Toolbox.Text = "Hapus";
+            this.Toolbox.UseColumnTextForButtonValue = true;
             // 
             // Jual
             // 
@@ -347,12 +357,6 @@
         private System.Windows.Forms.BindingSource detailDataSourceBinding;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgv_penjualan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kodeObatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaObatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn satuanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dtp_jual;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -371,5 +375,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_simpan;
         private System.Windows.Forms.Button btn_batal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kodeObatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaObatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn satuanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Toolbox;
     }
 }
