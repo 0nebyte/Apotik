@@ -13,77 +13,12 @@ namespace Apotik
     public partial class Home : Form
     {
         private Controller controller;
-        private int childFormNumber = 0;
 
         public Home(Controller controller)
         {
             this.controller = controller;
 
             InitializeComponent();
-        }
-
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
         }
 
         private void Tutup_Click(object sender, EventArgs e)
@@ -95,35 +30,25 @@ namespace Apotik
             {
                 Application.Exit();
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                //nothing
-            }
         }
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.Tambah(new Apotik.Menu.Obat.Controller());
+            var obat = new Menu.Obat.Tambah(new Menu.Obat.Controller());
             obat.MdiParent = this;
             obat.Show();
         }
 
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void obatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterObat = new Menu.Obat.MasterObat(new Apotik.Menu.Obat.Controller());
+            var masterObat = new Menu.Obat.MasterObat(new Menu.Obat.Controller());
             masterObat.MdiParent = this;
             masterObat.Show();
         }
 
         private void dokterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterdokter = new Menu.Dokter.MasterDokter(new Apotik.Menu.Dokter.Controller());
+            var masterdokter = new Menu.Dokter.MasterDokter(new Menu.Dokter.Controller());
             masterdokter.MdiParent = this;
             masterdokter.Show();
         }
@@ -140,7 +65,6 @@ namespace Apotik
             var masterUser = new Menu.User.MasterUser(controller);
             masterUser.MdiParent = this;
             masterUser.Show();
-
         }
 
         private void penjualanToolStripMenuItem_Click(object sender, EventArgs e)
