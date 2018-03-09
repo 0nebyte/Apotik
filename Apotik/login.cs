@@ -11,11 +11,11 @@ using System.Windows.Forms;
 namespace Apotik
 {
     // public partial class login : Form
-    public partial class login : MetroFramework.Forms.MetroForm
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
 
-        public login(Controller controller)
+        public Login(Controller controller)
         {
             this.controller = controller;
 

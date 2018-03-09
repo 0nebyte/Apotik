@@ -23,7 +23,7 @@ namespace Apotik
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var login = new login(controller);
+            var login = new Login(controller);
             login.Close();
 
             this.Close();
