@@ -21,15 +21,19 @@ namespace Apotik
             InitializeComponent();
         }
 
-        private void Tutup_Click(object sender, EventArgs e)
+        private void Exit()
         {
-            
             DialogResult dialogResult = MessageBox.Show("Keluar dari aplikasi?", "Keluar", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Exit();
             }
+        }
+
+        private void Tutup_Click(object sender, EventArgs e)
+        {
+            Exit();
         }
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,6 +75,11 @@ namespace Apotik
         {
             var jual = new Menu.Transaksi.Penjualan.Jual();
             jual.ShowDialog();
+        }
+
+        private void mnu_file_exit_Click(object sender, EventArgs e)
+        {
+            Exit();
         }
     }
 }
