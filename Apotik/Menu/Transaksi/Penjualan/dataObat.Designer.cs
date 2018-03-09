@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.penjualanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_obat = new System.Windows.Forms.DataGridView();
-            this.obatBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.txt_cari = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,19 +39,10 @@
             this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keteranganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.penjualanBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
+            this.obatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_obat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // penjualanBindingSource
-            // 
-            this.penjualanBindingSource.DataSource = typeof(Apotik.Model.Penjualan);
-            // 
-            // obatBindingSource
-            // 
-            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
             // 
             // dgv_obat
             // 
@@ -76,18 +66,34 @@
             this.dgv_obat.DataSource = this.obatBindingSource;
             this.dgv_obat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_obat.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgv_obat.Location = new System.Drawing.Point(20, 60);
+            this.dgv_obat.Location = new System.Drawing.Point(30, 92);
+            this.dgv_obat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_obat.MultiSelect = false;
             this.dgv_obat.Name = "dgv_obat";
             this.dgv_obat.ReadOnly = true;
             this.dgv_obat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_obat.Size = new System.Drawing.Size(708, 418);
+            this.dgv_obat.Size = new System.Drawing.Size(1062, 643);
             this.dgv_obat.TabIndex = 1;
             this.dgv_obat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_obat_CellClick);
             // 
-            // obatBindingSource1
+            // txt_cari
             // 
-            this.obatBindingSource1.DataSource = typeof(Apotik.Model.Obat);
+            this.txt_cari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_cari.Location = new System.Drawing.Point(821, 58);
+            this.txt_cari.Name = "txt_cari";
+            this.txt_cari.Size = new System.Drawing.Size(268, 26);
+            this.txt_cari.TabIndex = 2;
+            this.txt_cari.TextChanged += new System.EventHandler(this.txt_cari_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(764, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Cari :";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -138,25 +144,33 @@
             this.keteranganDataGridViewTextBoxColumn.Name = "keteranganDataGridViewTextBoxColumn";
             this.keteranganDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataObat
+            // obatBindingSource
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.obatBindingSource.DataSource = typeof(Apotik.Model.Obat);
+            // 
+            // DataObat
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 498);
+            this.ClientSize = new System.Drawing.Size(1122, 766);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt_cari);
             this.Controls.Add(this.dgv_obat);
-            this.Name = "dataObat";
-            this.Text = "dataObat";
-            ((System.ComponentModel.ISupportInitialize)(this.penjualanBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "DataObat";
+            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
+            this.Text = "Obat";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataObat_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_obat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.BindingSource obatBindingSource;
-        private System.Windows.Forms.BindingSource penjualanBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
@@ -164,7 +178,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keteranganDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource obatBindingSource1;
         public System.Windows.Forms.DataGridView dgv_obat;
+        private System.Windows.Forms.TextBox txt_cari;
+        private System.Windows.Forms.Label label1;
     }
 }
