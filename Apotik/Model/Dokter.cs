@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
+    [Attributes.Table(TableName = "tb_dokter")]
    public class Dokter : BaseModel
     {
-        public static string tableName = "tb_dokter";
-
         public Dokter()
         {
         }

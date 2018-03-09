@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Collections;
 using System.Reflection;
-using System.Reflection.Emit;
 
 namespace Apotik.Model
 {
@@ -63,12 +62,22 @@ namespace Apotik.Model
 
             private string GetTableName(Type type)
             {
+                // Default to class name as it is always exists
                 var tableName = type.Name;
+
+                // Search for static field named tableName
                 var fields = type.GetFields();
                 foreach (var field in fields)
                 {
                     if (field.Name == "tableName")
                         tableName = field.GetValue(null).ToString();
+                }
+
+                // Search for Attributes.Table attribute
+                var tableAttr = type.GetCustomAttribute<Attributes.Table>();
+                if (tableAttr != null)
+                {
+                    tableName = tableAttr.TableName;
                 }
 
                 return tableName;

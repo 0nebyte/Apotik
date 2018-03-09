@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
     <Compile Include="Model\Attributes\Reference.cs" />
+    <Compile Include="Model\Attributes\Table.cs" />
     <Compile Include="Model\Builder.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\DetailJual.cs" />

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
+    [Attributes.Table(TableName = "tb_detail_jual")]
     public class DetailJual : BaseModel
     {
-        public static string tableName = "tb_detail_jual";
-
         [Attributes.Reference(Type = typeof(Obat))]
         public virtual Obat Obat { get; set; }
 
