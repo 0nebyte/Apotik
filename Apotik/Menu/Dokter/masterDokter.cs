@@ -20,11 +20,9 @@ namespace Apotik.Menu.Dokter
 
             InitializeComponent();
 
-            dataGridViewDokter.DataBindings.Add("DataSource", controller, "Dokters");
+            dataGridViewDokter.DataBindings.Add("DataSource", controller, "DaftarDokter");
 
-            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
-            
-
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)

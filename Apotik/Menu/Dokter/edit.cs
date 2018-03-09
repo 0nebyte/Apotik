@@ -25,25 +25,23 @@ namespace Apotik.Menu.Dokter
         private void btn_cari_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
-            var query = txt_cari.Text;
+            var query = string.Format("%{0}%", txt_cari.Text);
             var category = cb_jenis.SelectedItem.ToString();
             IEnumerable<Model.Dokter> result;
 
             if (category == "Kode")
             {
-                //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                result = db.Query2<Model.Dokter>().Where(db.Column("Kode") == query).Execute();
+                result = db.Query2<Model.Dokter>().Where(db.Like(db.Column("Kode"), query)).Execute();
             }
-                else if (category == "Nama")
-                {
-                    //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                    result = db.Query2<Model.Dokter>().Where(db.Column("Nama") == query).Execute();
-                }
-                    else
-                    {
-                        MessageBox.Show("Tidak dapat menemukan Dokter.");
-                        return;
-                    }
+            else if (category == "Nama")
+            {
+                result = db.Query2<Model.Dokter>().Where(db.Like(db.Column("Nama"), query)).Execute();
+            }
+            else
+            {
+                MessageBox.Show("Tidak dapat menemukan Dokter.");
+                return;
+            }
 
             dokter = result.FirstOrDefault();
 
@@ -75,17 +73,15 @@ namespace Apotik.Menu.Dokter
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Update(dokter);
-
-            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
-
-            Close();
+            if (controller.UpdateDokter(dokter))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void cb_jenis_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

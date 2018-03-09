@@ -123,7 +123,7 @@ namespace Apotik
 
         private void dokterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterdokter = new Menu.Dokter.MasterDokter(controller);
+            var masterdokter = new Menu.Dokter.MasterDokter(new Apotik.Menu.Dokter.Controller());
             masterdokter.MdiParent = this;
             masterdokter.Show();
         }

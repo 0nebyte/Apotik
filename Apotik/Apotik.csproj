@@ -105,6 +105,7 @@
     <Compile Include="Menu\Distributor\Tambah.Designer.cs">
       <DependentUpon>Tambah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Dokter\Controller.cs" />
     <Compile Include="Menu\Dokter\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
