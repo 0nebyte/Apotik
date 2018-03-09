@@ -7,11 +7,14 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Transaksi.Penjualan
 {
-    public class Controller : System.ComponentModel.INotifyPropertyChanged
+    public class Controller : BaseController
     {
-        public Model.Penjualan Penjualan { get; } = Model.BaseModel.New<Model.Penjualan>();
-
+        private Model.Database db;
+        private Model.Penjualan penjualan;
         private IList<DetailDataSource> detailJual = new List<DetailDataSource>();
+
+        public Model.Penjualan Penjualan { get { return penjualan; } }
+
         public IList<DetailDataSource> DetailJual
         {
             get { return detailJual; }
@@ -34,7 +37,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             var detail = DetailJual.FirstOrDefault(p => p.Detail.Obat.Id == obat.Id);
             if (detail == null)
             {
-                var d = Model.BaseModel.New<Model.DetailJual>();
+                var d = db.New<Model.DetailJual>();
                 d.Penjualan = Penjualan;
                 d.Obat = obat;
 
@@ -73,14 +76,11 @@ namespace Apotik.Menu.Transaksi.Penjualan
             Penjualan.GrandTotal = Penjualan.SubTotal - diskon + ppn;
         }
 
-        #region INotifyPropertyChangedImplementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
+        public Controller()
         {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
+            db = Model.Database.Instance;
+            penjualan = db.New<Model.Penjualan>();
         }
-        #endregion
     }
 
     public class DetailDataSource

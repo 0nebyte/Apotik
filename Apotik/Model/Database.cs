@@ -12,22 +12,133 @@ namespace Apotik.Model
 {
     class Database
     {
-        public struct Schema
+        public struct ColumnAccessor
+        {
+            public Attributes.Field field;
+            public System.Reflection.PropertyInfo propertyInfo;
+
+            public ColumnAccessor(Attributes.Field field, System.Reflection.PropertyInfo info)
+            {
+                this.field = field;
+                this.propertyInfo = info;
+            }
+
+            public string GetColumnType()
+            {
+                if (propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                    return "int";
+                else
+                    return "string";
+            }
+        }
+
+        public struct ReferenceColumnAccessor
+        {
+            public Attributes.Reference reference;
+            public PropertyInfo propertyInfo;
+
+            public ReferenceColumnAccessor(Attributes.Reference reference, PropertyInfo info)
+            {
+                this.reference = reference;
+                this.propertyInfo = info;
+            }
+        }
+
+        public class Schema
         {
             public Type baseType;
             public Type type;
             public string tableName;
-            public IEnumerable<BaseModel.ColumnAccessor> columns;
-            public IEnumerable<BaseModel.ReferenceColumnAccessor> refColumns;
+            public IEnumerable<ColumnAccessor> columns;
+            public IEnumerable<ReferenceColumnAccessor> refColumns;
+
+            public Schema(Type baseType, string typeSignature)
+            {
+                this.baseType = baseType;
+                tableName = GetTableName(baseType);
+                columns = GetColumns(baseType);
+                refColumns = GetReferenceColumns(baseType);
+                type = BuildType(this, typeSignature);
+            }
+
+            private string GetTableName(Type type)
+            {
+                var tableName = type.Name;
+                var fields = type.GetFields();
+                foreach (var field in fields)
+                {
+                    if (field.Name == "tableName")
+                        tableName = field.GetValue(null).ToString();
+                }
+
+                return tableName;
+            }
+
+            private IEnumerable<ColumnAccessor> GetColumns(Type type)
+            {
+                var columns = baseType.GetProperties()
+                    .Where(p => p.CanRead && p.CanWrite)
+                    .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
+                    .Select(p =>
+                    {
+                        var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
+                            typeof(Attributes.Field), false)[0];
+                        return new ColumnAccessor(fieldAttr, p);
+                    });
+
+                return columns;
+            }
+
+            private IEnumerable<ReferenceColumnAccessor> GetReferenceColumns(Type type)
+            {
+                return baseType.GetProperties()
+                    .Where(p => p.CanRead && p.CanWrite)
+                    .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
+                    .Select(p =>
+                    {
+                        var refAttr = (Attributes.Reference)p.GetCustomAttributes(
+                            typeof(Attributes.Reference), false)[0];
+                        return new ReferenceColumnAccessor(refAttr, p);
+                    });
+            }
+
+            private Type BuildType(Schema schema, string typeSignature)
+            {
+                var typeBuilder = Builder.CreateType(typeSignature, schema.baseType);
+
+                var constructorBuilder = typeBuilder.DefineDefaultConstructor(
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.RTSpecialName);
+
+                foreach (var p in schema.columns)
+                {
+                    Builder.CreateProperty(typeBuilder, p.propertyInfo.Name,
+                        p.propertyInfo.GetMethod.ReturnType);
+                }
+
+                foreach (var p in schema.refColumns)
+                {
+                    Builder.CreateProperty(typeBuilder, p.propertyInfo.Name,
+                        p.propertyInfo.GetMethod.ReturnType);
+                }
+
+                return typeBuilder.CreateType();
+            }
 
             public bool HasPrimaryKey()
             {
                 return columns.Aggregate(false, (c, p) => c || p.field.PrimaryKey == true);
             }
 
-            public BaseModel.ColumnAccessor GetPrimaryKey()
+            public ColumnAccessor GetPrimaryKey()
             {
                 return columns.Where(p => p.field.PrimaryKey == true).First();
+            }
+
+            public string GetColumnName(string propertyName)
+            {
+                return columns.FirstOrDefault(p => p.propertyInfo.Name == propertyName).field.Name;
             }
 
             public string GetReferenceColumnName()
@@ -52,12 +163,12 @@ namespace Apotik.Model
 
         public SQLColumn Column(string propertyName)
         {
-            return new SQLColumn(propertyName);
+            return new SQLColumn(this, propertyName);
         }
 
         public SQLColumn Column(int index, string propertyName)
         {
-            return new SQLColumn(propertyName, index);
+            return new SQLColumn(this, propertyName, index);
         }
 
         public SQLCondition Like(SQLColumn column, string condition)
@@ -98,7 +209,7 @@ namespace Apotik.Model
                     continue;
                 }
 
-                var pk = BaseModel.GetPrimaryKey(refObj.GetType().BaseType);
+                var pk = GetSchema(refObj.GetType()).GetPrimaryKey();
                 command.Parameters.AddWithValue("$" + GetSchema(col.reference.Type).GetReferenceColumnName(),
                     pk.propertyInfo.GetValue(refObj));
             }
@@ -153,7 +264,14 @@ namespace Apotik.Model
             foreach (var col in refColumns)
             {
                 var refObj = col.propertyInfo.GetValue(model);
-                var pk = BaseModel.GetPrimaryKey(refObj.GetType().BaseType);
+                if (refObj == null)
+                {
+                    command.Parameters.AddWithValue(
+                        "$" + GetSchema(col.reference.Type).GetReferenceColumnName(), null);
+                    continue;
+                }
+
+                var pk = GetSchema(refObj.GetType()).GetPrimaryKey();
                 command.Parameters.AddWithValue("$" + GetSchema(col.reference.Type).GetReferenceColumnName(),
                     pk.propertyInfo.GetValue(refObj));
             }
@@ -164,8 +282,9 @@ namespace Apotik.Model
         public IEnumerable<T> Query<T>(string whereClause = null) where T: new()
         {
             var type = typeof(T);
-            var tableName = BaseModel.GetTableName(type);
-            var columns = BaseModel.GetColumns(type);
+            var schema = GetSchema(type);
+            var tableName = schema.tableName;
+            var columns = schema.columns;
             var sql = string.Format("SELECT * FROM {0}", tableName);
             if (whereClause != null)
                 sql += string.Format(" WHERE {0}", whereClause);
@@ -196,6 +315,12 @@ namespace Apotik.Model
             return new SQLQuery<T>(this);
         }
 
+        public T New<T>() where T : BaseModel
+        {
+            var schema = GetSchema(typeof(T));
+            return (T)Activator.CreateInstance(schema.type);
+        }
+
         public bool RegisterSchema<T>() where T: BaseModel
         {
             var baseType = typeof(T);
@@ -204,14 +329,9 @@ namespace Apotik.Model
             if (schemas.ContainsKey(typeSignature))
                 return true;
 
-            var schema = new Schema();
-            schema.baseType = baseType;
-            schema.type = BaseModel.CreateType(typeSignature, baseType);
-            schema.tableName = BaseModel.GetTableName(baseType);
-            schema.columns = BaseModel.GetColumns(baseType);
-            schema.refColumns = BaseModel.GetReferenceColumns(baseType);
+            var schema = new Schema(baseType, typeSignature);
 
-            var fieldsSql = BaseModel.CreateFieldsSql(baseType);
+            var fieldsSql = CreateFieldsSql(baseType);
             var sql = string.Format("CREATE TABLE IF NOT EXISTS {0} ({1})", schema.tableName, fieldsSql);
             var command = new SQLiteCommand(sql, connection);
 
@@ -222,12 +342,73 @@ namespace Apotik.Model
             return true;
         }
 
+        private string CreateFieldsSql(Type baseType)
+        {
+            // fields
+            var columnsSql = baseType.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
+                .Select(p =>
+                {
+                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
+                        typeof(Attributes.Field), false)[0];
+
+                    var sql = fieldAttr.Name;
+                    if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                        sql += " INTEGER";
+                    else
+                        sql += " TEXT";
+                    if (fieldAttr.PrimaryKey)
+                        sql += " PRIMARY KEY";
+                    if (fieldAttr.AutoIncrement)
+                        sql += " AUTOINCREMENT";
+                    if (!fieldAttr.AllowNull)
+                        sql += " NOT NULL";
+
+                    return sql;
+                });
+
+            // constraint references
+            var constraintSql = baseType.GetProperties()
+                .Where(p => p.CanRead && p.CanWrite)
+                .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
+                .Select(p =>
+                {
+                    var refAttr = (Attributes.Reference)p.GetCustomAttributes(
+                        typeof(Attributes.Reference), false)[0];
+
+                    var refSchema = GetSchema(refAttr.Type);
+
+                    var refTableName = refSchema.tableName;
+
+                    var refPrimaryKey = refSchema.GetPrimaryKey();
+
+                    var columnType = "TEXT";
+                    if (refPrimaryKey.propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
+                        columnType = "INTEGER";
+
+                    var refColumnName = refPrimaryKey.field.Name;
+
+                    var columnName = refSchema.GetReferenceColumnName();
+
+                    return string.Format("{0} {1} REFERENCES {2}({3}) ON UPDATE CASCADE",
+                        columnName,
+                        columnType,
+                        refTableName,
+                        refColumnName);
+                });
+
+            return string.Join(",\n", columnsSql.Concat(constraintSql));
+        }
+
         public Schema GetSchema(Type type)
         {
             if (schemas.ContainsKey(GetTypeSignature(type)))
                 return schemas[GetTypeSignature(type)];
-            else
+            else if (schemas.ContainsKey(type.Name))
                 return schemas[type.Name];
+            else
+                return null;
         }
 
         private string GetTypeSignature(Type baseType)
@@ -290,290 +471,6 @@ namespace Apotik.Model
         public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, e);
-        }
-        #endregion
-
-        #region Table metadata access methods
-        public static string GetTableName(Type type)
-        {
-            var tableName = type.Name;
-            var fields = type.GetFields();
-            foreach (var field in fields)
-            {
-                if (field.Name == "tableName")
-                    tableName = field.GetValue(null).ToString();
-            }
-
-            return tableName;
-        }
-
-        public static string CreateFieldsSql(Type refl)
-        {
-            // fields
-            var columnsSql = refl.GetProperties()
-                .Where(p => p.CanRead && p.CanWrite)
-                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
-                .Select(p =>
-                {
-                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
-                        typeof(Attributes.Field), false)[0];
-
-                    var sql = fieldAttr.Name;
-                    if (p.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
-                        sql += " INTEGER";
-                    else
-                        sql += " TEXT";
-                    if (fieldAttr.PrimaryKey)
-                        sql += " PRIMARY KEY";
-                    if (fieldAttr.AutoIncrement)
-                        sql += " AUTOINCREMENT";
-                    if (!fieldAttr.AllowNull)
-                        sql += " NOT NULL";
-
-                    return sql;
-                });
-
-            // constraint references
-            var constraintSql = refl.GetProperties()
-                .Where(p => p.CanRead && p.CanWrite)
-                .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
-                .Select(p =>
-                {
-                    var refAttr = (Attributes.Reference)p.GetCustomAttributes(
-                        typeof(Attributes.Reference), false)[0];
-
-                    var refTableName = GetTableName(refAttr.Type);
-
-                    var refPrimaryKey = GetPrimaryKey(refAttr.Type);
-
-                    var columnType = "TEXT";
-                    if (refPrimaryKey.propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
-                        columnType = "INTEGER";
-
-                    var refColumnName = refPrimaryKey.field.Name;
-
-                    var columnName = GetReferenceColumnName(refAttr);
-
-                    return string.Format("{0} {1} REFERENCES {2}({3}) ON UPDATE CASCADE",
-                        columnName,
-                        columnType,
-                        refTableName,
-                        refColumnName);
-                });
-
-            return string.Join(",\n", columnsSql.Concat(constraintSql));
-        }
-
-        public struct ColumnAccessor
-        {
-            public Attributes.Field field;
-            public System.Reflection.PropertyInfo propertyInfo;
-
-            public ColumnAccessor(Attributes.Field field, System.Reflection.PropertyInfo info)
-            {
-                this.field = field;
-                this.propertyInfo = info;
-            }
-
-            public string GetColumnType()
-            {
-                if (propertyInfo.GetMethod.ReturnType.ToString().StartsWith("System.Int"))
-                    return "int";
-                else
-                    return "string";
-            }
-        }
-
-        public struct ReferenceColumnAccessor
-        {
-            public Attributes.Reference reference;
-            public PropertyInfo propertyInfo;
-
-            public ReferenceColumnAccessor(Attributes.Reference reference, PropertyInfo info)
-            {
-                this.reference = reference;
-                this.propertyInfo = info;
-            }
-        }
-
-        public static IEnumerable<ColumnAccessor> GetColumns(Type type)
-        {
-            var columns = type.GetProperties()
-                .Where(p => p.CanRead && p.CanWrite)
-                .Where(p => p.GetCustomAttributes(typeof(Attributes.Field), false).Length > 0)
-                .Select(p =>
-                {
-                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(
-                        typeof(Attributes.Field), false)[0];
-                    return new ColumnAccessor(fieldAttr, p);
-                });
-
-            return columns;
-        }
-
-        public static IEnumerable<ReferenceColumnAccessor> GetReferenceColumns(Type type)
-        {
-            return type.GetProperties()
-                .Where(p => p.CanRead && p.CanWrite)
-                .Where(p => p.GetCustomAttributes(typeof(Attributes.Reference), false).Length > 0)
-                .Select(p =>
-                {
-                    var refAttr = (Attributes.Reference)p.GetCustomAttributes(
-                        typeof(Attributes.Reference), false)[0];
-                    return new ReferenceColumnAccessor(refAttr, p);
-                });
-        }
-
-        public static ColumnAccessor GetPrimaryKey(Type type)
-        {
-            return type.GetProperties()
-                .Where(p =>
-                {
-                    if (p.GetCustomAttributes(typeof(Attributes.Field), false).Length == 0)
-                        return false;
-
-                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(typeof(Attributes.Field),
-                        false)[0];
-
-                    if (fieldAttr.PrimaryKey != true)
-                        return false;
-
-                    return true;
-                })
-                .Select(p =>
-                {
-                    var fieldAttr = (Attributes.Field)p.GetCustomAttributes(typeof(Attributes.Field),
-                        false)[0];
-
-                    return new ColumnAccessor(fieldAttr, p);
-                })
-                .First();
-        }
-
-        public static string GetReferenceColumnName(Attributes.Reference reference)
-        {
-            return string.Format("{0}_{1}", GetTableName(reference.Type),
-                GetPrimaryKey(reference.Type).field.Name);
-        }
-
-        public static string GetColumnName(Type type, string propertyName)
-        {
-            var propertyInfo = type.GetProperty(propertyName);
-            var attribute = (Attributes.Field) propertyInfo.GetCustomAttributes(typeof(Attributes.Field),
-                false)[0];
-            return attribute.Name;
-        }
-        #endregion
-
-        #region Concrete type creation
-        private static Dictionary<string, Type> types = new Dictionary<string, Type>();
-
-        public static T New<T>() where T : BaseModel
-        {
-            var parentType = typeof(T);
-            var typeSignature = parentType.Name + "Impl";
-
-            if (!types.ContainsKey(typeSignature))
-            {
-                var typeBuilder = CreateType(typeSignature, parentType);
-
-                var constructorBuilder = typeBuilder.DefineDefaultConstructor(
-                    MethodAttributes.Public |
-                    MethodAttributes.SpecialName |
-                    MethodAttributes.RTSpecialName);
-
-                foreach (var p in GetColumns(parentType))
-                {
-                    CreateProperty(typeBuilder, p.propertyInfo.Name, p.propertyInfo.GetMethod.ReturnType);
-                }
-
-                foreach (var p in GetReferenceColumns(parentType))
-                {
-                    CreateProperty(typeBuilder, p.propertyInfo.Name, p.propertyInfo.GetMethod.ReturnType);
-                }
-
-                types[typeSignature] = typeBuilder.CreateType();
-            }
-
-            var type = types[typeSignature];
-            return (T)Activator.CreateInstance(type);
-        }
-
-        public static TypeBuilder CreateType(string typeSignature, Type parent)
-        {
-            var assemblyName = new AssemblyName(typeSignature);
-            var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName,
-                AssemblyBuilderAccess.Run);
-            var moduleBuilder = assemblyBuilder.DefineDynamicModule("MainModule");
-            return moduleBuilder.DefineType(typeSignature,
-                TypeAttributes.Public |
-                TypeAttributes.Class |
-                TypeAttributes.AutoClass |
-                TypeAttributes.AnsiClass |
-                TypeAttributes.BeforeFieldInit |
-                TypeAttributes.AutoLayout,
-                parent);
-        }
-
-        public static void CreateProperty(TypeBuilder typeBuilder, string propertyName, Type propertyType)
-        {
-            var propertyBuilder = typeBuilder.DefineProperty(propertyName, PropertyAttributes.HasDefault,
-                propertyType, null);
-
-            // Property get method
-            var getMethodBuilder = typeBuilder.DefineMethod("get_" + propertyName,
-                MethodAttributes.Public |
-                MethodAttributes.Virtual |
-                MethodAttributes.SpecialName |
-                MethodAttributes.HideBySig,
-                propertyType, Type.EmptyTypes);
-            var getILGen = getMethodBuilder.GetILGenerator();
-
-            // Call base type get property
-            var baseType = typeBuilder.BaseType;
-            var baseGetMethod = baseType.GetProperty(propertyName).GetMethod;
-
-            getILGen.Emit(OpCodes.Ldarg_0);
-            getILGen.Emit(OpCodes.Call, baseGetMethod);
-            getILGen.Emit(OpCodes.Ret);
-
-            // Property set method
-            var setMethodBuilder = typeBuilder.DefineMethod("set_" + propertyName,
-                MethodAttributes.Public |
-                MethodAttributes.Virtual |
-                MethodAttributes.SpecialName |
-                MethodAttributes.HideBySig,
-                null, new[] { propertyType });
-            var setILGen = setMethodBuilder.GetILGenerator();
-
-            var modifyProperty = setILGen.DefineLabel();
-            var exitSet = setILGen.DefineLabel();
-
-            setILGen.MarkLabel(modifyProperty);
-
-            // Call base type set property
-            var baseSetMethod = baseType.GetProperty(propertyName).SetMethod;
-
-            setILGen.Emit(OpCodes.Ldarg_0);
-            setILGen.Emit(OpCodes.Ldarg_1);
-            setILGen.Emit(OpCodes.Call, baseSetMethod);
-
-            // Call BaseModel.InvokePropertyChanged
-            var propertyChangedEventArgsConstructor = typeof(System.ComponentModel.PropertyChangedEventArgs)
-                .GetConstructor(new[] { typeof(string) });
-            var invokePropertyChanged = typeof(BaseModel).GetMethod("InvokePropertyChanged",
-                new[] { typeof(System.ComponentModel.PropertyChangedEventArgs) });
-
-            setILGen.Emit(OpCodes.Ldarg_0);
-            setILGen.Emit(OpCodes.Ldstr, propertyName);
-            setILGen.Emit(OpCodes.Newobj, propertyChangedEventArgsConstructor);
-            setILGen.Emit(OpCodes.Call, invokePropertyChanged);
-
-            setILGen.MarkLabel(exitSet);
-            setILGen.Emit(OpCodes.Ret);
-
-            propertyBuilder.SetGetMethod(getMethodBuilder);
-            propertyBuilder.SetSetMethod(setMethodBuilder);
         }
         #endregion
     }
@@ -640,11 +537,13 @@ namespace Apotik.Model
 
     class SQLColumn : ISQLSyntax
     {
+        private Database db;
         private int index;
         private string propertyName;
 
-        public SQLColumn(string propertyName, int index = 0)
+        public SQLColumn(Database db, string propertyName, int index = 0)
         {
+            this.db = db;
             this.index = index;
             this.propertyName = propertyName;
         }
@@ -652,11 +551,11 @@ namespace Apotik.Model
         public string ToSqlQuery(IList<Type> model)
         {
             var type = model[index];
+            var schema = db.GetSchema(type);
             if (model.Count > 1)
-                return string.Format("{0}.{1}", BaseModel.GetTableName(type),
-                    BaseModel.GetColumnName(type, propertyName));
+                return string.Format("{0}.{1}", schema.tableName, schema.GetColumnName(propertyName));
             else
-                return string.Format("{0}", BaseModel.GetColumnName(type, propertyName));
+                return string.Format("{0}", schema.GetColumnName(propertyName));
         }
 
         public override bool Equals(object obj)
@@ -766,7 +665,7 @@ namespace Apotik.Model
             while (reader.Read())
             {
                 var i = 0;
-                var t = BaseModel.New<T>();
+                var t = db.New<T>();
                 foreach (var c in schema.columns)
                 {
                     if (reader.IsDBNull(i))
