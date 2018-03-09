@@ -103,7 +103,7 @@ namespace Apotik
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.tambah(controller);
+            var obat = new Menu.Obat.Tambah(controller);
             obat.MdiParent = this;
             obat.Show();
         }
@@ -123,7 +123,7 @@ namespace Apotik
 
         private void dokterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterdokter = new Menu.Dokter.masterDokter(controller);
+            var masterdokter = new Menu.Dokter.MasterDokter(controller);
             masterdokter.MdiParent = this;
             masterdokter.Show();
         }
@@ -137,7 +137,7 @@ namespace Apotik
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterUser = new Menu.User.masterUser(controller);
+            var masterUser = new Menu.User.MasterUser(controller);
             masterUser.MdiParent = this;
             masterUser.Show();
 

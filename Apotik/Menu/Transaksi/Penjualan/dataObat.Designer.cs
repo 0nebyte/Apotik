@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Transaksi.Penjualan
 {
-    partial class dataObat
+    partial class DataObat
     {
         /// <summary>
         /// Required designer variable.

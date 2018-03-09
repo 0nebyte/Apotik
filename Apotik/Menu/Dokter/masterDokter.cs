@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Dokter
 {
-    public partial class masterDokter : MetroFramework.Forms.MetroForm
+    public partial class MasterDokter : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
 
-        public masterDokter( Controller controller)
+        public MasterDokter( Controller controller)
         {
             this.controller = controller;
 
@@ -29,19 +29,19 @@ namespace Apotik.Menu.Dokter
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah(controller);
+            var tambah = new Tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit(controller);
+            var edit = new Edit(controller);
             edit.ShowDialog();
         }
 
         private void btn_hapus_Click(object sender, EventArgs e)
         {
-            var hapus = new hapus();
+            var hapus = new Hapus();
             hapus.ShowDialog();
         }
     }

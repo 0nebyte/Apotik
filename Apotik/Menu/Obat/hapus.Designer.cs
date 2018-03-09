@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Obat
 {
-    partial class hapus
+    partial class Hapus
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hapus));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hapus));
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.btn_cancel = new MetroFramework.Controls.MetroTile();
             this.btn_simpan = new MetroFramework.Controls.MetroTile();

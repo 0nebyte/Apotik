@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.User
 {
-    public partial class edit : MetroFramework.Forms.MetroForm
+    public partial class Edit : MetroFramework.Forms.MetroForm
     {
 
         private Controller controller;
         private Model.User user;
 
-        public edit(Controller controller)
+        public Edit(Controller controller)
         {
             this.controller = controller;
 

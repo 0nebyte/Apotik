@@ -33,12 +33,12 @@ namespace Apotik.Menu.Transaksi.Penjualan
         {
             if (e.KeyCode == Keys.F2)
             {
-                var dokter = new dataDokter(controller);
+                var dokter = new DataDokter(controller);
                 dokter.ShowDialog();
             }
             else if (e.KeyCode == Keys.F3)
             {
-                var obat = new dataObat(controller);
+                var obat = new DataObat(controller);
                 obat.ShowDialog();
             }
             else if (e.KeyCode == Keys.F8)
@@ -53,7 +53,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
 
         private void dgv_penjualan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var obat = new dataObat(controller);
+            var obat = new DataObat(controller);
             obat.ShowDialog();
         }
 

@@ -331,6 +331,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Transaksi Penjualan";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Jual_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_penjualan)).EndInit();
             this.groupBox1.ResumeLayout(false);

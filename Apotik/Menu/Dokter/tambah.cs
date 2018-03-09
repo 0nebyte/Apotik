@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Dokter
 {
-    public partial class tambah : MetroFramework.Forms.MetroForm
+    public partial class Tambah : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
         private Model.Dokter model;
 
-        public tambah(Controller controller, Model.Dokter dokter = null)
+        public Tambah(Controller controller, Model.Dokter dokter = null)
         {
             this.controller = controller;
 

@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Distributor
 {
-    partial class tambah
+    partial class Tambah
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.User
 {
-    partial class tambah
+    partial class Tambah
     {
         /// <summary>
         /// Required designer variable.

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Transaksi.Penjualan
 {
-    public partial class dataObat : MetroFramework.Forms.MetroForm
+    public partial class DataObat : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
         private IEnumerable<Model.Obat> daftarObat;
 
-        public dataObat(Controller controller)
+        public DataObat(Controller controller)
         {
             InitializeComponent();
 

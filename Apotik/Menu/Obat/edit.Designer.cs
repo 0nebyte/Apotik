@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Obat
 {
-    partial class edit
+    partial class Edit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit));
             this.txt_cari = new MetroFramework.Controls.MetroTextBox();
             this.btn_cari = new MetroFramework.Controls.MetroTile();
             this.cb_jenis = new MetroFramework.Controls.MetroComboBox();

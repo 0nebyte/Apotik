@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Obat
 {
-    public partial class hapus : MetroFramework.Forms.MetroForm
+    public partial class Hapus : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
         private Model.Obat obat;
 
-        public hapus(Controller controller)
+        public Hapus(Controller controller)
         {
             InitializeComponent();
 
