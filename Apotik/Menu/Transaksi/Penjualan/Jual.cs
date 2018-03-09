@@ -78,10 +78,64 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 return;
             }
 
+            var result = MessageBox.Show("Lakukan penjualan?", "Apotik", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             db.Save(controller.Penjualan);
             foreach (var item in controller.DetailJual)
             {
                 db.Save(item.Detail);
+            }
+        }
+
+        private void dgv_penjualan_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                // Kolom quantity
+                MessageBox.Show("Quantity harus berupa angka.", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void dgv_penjualan_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex != 3)
+            {
+                return;
+            }
+
+            var kodeObat = (string)dgv_penjualan.Rows[e.RowIndex].Cells[0].Value;
+            var quantity = dgv_penjualan.Rows[e.RowIndex].Cells[3].Value;
+
+            var detail = controller.DetailJual.FirstOrDefault(p => p.KodeObat == kodeObat);
+            if (detail == null)
+            {
+                // Harusnya tidak pernah terjadi
+                throw new NotImplementedException();
+            }
+
+            if (detail.Quantity > detail.Detail.Obat.Stok)
+            {
+                MessageBox.Show(string.Format("Penjualan barang '{0}' tidak boleh melibihi stok.",
+                    detail.Detail.Obat.Nama), "Apotik", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                detail.Quantity = detail.Detail.Obat.Stok;
+            }
+            else if (detail.Quantity < 1)
+            {
+                MessageBox.Show(string.Format("Penjualan barang '{0}' harus minimal 1.",
+                    detail.Detail.Obat.Nama), "Apotik", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                detail.Quantity = 1;
             }
         }
     }

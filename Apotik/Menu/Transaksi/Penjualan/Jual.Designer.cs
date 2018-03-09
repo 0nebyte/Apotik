@@ -36,19 +36,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_grandtotal = new System.Windows.Forms.TextBox();
+            this.txt_ppn = new System.Windows.Forms.TextBox();
+            this.txt_diskon = new System.Windows.Forms.TextBox();
+            this.txt_subtotal = new System.Windows.Forms.TextBox();
             this.txt_dokter = new System.Windows.Forms.TextBox();
             this.txt_faktur = new System.Windows.Forms.TextBox();
-            this.txt_subtotal = new System.Windows.Forms.TextBox();
-            this.txt_diskon = new System.Windows.Forms.TextBox();
-            this.txt_ppn = new System.Windows.Forms.TextBox();
-            this.txt_grandtotal = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_batal = new System.Windows.Forms.Button();
             this.btn_simpan = new System.Windows.Forms.Button();
+            this.btn_batal = new System.Windows.Forms.Button();
             this.kodeObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.satuanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +99,8 @@
             this.dgv_penjualan.Size = new System.Drawing.Size(734, 244);
             this.dgv_penjualan.TabIndex = 0;
             this.dgv_penjualan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellDoubleClick);
+            this.dgv_penjualan.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_penjualan_CellValueChanged);
+            this.dgv_penjualan.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_penjualan_DataError);
             // 
             // dtp_jual
             // 
@@ -152,6 +154,70 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Grandtotal";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "PPN";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Diskon";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Subtotal";
+            // 
+            // txt_grandtotal
+            // 
+            this.txt_grandtotal.Location = new System.Drawing.Point(96, 115);
+            this.txt_grandtotal.Name = "txt_grandtotal";
+            this.txt_grandtotal.Size = new System.Drawing.Size(312, 26);
+            this.txt_grandtotal.TabIndex = 3;
+            // 
+            // txt_ppn
+            // 
+            this.txt_ppn.Location = new System.Drawing.Point(96, 83);
+            this.txt_ppn.Name = "txt_ppn";
+            this.txt_ppn.Size = new System.Drawing.Size(312, 26);
+            this.txt_ppn.TabIndex = 2;
+            // 
+            // txt_diskon
+            // 
+            this.txt_diskon.Location = new System.Drawing.Point(96, 51);
+            this.txt_diskon.Name = "txt_diskon";
+            this.txt_diskon.Size = new System.Drawing.Size(312, 26);
+            this.txt_diskon.TabIndex = 1;
+            // 
+            // txt_subtotal
+            // 
+            this.txt_subtotal.Location = new System.Drawing.Point(96, 19);
+            this.txt_subtotal.Name = "txt_subtotal";
+            this.txt_subtotal.Size = new System.Drawing.Size(312, 26);
+            this.txt_subtotal.TabIndex = 0;
+            // 
             // txt_dokter
             // 
             this.txt_dokter.Location = new System.Drawing.Point(122, 47);
@@ -166,70 +232,6 @@
             this.txt_faktur.Size = new System.Drawing.Size(298, 26);
             this.txt_faktur.TabIndex = 13;
             // 
-            // txt_subtotal
-            // 
-            this.txt_subtotal.Location = new System.Drawing.Point(96, 19);
-            this.txt_subtotal.Name = "txt_subtotal";
-            this.txt_subtotal.Size = new System.Drawing.Size(312, 26);
-            this.txt_subtotal.TabIndex = 0;
-            // 
-            // txt_diskon
-            // 
-            this.txt_diskon.Location = new System.Drawing.Point(96, 51);
-            this.txt_diskon.Name = "txt_diskon";
-            this.txt_diskon.Size = new System.Drawing.Size(312, 26);
-            this.txt_diskon.TabIndex = 1;
-            // 
-            // txt_ppn
-            // 
-            this.txt_ppn.Location = new System.Drawing.Point(96, 83);
-            this.txt_ppn.Name = "txt_ppn";
-            this.txt_ppn.Size = new System.Drawing.Size(312, 26);
-            this.txt_ppn.TabIndex = 2;
-            // 
-            // txt_grandtotal
-            // 
-            this.txt_grandtotal.Location = new System.Drawing.Point(96, 115);
-            this.txt_grandtotal.Name = "txt_grandtotal";
-            this.txt_grandtotal.Size = new System.Drawing.Size(312, 26);
-            this.txt_grandtotal.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Subtotal";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Diskon";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 86);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "PPN";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 118);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Grandtotal";
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -241,16 +243,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
-            // btn_batal
-            // 
-            this.btn_batal.Location = new System.Drawing.Point(6, 19);
-            this.btn_batal.Name = "btn_batal";
-            this.btn_batal.Size = new System.Drawing.Size(107, 47);
-            this.btn_batal.TabIndex = 0;
-            this.btn_batal.Text = "[ESC] Batal";
-            this.btn_batal.UseVisualStyleBackColor = true;
-            this.btn_batal.Click += new System.EventHandler(this.btn_batal_Click);
-            // 
             // btn_simpan
             // 
             this.btn_simpan.Location = new System.Drawing.Point(119, 19);
@@ -260,6 +252,16 @@
             this.btn_simpan.Text = "[F8] Simpan";
             this.btn_simpan.UseVisualStyleBackColor = true;
             this.btn_simpan.Click += new System.EventHandler(this.btn_simpan_Click);
+            // 
+            // btn_batal
+            // 
+            this.btn_batal.Location = new System.Drawing.Point(6, 19);
+            this.btn_batal.Name = "btn_batal";
+            this.btn_batal.Size = new System.Drawing.Size(107, 47);
+            this.btn_batal.TabIndex = 0;
+            this.btn_batal.Text = "[ESC] Batal";
+            this.btn_batal.UseVisualStyleBackColor = true;
+            this.btn_batal.Click += new System.EventHandler(this.btn_batal_Click);
             // 
             // kodeObatDataGridViewTextBoxColumn
             // 

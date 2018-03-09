@@ -35,6 +35,12 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
                 var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
+                if (obat.Stok == 0)
+                {
+                    MessageBox.Show(string.Format("Barang '{0}' telah habis.", obat.Nama), "Peringatan",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
                 var detail = controller.DetailJual.FirstOrDefault(p => p.Detail.Obat.Id == obat.Id);
                 if (detail == null)
@@ -47,7 +53,16 @@ namespace Apotik.Menu.Transaksi.Penjualan
                     controller.DetailJual.Add(detail);
                 }
 
-                detail.Quantity += 1;
+                if (obat.Stok > detail.Quantity)
+                {
+                    detail.Quantity += 1;
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Penjualan barang '{0}' tidak dapat melibihi stok.", obat.Nama),
+                        "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
                 // Update Penjualan
                 controller.Penjualan.SubTotal =
