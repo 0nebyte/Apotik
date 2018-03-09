@@ -47,7 +47,7 @@ namespace Apotik
 
         private void tambahToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obat = new Menu.Obat.Tambah(controller);
+            var obat = new Menu.Obat.Tambah(new Apotik.Menu.Obat.Controller());
             obat.ShowDialog();
         }
     }

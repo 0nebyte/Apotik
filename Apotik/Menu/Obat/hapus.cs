@@ -25,19 +25,17 @@ namespace Apotik.Menu.Obat
         private void btn_cari_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
-            var query = txt_cari.Text;
+            var query = string.Format("%{0}%", txt_cari.Text);
             var category = cb_jenis.SelectedItem.ToString();
             IEnumerable<Model.Obat> result;
 
             if (category == "Kode")
             {
-                //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                result = db.Query2<Model.Obat>().Where(db.Column("Kode") == query).Execute();
+                result = db.Query2<Model.Obat>().Where(db.Like(db.Column("Kode"), query)).Execute();
             }
             else if (category == "Nama")
             {
-                //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                result = db.Query2<Model.Obat>().Where(db.Column("Nama") == query).Execute();
+                result = db.Query2<Model.Obat>().Where(db.Like(db.Column("Nama"), query)).Execute();
             }
             else
             {
@@ -78,6 +76,13 @@ namespace Apotik.Menu.Obat
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void btn_hapus_Click(object sender, EventArgs e)
+        {
+            controller.RemoveObat(obat);
+            controller.RefreshData();
             Close();
         }
     }

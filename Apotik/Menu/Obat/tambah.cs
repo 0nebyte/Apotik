@@ -36,12 +36,11 @@ namespace Apotik.Menu.Obat
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Save(model);
-
-            controller.Obats = Model.Database.Instance.Query<Model.Obat>();
-
-            Close();
+            if (controller.AddObat(model))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
