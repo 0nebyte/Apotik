@@ -93,11 +93,11 @@
     <Compile Include="Menu\Distributor\Hapus.Designer.cs">
       <DependentUpon>Hapus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Distributor\masterDistributor.cs">
+    <Compile Include="Menu\Distributor\MasterDistributor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Distributor\masterDistributor.Designer.cs">
-      <DependentUpon>masterDistributor.cs</DependentUpon>
+    <Compile Include="Menu\Distributor\MasterDistributor.Designer.cs">
+      <DependentUpon>MasterDistributor.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Distributor\Tambah.cs">
       <SubType>Form</SubType>
@@ -226,8 +226,8 @@
     <EmbeddedResource Include="Menu\Distributor\Hapus.resx">
       <DependentUpon>Hapus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Distributor\masterDistributor.resx">
-      <DependentUpon>masterDistributor.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Distributor\MasterDistributor.resx">
+      <DependentUpon>MasterDistributor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Distributor\Tambah.resx">
       <DependentUpon>Tambah.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Distributor
 {
-    partial class masterDistributor
+    partial class MasterDistributor
     {
         /// <summary>
         /// Required designer variable.

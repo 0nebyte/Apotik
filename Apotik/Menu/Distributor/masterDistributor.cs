@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Distributor
 {
-    public partial class masterDistributor : MetroFramework.Forms.MetroForm
+    public partial class MasterDistributor : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
 
-        public masterDistributor(Controller controller)
+        public MasterDistributor(Controller controller)
         {
             this.controller = controller;
 
