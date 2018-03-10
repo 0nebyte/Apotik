@@ -25,13 +25,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
             }
         }
 
-        public void AddObat(Model.Obat obat)
+        public bool AddObat(Model.Obat obat)
         {
             if (obat.Stok == 0)
             {
                 MessageBox.Show(string.Format("Barang '{0}' telah habis.", obat.Nama), "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                return false;
             }
 
             var detail = DetailJual.FirstOrDefault(p => p.Detail.Obat.Id == obat.Id);
@@ -53,12 +53,14 @@ namespace Apotik.Menu.Transaksi.Penjualan
             {
                 MessageBox.Show(string.Format("Penjualan barang '{0}' tidak dapat melibihi stok.", obat.Nama),
                     "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                return false;
             }
 
             CalculatePrices();
 
             DetailJual = DetailJual.ToList();
+
+            return true;
         }
 
         public void DeleteObat(string kode)

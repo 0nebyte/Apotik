@@ -29,22 +29,24 @@ namespace Apotik.Menu.Transaksi.Penjualan
             ActiveControl = txt_cari;
         }
 
-        private void SendObat(int index)
+        private bool SendObat(int index)
         {
             DataGridViewRow row = dgv_obat.Rows[index];
 
             var id = row.Cells[0].Value.ToString();
             var db = Model.Database.Instance;
             var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
-            controller.AddObat(obat);
+            return controller.AddObat(obat);
         }
 
         private void dgv_obat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                SendObat(e.RowIndex);
-                Close();
+                if (SendObat(e.RowIndex))
+                {
+                    Close();
+                }
             }
         }
 
@@ -78,8 +80,10 @@ namespace Apotik.Menu.Transaksi.Penjualan
                     return;
                 }
 
-                SendObat(dgv_obat.SelectedRows[0].Index);
-                Close();
+                if (SendObat(dgv_obat.SelectedRows[0].Index))
+                {
+                    Close();
+                }
             }
             else if (e.KeyCode == Keys.Up)
             {
