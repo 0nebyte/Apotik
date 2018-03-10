@@ -127,6 +127,10 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 dgv_obat.ClearSelection();
                 dgv_obat.Rows[selection].Selected = true;
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }
