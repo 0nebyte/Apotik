@@ -310,6 +310,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Images\master.png" />
+    <None Include="Assets\Images\transaksi.png" />
+    <None Include="Assets\Images\exit.png" />
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup />

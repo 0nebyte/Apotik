@@ -97,7 +97,7 @@
             this.dokterToolStripMenuItem,
             this.distributorToolStripMenuItem,
             this.penggunaToolStripMenuItem});
-            this.Master.Image = ((System.Drawing.Image)(resources.GetObject("Master.Image")));
+            this.Master.Image = global::Apotik.Properties.Resources.master;
             this.Master.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Master.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
             this.Master.Name = "Master";
@@ -144,7 +144,7 @@
             this.Transaksi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.penjualanToolStripMenuItem,
             this.pembelianToolStripMenuItem});
-            this.Transaksi.Image = ((System.Drawing.Image)(resources.GetObject("Transaksi.Image")));
+            this.Transaksi.Image = global::Apotik.Properties.Resources.transaksi;
             this.Transaksi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Transaksi.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
             this.Transaksi.Name = "Transaksi";
@@ -175,7 +175,7 @@
             // 
             this.Tutup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Tutup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tutup.Image = ((System.Drawing.Image)(resources.GetObject("Tutup.Image")));
+            this.Tutup.Image = global::Apotik.Properties.Resources.exit;
             this.Tutup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Tutup.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
             this.Tutup.Name = "Tutup";
