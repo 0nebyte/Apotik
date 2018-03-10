@@ -38,12 +38,11 @@ namespace Apotik.Menu.Distributor
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Save(model);
-
-            controller.Distributors = Model.Database.Instance.Query<Model.Distributor>();
-
-            Close();
+            if (controller.AddDistributor(model))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

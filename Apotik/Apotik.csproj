@@ -81,6 +81,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Distributor\Controller.cs" />
     <Compile Include="Menu\Distributor\Edit.cs">
       <SubType>Form</SubType>
     </Compile>

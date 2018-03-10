@@ -59,7 +59,8 @@ namespace Apotik
 
         private void distributorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterDistributor = new Menu.Distributor.MasterDistributor(controller);
+            var masterDistributor = new Menu.Distributor.MasterDistributor(
+                new Apotik.Menu.Distributor.Controller());
             masterDistributor.MdiParent = this;
             masterDistributor.Show();
         }
