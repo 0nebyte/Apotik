@@ -12,12 +12,8 @@ namespace Apotik
 {
     public partial class Home : Form
     {
-        private Controller controller;
-
-        public Home(Controller controller)
+        public Home()
         {
-            this.controller = controller;
-
             InitializeComponent();
         }
 

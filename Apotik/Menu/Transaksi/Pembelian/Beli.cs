@@ -12,13 +12,11 @@ namespace Apotik.Menu.Transaksi.Pembelian
 {
     public partial class Beli : MetroFramework.Forms.MetroForm
     {
-        private Controller controller;
-        public Beli(Controller controller)
+        public Beli()
         {
             InitializeComponent();
-            this.controller = controller;
-            this.KeyPreview = true;
 
+            KeyPreview = true;
         }
     }
 }

@@ -12,22 +12,13 @@ namespace Apotik
 {
     public partial class Form1 : Form
     {
-        private Controller controller;
-
-        public Form1(Controller controller)
+        public Form1()
         {
-            this.controller = controller;
-
             InitializeComponent();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var login = new Login(controller);
-            login.Close();
-
-            this.Close();
-             
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
