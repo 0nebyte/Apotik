@@ -67,7 +67,7 @@ namespace Apotik
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var masterUser = new Menu.User.MasterUser(controller);
+            var masterUser = new Menu.User.MasterUser(new Apotik.Menu.User.Controller());
             masterUser.MdiParent = this;
             masterUser.Show();
         }

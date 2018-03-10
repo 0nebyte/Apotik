@@ -38,12 +38,11 @@ namespace Apotik.Menu.User
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Save(model);
-
-            controller.Users = Model.Database.Instance.Query<Model.User>();
-
-            Close();
+            if (controller.AddUser(model))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

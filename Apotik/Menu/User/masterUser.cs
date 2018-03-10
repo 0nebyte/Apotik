@@ -20,9 +20,9 @@ namespace Apotik.Menu.User
 
             InitializeComponent();
 
-            dataGridViewUser.DataBindings.Add("DataSource", controller, "Users");
+            dataGridViewUser.DataBindings.Add("DataSource", controller, "DaftarUser");
 
-            controller.Users = Model.Database.Instance.Query<Model.User>();
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)

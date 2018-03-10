@@ -181,6 +181,7 @@
     <Compile Include="Menu\Transaksi\Penjualan\Jual.Designer.cs">
       <DependentUpon>Jual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\User\Controller.cs" />
     <Compile Include="Menu\User\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
