@@ -132,6 +132,9 @@ namespace Apotik.Menu.Transaksi.Penjualan
                     detail.Detail.Obat.Nama), "Apotik", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 detail.Quantity = 1;
             }
+
+            dgv_penjualan.Update();
+            dgv_penjualan.Refresh();
         }
 
         private void dgv_penjualan_CellContentClick(object sender, DataGridViewCellEventArgs e)
