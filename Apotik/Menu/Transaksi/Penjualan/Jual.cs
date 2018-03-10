@@ -69,8 +69,6 @@ namespace Apotik.Menu.Transaksi.Penjualan
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-
             if (controller.DetailJual.Count() == 0)
             {
                 MessageBox.Show("Penjualan kosong tidak diperbolehkan.", "Peringatan",
@@ -85,11 +83,8 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 return;
             }
 
-            db.Save(controller.Penjualan);
-            foreach (var item in controller.DetailJual)
-            {
-                db.Save(item.Detail);
-            }
+            controller.DoTransaction();
+            Close();
         }
 
         private void dgv_penjualan_DataError(object sender, DataGridViewDataErrorEventArgs e)

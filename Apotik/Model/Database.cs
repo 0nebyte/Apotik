@@ -158,6 +158,7 @@ namespace Apotik.Model
 
         private SQLiteConnection connection;
         private Dictionary<string, Schema> schemas = new Dictionary<string, Schema>();
+        private Dictionary<string, SQLiteTransaction> transactions = new Dictionary<string, SQLiteTransaction>();
 
         public Database(string filename)
         {
@@ -183,6 +184,23 @@ namespace Apotik.Model
         public SQLCondition Like(SQLColumn column, string condition)
         {
             return new SQLCondition(SQLCondition.Operator.Like, column, new SQLString(condition));
+        }
+
+        public void BeginTransaction(string name)
+        {
+            if (transactions.ContainsKey(name))
+                throw new Exception(string.Format("Transaction name '{0}' already in use.", name));
+
+            transactions[name] = connection.BeginTransaction();
+        }
+
+        public void CommitTransaction(string name)
+        {
+            if (!transactions.ContainsKey(name))
+                throw new Exception(string.Format("Transaction name '{0}' does not exist."));
+
+            transactions[name].Commit();
+            transactions.Remove(name);
         }
 
         public int Save<T>(T model) where T: BaseModel

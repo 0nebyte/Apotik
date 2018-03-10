@@ -76,6 +76,23 @@ namespace Apotik.Menu.Transaksi.Penjualan
             Penjualan.GrandTotal = Penjualan.SubTotal - diskon + ppn;
         }
 
+        public void DoTransaction()
+        {
+            db.BeginTransaction("Penjualan");
+
+            db.Save(Penjualan);
+            foreach (var item in DetailJual)
+            {
+                db.Save(item.Detail);
+
+                var obat = item.Detail.Obat;
+                obat.Stok -= item.Quantity;
+                db.Update(obat);
+            }
+
+            db.CommitTransaction("Penjualan");
+        }
+
         public Controller()
         {
             db = Model.Database.Instance;
