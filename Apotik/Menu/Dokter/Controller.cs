@@ -84,7 +84,7 @@ namespace Apotik.Menu.Dokter
 
         public void RefreshData()
         {
-            DaftarDokter = db.Query<Model.Dokter>();
+            DaftarDokter = db.Query2<Model.Dokter>().Execute();
         }
 
         public Controller()

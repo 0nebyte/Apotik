@@ -22,7 +22,7 @@ namespace Apotik.Menu.Obat
 
             dataGridView1.DataBindings.Add("DataSource", controller, "DaftarObat");
 
-            controller.DaftarObat = Model.Database.Instance.Query<Model.Obat>();
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)

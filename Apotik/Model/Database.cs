@@ -306,37 +306,6 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
-        public IEnumerable<T> Query<T>(string whereClause = null) where T: new()
-        {
-            var type = typeof(T);
-            var schema = GetSchema(type);
-            var tableName = schema.tableName;
-            var columns = schema.columns;
-            var sql = string.Format("SELECT * FROM {0}", tableName);
-            if (whereClause != null)
-                sql += string.Format(" WHERE {0}", whereClause);
-            var command = new SQLiteCommand(sql, connection);
-            var reader = command.ExecuteReader();
-            var result = new List<T>();
-            while (reader.Read())
-            {
-                var i = 0;
-                var t = new T();
-                foreach (var column in columns)
-                {
-                    var columnType = column.GetColumnType();
-                    if (columnType == "int")
-                        column.propertyInfo.SetValue(t, reader.GetInt32(i));
-                    else if (columnType == "string")
-                        column.propertyInfo.SetValue(t, reader.GetString(i));
-                    ++i;
-                }
-                result.Add(t);
-            }
-
-            return result;
-        }
-
         public SQLQuery<T> Query2<T>() where T: BaseModel
         {
             return new SQLQuery<T>(this);
