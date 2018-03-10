@@ -80,7 +80,6 @@
             this.Transaksi,
             this.toolStripSeparator2,
             this.Tutup});
-            this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 33);
             this.toolStripMenu.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
@@ -102,7 +101,7 @@
             this.Master.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Master.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
             this.Master.Name = "Master";
-            this.Master.Size = new System.Drawing.Size(97, 84);
+            this.Master.Size = new System.Drawing.Size(97, 90);
             this.Master.Text = "MASTER";
             this.Master.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Master.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -110,35 +109,35 @@
             // obatToolStripMenuItem
             // 
             this.obatToolStripMenuItem.Name = "obatToolStripMenuItem";
-            this.obatToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.obatToolStripMenuItem.Size = new System.Drawing.Size(181, 30);
             this.obatToolStripMenuItem.Text = "Obat";
             this.obatToolStripMenuItem.Click += new System.EventHandler(this.obatToolStripMenuItem_Click);
             // 
             // dokterToolStripMenuItem
             // 
             this.dokterToolStripMenuItem.Name = "dokterToolStripMenuItem";
-            this.dokterToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.dokterToolStripMenuItem.Size = new System.Drawing.Size(181, 30);
             this.dokterToolStripMenuItem.Text = "Dokter";
             this.dokterToolStripMenuItem.Click += new System.EventHandler(this.dokterToolStripMenuItem_Click);
             // 
             // distributorToolStripMenuItem
             // 
             this.distributorToolStripMenuItem.Name = "distributorToolStripMenuItem";
-            this.distributorToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.distributorToolStripMenuItem.Size = new System.Drawing.Size(181, 30);
             this.distributorToolStripMenuItem.Text = "Distributor";
             this.distributorToolStripMenuItem.Click += new System.EventHandler(this.distributorToolStripMenuItem_Click);
             // 
             // penggunaToolStripMenuItem
             // 
             this.penggunaToolStripMenuItem.Name = "penggunaToolStripMenuItem";
-            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(181, 30);
             this.penggunaToolStripMenuItem.Text = "Pengguna";
             this.penggunaToolStripMenuItem.Click += new System.EventHandler(this.penggunaToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 93);
             // 
             // Transaksi
             // 
@@ -149,7 +148,7 @@
             this.Transaksi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Transaksi.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
             this.Transaksi.Name = "Transaksi";
-            this.Transaksi.Size = new System.Drawing.Size(122, 84);
+            this.Transaksi.Size = new System.Drawing.Size(122, 90);
             this.Transaksi.Text = "TRANSAKSI";
             this.Transaksi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Transaksi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -157,20 +156,20 @@
             // penjualanToolStripMenuItem
             // 
             this.penjualanToolStripMenuItem.Name = "penjualanToolStripMenuItem";
-            this.penjualanToolStripMenuItem.Size = new System.Drawing.Size(177, 30);
+            this.penjualanToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.penjualanToolStripMenuItem.Text = "Penjualan";
             this.penjualanToolStripMenuItem.Click += new System.EventHandler(this.penjualanToolStripMenuItem_Click);
             // 
             // pembelianToolStripMenuItem
             // 
             this.pembelianToolStripMenuItem.Name = "pembelianToolStripMenuItem";
-            this.pembelianToolStripMenuItem.Size = new System.Drawing.Size(177, 30);
+            this.pembelianToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.pembelianToolStripMenuItem.Text = "Pembelian";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 23);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 93);
             // 
             // Tutup
             // 
@@ -208,7 +207,7 @@
             // mnu_file_exit
             // 
             this.mnu_file_exit.Name = "mnu_file_exit";
-            this.mnu_file_exit.Size = new System.Drawing.Size(210, 30);
+            this.mnu_file_exit.Size = new System.Drawing.Size(123, 30);
             this.mnu_file_exit.Text = "E&xit";
             this.mnu_file_exit.Click += new System.EventHandler(this.mnu_file_exit_Click);
             // 
