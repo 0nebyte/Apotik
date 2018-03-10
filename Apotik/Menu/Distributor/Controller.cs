@@ -105,7 +105,7 @@ namespace Apotik.Menu.Distributor
 
         public void RefreshData()
         {
-            DaftarDistributor = db.Query2<Model.Distributor>().Execute();
+            DaftarDistributor = db.Query<Model.Distributor>().Execute();
         }
 
         public Controller()

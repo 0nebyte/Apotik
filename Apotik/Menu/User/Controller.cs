@@ -115,7 +115,7 @@ namespace Apotik.Menu.User
 
         public void RefreshData()
         {
-            DaftarUser = db.Query2<Model.User>().Execute();
+            DaftarUser = db.Query<Model.User>().Execute();
         }
 
         public Controller()

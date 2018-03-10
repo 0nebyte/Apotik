@@ -247,7 +247,7 @@ namespace Apotik.Model
             {
                 var pkProp = schema.GetPrimaryKey().propertyInfo;
                 var pkName = pkProp.Name;
-                var newModel = Query2<T>().OrderBy(Column(pkName), false).Limit(1).Execute().First();
+                var newModel = Query<T>().OrderBy(Column(pkName), false).Limit(1).Execute().First();
                 var newId = pkProp.GetMethod.Invoke(newModel, null);
                 pkProp.SetMethod.Invoke(model, new[] { newId });
             }
@@ -306,7 +306,7 @@ namespace Apotik.Model
             return command.ExecuteNonQuery();
         }
 
-        public SQLQuery<T> Query2<T>() where T: BaseModel
+        public SQLQuery<T> Query<T>() where T: BaseModel
         {
             return new SQLQuery<T>(this);
         }

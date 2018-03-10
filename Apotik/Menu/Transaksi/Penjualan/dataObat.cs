@@ -22,7 +22,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             this.controller = controller;
 
             // Init Data
-            daftarObat = Model.Database.Instance.Query2<Model.Obat>().Execute();
+            daftarObat = Model.Database.Instance.Query<Model.Obat>().Execute();
             dgv_obat.DataSource = daftarObat;
 
             // Focus search box
@@ -35,7 +35,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
 
             var id = row.Cells[0].Value.ToString();
             var db = Model.Database.Instance;
-            var obat = db.Query2<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
+            var obat = db.Query<Model.Obat>().Where(db.Column("Id") == id).Execute().First();
             return controller.AddObat(obat);
         }
 
@@ -56,13 +56,13 @@ namespace Apotik.Menu.Transaksi.Penjualan
 
             if (txt_cari.Text.Trim() == "")
             {
-                daftarObat = db.Query2<Model.Obat>().Execute();
+                daftarObat = db.Query<Model.Obat>().Execute();
                 dgv_obat.DataSource = daftarObat;
                 return;
             }
 
             var searchQuery = "%" + txt_cari.Text + "%";
-            daftarObat = db.Query2<Model.Obat>().Where(db.Like(db.Column("Nama"), searchQuery)).Execute();
+            daftarObat = db.Query<Model.Obat>().Where(db.Like(db.Column("Nama"), searchQuery)).Execute();
             dgv_obat.DataSource = daftarObat;
         }
 

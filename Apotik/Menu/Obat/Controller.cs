@@ -64,7 +64,7 @@ namespace Apotik.Menu.Obat
 
         public void RefreshData()
         {
-            DaftarObat = db.Query2<Model.Obat>().Execute();
+            DaftarObat = db.Query<Model.Obat>().Execute();
         }
 
         public bool AddObat(Model.Obat obat)

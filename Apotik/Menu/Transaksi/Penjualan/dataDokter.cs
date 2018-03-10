@@ -22,7 +22,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
             InitializeComponent();
 
             // Init data
-            daftarDokter = Model.Database.Instance.Query2<Model.Dokter>().Execute();
+            daftarDokter = Model.Database.Instance.Query<Model.Dokter>().Execute();
             dgv_dokter.DataSource = daftarDokter;
         }
 
@@ -41,7 +41,7 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 DataGridViewRow row = this.dgv_dokter.Rows[e.RowIndex];
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
-                var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
+                var dokter = db.Query<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
                 controller.Penjualan.Dokter = dokter;
             }
             Close();

@@ -32,11 +32,11 @@ namespace Apotik.Menu.Distributor
 
             if (category == "Kode")
             {
-                result = db.Query2<Model.Distributor>().Where(db.Like(db.Column("Kode"), query)).Execute();
+                result = db.Query<Model.Distributor>().Where(db.Like(db.Column("Kode"), query)).Execute();
             }
             else if (category == "Nama")
             {
-                result = db.Query2<Model.Distributor>().Where(db.Like(db.Column("Nama"), query)).Execute();
+                result = db.Query<Model.Distributor>().Where(db.Like(db.Column("Nama"), query)).Execute();
             }
             else
             {
