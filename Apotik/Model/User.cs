@@ -9,24 +9,6 @@ namespace Apotik.Model
     [Attributes.Table(TableName = "tb_user")]
     public class User : BaseModel
     {
-        public User(int id, string kode, string nama, string jk, string alamat, string kota,
-            string telp, string username, string password, string role)
-        {
-            Id = id;
-            Kode = kode;
-            Nama = nama;
-            JK = jk;
-            Alamat = alamat;
-            Telp = telp;
-            Username = username;
-            Password = password;
-            Role = role;
-        }
-
-        public User()
-        {
-        }
-
         [Attributes.Field(Name = "id_user", PrimaryKey = true, AutoIncrement = true)]
         public virtual int Id { get; set; }
 

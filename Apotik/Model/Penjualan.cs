@@ -9,21 +9,6 @@ namespace Apotik.Model
     [Attributes.Table(TableName = "tb_jual")]
     public class Penjualan : BaseModel
     {
-        public Penjualan()
-        {
-        }
-
-        public Penjualan(int id, string faktur, int total, int sub_total, int diskon,
-            int ppn, int grand_total)
-        {
-            Id = id;
-            Faktur = faktur;
-            SubTotal = sub_total;
-            Diskon = diskon;
-            PPN = ppn;
-            GrandTotal = grand_total;
-        }
-
         [Attributes.Field(Name = "id_jual", PrimaryKey = true, AutoIncrement = true)]
         public virtual int Id { get; set; }
 

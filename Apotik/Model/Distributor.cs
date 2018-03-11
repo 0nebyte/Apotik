@@ -9,24 +9,6 @@ namespace Apotik.Model
     [Attributes.Table(TableName = "tb_distributor")]
     public class Distributor : BaseModel
     {
-        public Distributor()
-        {
-        }
-
-        public Distributor(int id, string kode, string nama, string alamat, string kota, 
-            string telp,string bank, string norek, string email)
-        {
-            Id = id;
-            Kode = kode;
-            Nama = nama;
-            Alamat = alamat;
-            Kota = kota;
-            Telp = telp;
-            Bank = bank;
-            Norek = norek;
-            Email = email;
-        }
-
         [Attributes.Field(Name = "id_distributor", PrimaryKey = true, AutoIncrement = true)]
         public virtual int Id { get; set; }
 

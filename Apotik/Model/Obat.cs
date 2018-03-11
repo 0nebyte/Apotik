@@ -9,22 +9,6 @@ namespace Apotik.Model
     [Attributes.Table(TableName = "tb_obat")]
     public class Obat : BaseModel
     {
-        public Obat()
-        {
-        }
-
-        public Obat(int id, string kode, string nama, string satuan, int stok, int harga,
-            string keterangan)
-        {
-            Id = id;
-            Kode = kode;
-            Nama = nama;
-            Satuan = satuan;
-            Stok = stok;
-            Harga = harga;
-            Keterangan = keterangan;
-        }
-
         [Attributes.Field(Name = "id_obat", PrimaryKey = true, AutoIncrement = true)]
         public virtual int Id { get; set; }
 
