@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Distributor
 {
-    partial class hapus
+    partial class Hapus
     {
         /// <summary>
         /// Required designer variable.

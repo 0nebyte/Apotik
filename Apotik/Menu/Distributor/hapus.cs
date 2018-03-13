@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Distributor
 {
-    public partial class hapus : MetroFramework.Forms.MetroForm
+    public partial class Hapus : MetroFramework.Forms.MetroForm
     {
-        public hapus()
+        public Hapus()
         {
             InitializeComponent();
         }

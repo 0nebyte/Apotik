@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.User
 {
-    partial class edit
+    partial class Edit
     {
         /// <summary>
         /// Required designer variable.

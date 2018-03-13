@@ -12,7 +12,6 @@ namespace Apotik.Menu.Obat
 {
     public partial class MasterObat : MetroFramework.Forms.MetroForm
     {
-
         private Controller controller;
 
         public MasterObat(Controller controller)
@@ -21,26 +20,26 @@ namespace Apotik.Menu.Obat
 
             InitializeComponent();
 
-            dataGridView1.DataBindings.Add("DataSource", controller, "Obats");
+            dataGridView1.DataBindings.Add("DataSource", controller, "DaftarObat");
 
-            controller.Obats = Model.Database.Instance.Query<Model.Obat>();
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah(controller);
+            var tambah = new Tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit(controller);
+            var edit = new Edit(controller);
             edit.ShowDialog();
         }
 
         private void btn_hapus_Click(object sender, EventArgs e)
         {
-            var hapus = new hapus(controller);
+            var hapus = new Hapus(controller);
             hapus.ShowDialog();
         }
     }

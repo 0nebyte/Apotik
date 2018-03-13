@@ -63,9 +63,9 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Antrepo_Cargo_Boxes_Self_1 {
+        internal static System.Drawing.Bitmap exit {
             get {
-                object obj = ResourceManager.GetObject("Antrepo-Cargo-Boxes-Self-1", resourceCulture);
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hapus {
+        internal static System.Drawing.Bitmap master {
             get {
-                object obj = ResourceManager.GetObject("hapus", resourceCulture);
+                object obj = ResourceManager.GetObject("master", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,89 +83,9 @@ namespace Apotik.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hapus1 {
+        internal static System.Drawing.Bitmap transaksi {
             get {
-                object obj = ResourceManager.GetObject("hapus1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap hapus2 {
-            get {
-                object obj = ResourceManager.GetObject("hapus2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap obat {
-            get {
-                object obj = ResourceManager.GetObject("obat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pharmacy_icon {
-            get {
-                object obj = ResourceManager.GetObject("Pharmacy-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tambah {
-            get {
-                object obj = ResourceManager.GetObject("tambah", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UpgradeReport_Error {
-            get {
-                object obj = ResourceManager.GetObject("UpgradeReport_Error", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UpgradeReport_Success {
-            get {
-                object obj = ResourceManager.GetObject("UpgradeReport_Success", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user_icon {
-            get {
-                object obj = ResourceManager.GetObject("user-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap User_Interface_Password_icon {
-            get {
-                object obj = ResourceManager.GetObject("User-Interface-Password-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("transaksi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

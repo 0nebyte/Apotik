@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Distributor
 {
-    public partial class edit : MetroFramework.Forms.MetroForm
+    public partial class Edit : MetroFramework.Forms.MetroForm
     {
 
         private Controller controller;
         private Model.Distributor distributor;
 
-        public edit(Controller controller)
+        public Edit(Controller controller)
         {
             this.controller = controller;
 
@@ -26,19 +26,17 @@ namespace Apotik.Menu.Distributor
         private void btn_cari_Click(object sender, EventArgs e)
         {
             var db = Model.Database.Instance;
-            var query = txt_cari.Text;
+            var query = string.Format("%{0}%", txt_cari.Text);
             var category = cb_jenis.SelectedItem.ToString();
             IEnumerable<Model.Distributor> result;
 
             if (category == "Kode")
             {
-                //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                result = db.Query2<Model.Distributor>().Where(db.Column("Kode") == query).Execute();
+                result = db.Query<Model.Distributor>().Where(db.Like(db.Column("Kode"), query)).Execute();
             }
             else if (category == "Nama")
             {
-                //kalau ini pakai Like bisa ko ndre? jadi kode like query
-                result = db.Query2<Model.Distributor>().Where(db.Column("Nama") == query).Execute();
+                result = db.Query<Model.Distributor>().Where(db.Like(db.Column("Nama"), query)).Execute();
             }
             else
             {
@@ -85,12 +83,11 @@ namespace Apotik.Menu.Distributor
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Update(distributor);
-
-            controller.Distributors = Model.Database.Instance.Query<Model.Distributor>();
-
-            Close();
+            if (controller.UpdateDistributor(distributor))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

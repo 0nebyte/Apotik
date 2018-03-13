@@ -6,194 +6,48 @@ using System.Threading.Tasks;
 
 namespace Apotik.Model
 {
-    public class Distributor : System.ComponentModel.INotifyPropertyChanged
+    [Attributes.Table(TableName = "tb_distributor")]
+    public class Distributor : BaseModel
     {
-        #region INotifyPropertyChanged implementation
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, e);
-        }
-        #endregion
-
-        public static string tableName = "tb_distributor";
-
-        private int id;
-        private string kode;
-        private string nama;
-        private string alamat;
-        private string kota;
-        private string telp;
-        private string bank;
-        private string norek;
-        private string email;
-
-        public Distributor()
-        {
-        }
-
-        public Distributor(int id, string kode, string nama, string alamat, string kota, 
-            string telp,string bank, string norek, string email)
-        {
-            this.id = id;
-            this.kode = kode;
-            this.nama = nama;
-            this.alamat = alamat;
-            this.kota = kota;
-            this.telp = telp;
-            this.bank = bank;
-            this.norek = norek;
-            this.email = email;
-        }
-
         [Attributes.Field(Name = "id_distributor", PrimaryKey = true, AutoIncrement = true)]
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Id"));
-            }
-        }
+        public virtual int Id { get; set; }
 
         [Attributes.Field(Name = "kode_distributor", AllowNull = false)]
-        public string Kode
-        {
-            get
-            {
-                return kode;
-            }
-
-            set
-            {
-                kode = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kode"));
-            }
-        }
+        public virtual string Kode { get; set; }
 
         [Attributes.Field(Name = "nama", AllowNull = false)]
-        public string Nama
-        {
-            get
-            {
-                return nama;
-            }
-
-            set
-            {
-                nama = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nama"));
-            }
-        }
+        public virtual string Nama { get; set; }
 
         [Attributes.Field(Name = "alamat", AllowNull = false)]
-        public string Alamat
-        {
-            get
-            {
-                return alamat;
-            }
-
-            set
-            {
-                alamat = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Alamat"));
-            }
-        }
+        public virtual string Alamat { get; set; }
 
         [Attributes.Field(Name = "kota", AllowNull = false)]
-        public string Kota
-        {
-            get
-            {
-                return kota;
-            }
-
-            set
-            {
-                kota = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Kota"));
-            }
-        }
+        public virtual string Kota { get; set; }
 
         [Attributes.Field(Name = "notelp", AllowNull = false)]
-        public string Telp
-        {
-            get
-            {
-                return telp;
-            }
-
-            set
-            {
-                telp = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Telp"));
-            }
-        }
+        public virtual string Telp { get; set; }
 
         [Attributes.Field(Name = "bank", AllowNull = true)]
-        public string Bank
-        {
-            get
-            {
-                return bank;
-            }
-
-            set
-            {
-                bank = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Bank"));
-            }
-        }
+        public virtual string Bank { get; set; }
 
         [Attributes.Field(Name = "norek", AllowNull = false)]
-        public string Norek
-        {
-            get
-            {
-                return norek;
-            }
-
-            set
-            {
-                norek = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Norek"));
-            }
-        }
+        public virtual string Norek { get; set; }
 
         [Attributes.Field(Name = "email", AllowNull = true)]
-        public string Email
-        {
-            get
-            {
-                return email;
-            }
-
-            set
-            {
-                email = value;
-                InvokePropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Email"));
-            }
-        }
+        public virtual string Email { get; set; }
 
         public override string ToString()
         {
             return base.ToString() + "\n" +
-                "\tid: " + id + "\n" +
-                "\tkode: " + kode + "\n" +
-                "\tnama: " + nama + "\n" +
-                "\talamat: " + alamat + "\n" +
-                "\tkota: " + kota + "\n" +
-                "\ttelp: " + telp + "\n" +
-                "\tbank: " + bank + "\n" +
-                "\tnorek: " + norek + "\n" +
-                "\tketerangan: " + email;
+                "\tid: " + Id + "\n" +
+                "\tkode: " + Kode + "\n" +
+                "\tnama: " + Nama + "\n" +
+                "\talamat: " + Alamat + "\n" +
+                "\tkota: " + Kota + "\n" +
+                "\ttelp: " + Telp + "\n" +
+                "\tbank: " + Bank + "\n" +
+                "\tnorek: " + Norek + "\n" +
+                "\tketerangan: " + Email;
         }
     }
 }

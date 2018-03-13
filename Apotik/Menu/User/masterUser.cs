@@ -10,30 +10,30 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.User
 {
-    public partial class masterUser : MetroFramework.Forms.MetroForm
+    public partial class MasterUser : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
 
-        public masterUser(Controller controller)
+        public MasterUser(Controller controller)
         {
             this.controller = controller;
 
             InitializeComponent();
 
-            dataGridViewUser.DataBindings.Add("DataSource", controller, "Users");
+            dataGridViewUser.DataBindings.Add("DataSource", controller, "DaftarUser");
 
-            controller.Users = Model.Database.Instance.Query<Model.User>();
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah(controller);
+            var tambah = new Tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit(controller);
+            var edit = new Edit(controller);
             edit.ShowDialog();
         }
     }

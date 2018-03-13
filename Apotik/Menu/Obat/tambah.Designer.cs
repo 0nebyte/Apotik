@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Obat
 {
-    partial class tambah
+    partial class Tambah
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tambah));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tambah));
             this.cmb_satuan = new MetroFramework.Controls.MetroComboBox();
             this.btn_cancel = new MetroFramework.Controls.MetroTile();
             this.btn_simpan = new MetroFramework.Controls.MetroTile();

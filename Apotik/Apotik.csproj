@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>appIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
@@ -61,84 +64,81 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="BaseController.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="login.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Distributor\edit.cs">
+    <Compile Include="Menu\Distributor\Controller.cs" />
+    <Compile Include="Menu\Distributor\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Distributor\edit.Designer.cs">
-      <DependentUpon>edit.cs</DependentUpon>
+    <Compile Include="Menu\Distributor\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Distributor\hapus.cs">
+    <Compile Include="Menu\Distributor\Hapus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Distributor\hapus.Designer.cs">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <Compile Include="Menu\Distributor\Hapus.Designer.cs">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Distributor\masterDistributor.cs">
+    <Compile Include="Menu\Distributor\MasterDistributor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Distributor\masterDistributor.Designer.cs">
-      <DependentUpon>masterDistributor.cs</DependentUpon>
+    <Compile Include="Menu\Distributor\MasterDistributor.Designer.cs">
+      <DependentUpon>MasterDistributor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Distributor\tambah.cs">
+    <Compile Include="Menu\Distributor\Tambah.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Distributor\tambah.Designer.cs">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <Compile Include="Menu\Distributor\Tambah.Designer.cs">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Dokter\edit.cs">
+    <Compile Include="Menu\Dokter\Controller.cs" />
+    <Compile Include="Menu\Dokter\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Dokter\edit.Designer.cs">
-      <DependentUpon>edit.cs</DependentUpon>
+    <Compile Include="Menu\Dokter\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Dokter\hapus.cs">
+    <Compile Include="Menu\Dokter\Hapus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Dokter\hapus.Designer.cs">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <Compile Include="Menu\Dokter\Hapus.Designer.cs">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Dokter\masterDokter.cs">
+    <Compile Include="Menu\Dokter\MasterDokter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Dokter\masterDokter.Designer.cs">
-      <DependentUpon>masterDokter.cs</DependentUpon>
+    <Compile Include="Menu\Dokter\MasterDokter.Designer.cs">
+      <DependentUpon>MasterDokter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Dokter\tambah.cs">
+    <Compile Include="Menu\Dokter\Tambah.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Dokter\tambah.Designer.cs">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <Compile Include="Menu\Dokter\Tambah.Designer.cs">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Obat\edit.cs">
+    <Compile Include="Menu\Obat\Controller.cs" />
+    <Compile Include="Menu\Obat\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Obat\edit.Designer.cs">
-      <DependentUpon>edit.cs</DependentUpon>
+    <Compile Include="Menu\Obat\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Obat\hapus.cs">
+    <Compile Include="Menu\Obat\Hapus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Obat\hapus.Designer.cs">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <Compile Include="Menu\Obat\Hapus.Designer.cs">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Obat\MasterObat.cs">
       <SubType>Form</SubType>
@@ -146,11 +146,11 @@
     <Compile Include="Menu\Obat\MasterObat.Designer.cs">
       <DependentUpon>MasterObat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Obat\tambah.cs">
+    <Compile Include="Menu\Obat\Tambah.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Obat\tambah.Designer.cs">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <Compile Include="Menu\Obat\Tambah.Designer.cs">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Transaksi\Pembelian\Beli.cs">
       <SubType>Form</SubType>
@@ -158,17 +158,18 @@
     <Compile Include="Menu\Transaksi\Pembelian\Beli.Designer.cs">
       <DependentUpon>Beli.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Transaksi\Penjualan\dataDokter.cs">
+    <Compile Include="Menu\Transaksi\Penjualan\Controller.cs" />
+    <Compile Include="Menu\Transaksi\Penjualan\DataDokter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Transaksi\Penjualan\dataDokter.Designer.cs">
-      <DependentUpon>dataDokter.cs</DependentUpon>
+    <Compile Include="Menu\Transaksi\Penjualan\DataDokter.Designer.cs">
+      <DependentUpon>DataDokter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Transaksi\Penjualan\dataObat.cs">
+    <Compile Include="Menu\Transaksi\Penjualan\DataObat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Transaksi\Penjualan\dataObat.Designer.cs">
-      <DependentUpon>dataObat.cs</DependentUpon>
+    <Compile Include="Menu\Transaksi\Penjualan\DataObat.Designer.cs">
+      <DependentUpon>DataObat.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Transaksi\Penjualan\Jual.cs">
       <SubType>Form</SubType>
@@ -176,26 +177,31 @@
     <Compile Include="Menu\Transaksi\Penjualan\Jual.Designer.cs">
       <DependentUpon>Jual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\User\edit.cs">
+    <Compile Include="Menu\User\Controller.cs" />
+    <Compile Include="Menu\User\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\User\edit.Designer.cs">
-      <DependentUpon>edit.cs</DependentUpon>
+    <Compile Include="Menu\User\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\User\masterUser.cs">
+    <Compile Include="Menu\User\MasterUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\User\masterUser.Designer.cs">
-      <DependentUpon>masterUser.cs</DependentUpon>
+    <Compile Include="Menu\User\MasterUser.Designer.cs">
+      <DependentUpon>MasterUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\User\tambah.cs">
+    <Compile Include="Menu\User\Tambah.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\User\tambah.Designer.cs">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <Compile Include="Menu\User\Tambah.Designer.cs">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Attributes\Field.cs" />
+    <Compile Include="Model\Attributes\Reference.cs" />
+    <Compile Include="Model\Attributes\Table.cs" />
+    <Compile Include="Model\Builder.cs" />
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\DetailJual.cs" />
     <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\Dokter.cs" />
     <Compile Include="Model\Obat.cs" />
@@ -203,71 +209,68 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
-      <DependentUpon>login.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Distributor\edit.resx">
-      <DependentUpon>edit.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Distributor\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Distributor\hapus.resx">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Distributor\Hapus.resx">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Distributor\masterDistributor.resx">
-      <DependentUpon>masterDistributor.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Distributor\MasterDistributor.resx">
+      <DependentUpon>MasterDistributor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Distributor\tambah.resx">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Distributor\Tambah.resx">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Dokter\edit.resx">
-      <DependentUpon>edit.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Dokter\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Dokter\hapus.resx">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Dokter\Hapus.resx">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Dokter\masterDokter.resx">
-      <DependentUpon>masterDokter.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Dokter\MasterDokter.resx">
+      <DependentUpon>MasterDokter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Dokter\tambah.resx">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Dokter\Tambah.resx">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Obat\edit.resx">
-      <DependentUpon>edit.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Obat\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Obat\hapus.resx">
-      <DependentUpon>hapus.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Obat\Hapus.resx">
+      <DependentUpon>Hapus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Obat\MasterObat.resx">
       <DependentUpon>MasterObat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Obat\tambah.resx">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Obat\Tambah.resx">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Transaksi\Pembelian\Beli.resx">
       <DependentUpon>Beli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataDokter.resx">
-      <DependentUpon>dataDokter.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Transaksi\Penjualan\DataDokter.resx">
+      <DependentUpon>DataDokter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Transaksi\Penjualan\dataObat.resx">
-      <DependentUpon>dataObat.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\Transaksi\Penjualan\DataObat.resx">
+      <DependentUpon>DataObat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Transaksi\Penjualan\Jual.resx">
       <DependentUpon>Jual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\User\edit.resx">
-      <DependentUpon>edit.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\User\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\User\masterUser.resx">
-      <DependentUpon>masterUser.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\User\MasterUser.resx">
+      <DependentUpon>MasterUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\User\tambah.resx">
-      <DependentUpon>tambah.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\User\Tambah.resx">
+      <DependentUpon>Tambah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -275,6 +278,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Apotik.Menu.Transaksi.Penjualan.DetailDataSource.datasource" />
+    <None Include="Properties\DataSources\Apotik.Model.DetailJual.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Distributor.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Dokter.datasource" />
     <None Include="Properties\DataSources\Apotik.Model.Obat.datasource" />
@@ -299,88 +304,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pic\obat.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Doctor-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\medical-pills-pot-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\basket-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Cash-register-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\distributor-report-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Close-2-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Office-Customer-Male-Light-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Actions-window-close-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\ok-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\cari.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\hapus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\hapus1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\UpgradeReport_Error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\UpgradeReport_Success.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\tambah.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\Antrepo-Cargo-Boxes-Self-1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\self-1-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pic\Log-Out-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\Custom-Icon-Design-Pretty-Office-7-Save.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\Double-J-Design-Origami-Colored-Pencil-Green-plus.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\Actions-document-save-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\add-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\Button-Close-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ico\user-icon.png" />
-    <None Include="ico\User-Interface-Password-icon.png" />
-    <None Include="ico\Pharmacy-icon.png" />
+    <None Include="Assets\Images\master.png" />
+    <None Include="Assets\Images\transaksi.png" />
+    <None Include="Assets\Images\exit.png" />
+    <Content Include="appIcon.ico" />
     <Content Include="MetroFramework.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

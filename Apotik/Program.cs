@@ -15,11 +15,15 @@ namespace Apotik
         [STAThread]
         static void Main()
         {
-            var controller = new Controller();
+            if (Environment.OSVersion.Version.Major >= 6)
+                SetProcessDPIAware();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home(controller));
+            Application.Run(new Home());
         }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }

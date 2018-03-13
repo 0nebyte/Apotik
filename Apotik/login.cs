@@ -11,14 +11,10 @@ using System.Windows.Forms;
 namespace Apotik
 {
     // public partial class login : Form
-    public partial class login : MetroFramework.Forms.MetroForm
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
-        private Controller controller;
-
-        public login(Controller controller)
+        public Login()
         {
-            this.controller = controller;
-
             InitializeComponent();
         }
 
@@ -26,7 +22,7 @@ namespace Apotik
         {
             if (txt_username.Text == "admin" && txt_password.Text == "admin")
             {
-                var form = new Home(controller);
+                var form = new Home();
                 form.Show();
                 this.Hide();
             }
@@ -68,7 +64,7 @@ namespace Apotik
         {
             if (txt_username.Text == "admin" && txt_password.Text == "admin")
             {
-                var form = new Home(controller);
+                var form = new Home();
                 form.Show();
                 this.Hide();
             }

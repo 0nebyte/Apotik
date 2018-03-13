@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Dokter
 {
-    partial class masterDokter
+    partial class MasterDokter
     {
         /// <summary>
         /// Required designer variable.

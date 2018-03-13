@@ -10,36 +10,36 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Distributor
 {
-    public partial class masterDistributor : MetroFramework.Forms.MetroForm
+    public partial class MasterDistributor : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
 
-        public masterDistributor(Controller controller)
+        public MasterDistributor(Controller controller)
         {
             this.controller = controller;
 
             InitializeComponent();
 
-            dataGridViewDistribtr.DataBindings.Add("DataSource", controller, "Distributors");
+            dataGridViewDistribtr.DataBindings.Add("DataSource", controller, "DaftarDistributor");
 
-            controller.Distributors = Model.Database.Instance.Query<Model.Distributor>();
+            controller.RefreshData();
         }
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            var tambah = new tambah(controller);
+            var tambah = new Tambah(controller);
             tambah.ShowDialog();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            var edit = new edit(controller);
+            var edit = new Edit(controller);
             edit.ShowDialog();
         }
 
         private void btn_hapus_Click(object sender, EventArgs e)
         {
-            var hapus = new hapus();
+            var hapus = new Hapus();
             hapus.ShowDialog();
         }
     }

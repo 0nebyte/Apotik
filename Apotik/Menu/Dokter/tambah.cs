@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Dokter
 {
-    public partial class tambah : MetroFramework.Forms.MetroForm
+    public partial class Tambah : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
         private Model.Dokter model;
 
-        public tambah(Controller controller, Model.Dokter dokter = null)
+        public Tambah(Controller controller, Model.Dokter dokter = null)
         {
             this.controller = controller;
 
@@ -35,12 +35,11 @@ namespace Apotik.Menu.Dokter
 
         private void btn_simpan_Click(object sender, EventArgs e)
         {
-            var db = Model.Database.Instance;
-            db.Save(model);
-
-            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
-
-            Close();
+            if (controller.AddDokter(model))
+            {
+                controller.RefreshData();
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

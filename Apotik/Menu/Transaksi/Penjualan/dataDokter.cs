@@ -10,23 +10,27 @@ using System.Windows.Forms;
 
 namespace Apotik.Menu.Transaksi.Penjualan
 {
-    public partial class dataDokter : MetroFramework.Forms.MetroForm
+    public partial class DataDokter : MetroFramework.Forms.MetroForm
     {
         private Controller controller;
-        public dataDokter(Controller controller)
+        private IEnumerable<Model.Dokter> daftarDokter;
+
+        public DataDokter(Controller controller)
         {
             this.controller = controller;
+
             InitializeComponent();
 
-            dgv_dokter.DataBindings.Add("DataSource", controller, "Dokters");
-            controller.Dokters = Model.Database.Instance.Query<Model.Dokter>();
+            // Init data
+            daftarDokter = Model.Database.Instance.Query<Model.Dokter>().Execute();
+            dgv_dokter.DataSource = daftarDokter;
         }
 
         private void dataDokter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -37,15 +41,10 @@ namespace Apotik.Menu.Transaksi.Penjualan
                 DataGridViewRow row = this.dgv_dokter.Rows[e.RowIndex];
                 var id = row.Cells[0].Value.ToString();
                 var db = Model.Database.Instance;
-                var dokter = db.Query2<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
-                controller.DokterResep = dokter;
+                var dokter = db.Query<Model.Dokter>().Where(db.Column("Id") == id).Execute().First();
+                controller.Penjualan.Dokter = dokter;
             }
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

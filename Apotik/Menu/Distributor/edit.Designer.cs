@@ -1,6 +1,6 @@
 ﻿namespace Apotik.Menu.Distributor
 {
-    partial class edit
+    partial class Edit
     {
         /// <summary>
         /// Required designer variable.
